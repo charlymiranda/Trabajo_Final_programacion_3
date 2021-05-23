@@ -1,6 +1,6 @@
 package com.hotelenterprise.users;
 
-public abstract class User {
+public abstract class Person {
     private String name;
     private String lastname;
     private String docType;
@@ -9,10 +9,10 @@ public abstract class User {
     private String address;
     private String eMail;
 
-    public User() {
+    public Person() {
     }
 
-    public User(String name, String lastname, String docType, String docNumber, String telephone, String address, String eMail) {
+    public Person(String name, String lastname, String docType, String docNumber, String telephone, String address, String eMail) {
         this.name = name;
         this.lastname = lastname;
         this.docType = docType;
