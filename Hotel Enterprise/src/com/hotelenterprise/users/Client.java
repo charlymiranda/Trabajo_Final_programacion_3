@@ -1,14 +1,19 @@
 package com.hotelenterprise.users;
 
-public class Client extends User{
+import java.util.ArrayList;
+import java.util.List;
+
+public class Client extends Person {
     private int idReservation;
     private int roomNumber;
+    private List<Guest> guestList = new ArrayList<>();
 
-    public Client(String name, String lastname, String docType, String docNumber,
-                  String telephone, String address, String eMail, int idReservation, int roomNumber) {
+    public Client(String name, String lastname, String docType, String docNumber, String telephone, String address, String eMail,
+                  int idReservation, int roomNumber, List<Guest> guestList) {
         super(name, lastname, docType, docNumber, telephone, address, eMail);
         this.idReservation = idReservation;
         this.roomNumber = roomNumber;
+        this.guestList = guestList;
     }
 
     public int getIdReservation() {
