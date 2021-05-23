@@ -1,6 +1,6 @@
 package com.hotelenterprise.users;
 
-public abstract class Employee extends User {
+public abstract class Employee extends Person {
     private int idEmployee;
     private String permissions;
     private String userName;
