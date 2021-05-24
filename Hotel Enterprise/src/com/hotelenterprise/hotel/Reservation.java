@@ -14,7 +14,7 @@ public class Reservation {
     private LocalDate checkOut;
     private int numberOfPassengers;
     private int numberOfRooms;
-    private List<Room>  typesOfRooms = new ArrayList<>();
+    private List<Room> typesOfRooms = new ArrayList<>();
     private double totalCost;
 
     public Reservation(int reservationNumber, Client client, LocalDate reservationDate, LocalDate checkIn, LocalDate checkOut, int numberOfPassengers,

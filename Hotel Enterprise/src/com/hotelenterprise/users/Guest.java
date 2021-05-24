@@ -1,9 +1,10 @@
 package com.hotelenterprise.users;
 
-public class Guest {
+public class Guest extends Person{
     private int roomNumber;
 
-    public Guest(int roomNumber) {
+    public Guest(String name, String lastname, String docType, String docNumber, String telephone, String address, String eMail, int roomNumber) {
+        super(name, lastname, docType, docNumber, telephone, address, eMail);
         this.roomNumber = roomNumber;
     }
 
