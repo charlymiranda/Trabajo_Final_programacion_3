@@ -7,6 +7,7 @@ public final class RoomType {
     public static final String TRIPLE = "Room for three";
     public static final String QUADRUPLE = "Room for four";
     public static final String QUINTUPLE = "Room for five";
+
     public RoomType(){
 
     }

@@ -38,6 +38,8 @@ public class Recepcionist extends Employee{
         this.salesRecord = salesRecord;
     }
 
+
+
     @Override
     public String toString() {
         return "Recepcionist{" +
