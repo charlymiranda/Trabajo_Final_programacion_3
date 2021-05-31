@@ -1,9 +1,15 @@
 package com.hotelenterprise.file;
 
+import com.google.gson.Gson;
 import com.hotelenterprise.hotel.Room;
+import com.hotelenterprise.users.Client;
 import org.w3c.dom.ls.LSInput;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FileManagement {
@@ -43,6 +49,30 @@ public class FileManagement {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void writeGson(File file){
+
+        Room room = new Room();
+        List<Client> clients = new ArrayList<>();
+
+        
+
+    }
+
+
+    public static void readGson(File file){
+        Gson gson = new Gson();
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get("\\DataFiles\\Rooms.json"));
+            Room room = gson.fromJson(reader, Room.class);
+            System.out.println(room);
+            reader.close();
+        }catch (IOException e) {
+            e.printStackTrace(System.out);
+        }
+
+
     }
 
 }
