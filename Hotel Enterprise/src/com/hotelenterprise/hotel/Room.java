@@ -2,8 +2,8 @@ package com.hotelenterprise.hotel;
 
 
 import com.hotelenterprise.functionality.TypeOfRoom;
-import com.hotelenterprise.users.Client;
-import com.hotelenterprise.users.Guest;
+import com.hotelenterprise.person.client.Client;
+import com.hotelenterprise.person.client.Guest;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -16,28 +16,35 @@ public class Room implements Serializable {
     private static final long serialVersionUID = 1L;
     private int roomNumber;
     private Client client;
+    private String typeOfRoom;
     private List<Guest> guestList = new ArrayList<>();
     private String description;
     private boolean occupied;
-    private int maximumNumberOfPassengers;
+
 
     public Room() {
     }
 
-    public Room(int roomNumber, String description, boolean occupied, int maximumNumberOfPassengers) {
+    public Room(int roomNumber, String description, boolean occupied) {
         this.roomNumber = roomNumber;
         this.description = description;
         this.occupied = occupied;
-        this.maximumNumberOfPassengers = maximumNumberOfPassengers;
     }
 
-    public Room(int roomNumber, Client client, List<Guest> guestList, String description, boolean occupied, int maximumNumberOfPassengers) {
+    public Room(int roomNumber, Client client, List<Guest> guestList, String description, boolean occupied) {
         this.roomNumber = roomNumber;
         this.client = client;
         this.guestList = guestList;
         this.description = description;
         this.occupied = occupied;
-        this.maximumNumberOfPassengers = maximumNumberOfPassengers;
+
+    }
+    public String getTypeOfRoom() {
+        return typeOfRoom;
+    }
+
+    public void setTypeOfRoom(String typeOfRoom) {
+        this.typeOfRoom = typeOfRoom;
     }
 
     public int getRoomNumber() {
@@ -80,13 +87,6 @@ public class Room implements Serializable {
         this.occupied = occupied;
     }
 
-    public int getMaximumNumberOfPassengers() {
-        return maximumNumberOfPassengers;
-    }
-
-    public void setMaximumNumberOfPassengers(int maximumNumberOfPassengers) {
-        this.maximumNumberOfPassengers = maximumNumberOfPassengers;
-    }
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }

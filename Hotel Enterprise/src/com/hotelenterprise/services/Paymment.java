@@ -1,6 +1,6 @@
 package com.hotelenterprise.services;
 
-import com.hotelenterprise.users.Client;
+import com.hotelenterprise.person.client.Client;
 
 import java.time.LocalDateTime;
 

@@ -1,21 +1,25 @@
 package com.hotelenterprise.hotel;
 
-import com.hotelenterprise.users.Client;
+import com.hotelenterprise.person.client.Client;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Reservation {
+    private LocalDate reservationDate = LocalDate.now();
     private int reservationNumber;
     private Client client;
-    private LocalDate reservationDate;
     private LocalDate checkIn;
     private LocalDate checkOut;
     private int numberOfPassengers;
     private int numberOfRooms;
     private List<Room> typesOfRooms = new ArrayList<>();
     private double totalCost;
+
+    public Reservation(){
+
+    }
 
     public Reservation(int reservationNumber, Client client, LocalDate reservationDate, LocalDate checkIn, LocalDate checkOut, int numberOfPassengers,
                        int numberOfRooms, List<Room> typesOfRooms, double totalCost) {

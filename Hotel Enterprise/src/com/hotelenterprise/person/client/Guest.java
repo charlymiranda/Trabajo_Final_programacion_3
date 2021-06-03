@@ -1,9 +1,14 @@
-package com.hotelenterprise.users;
+package com.hotelenterprise.person.client;
 
-public class Guest extends Person{
+import com.hotelenterprise.person.Person;
+
+public class Guest extends Person {
     private int roomNumber;
 
-    public Guest(String name, String lastname, String docType, String docNumber, String telephone, String address, String eMail, int roomNumber) {
+    public Guest() {
+    }
+
+    public Guest(String name, String lastname, String docType, String docNumber, String telephone, Address address, String eMail, int roomNumber) {
         super(name, lastname, docType, docNumber, telephone, address, eMail);
         this.roomNumber = roomNumber;
     }
@@ -15,6 +20,8 @@ public class Guest extends Person{
     public void setRoomNumber(int roomNumber) {
         this.roomNumber = roomNumber;
     }
+
+
 
     @Override
     public String toString() {

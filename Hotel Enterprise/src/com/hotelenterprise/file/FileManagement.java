@@ -2,12 +2,10 @@ package com.hotelenterprise.file;
 
 import com.google.gson.Gson;
 import com.hotelenterprise.hotel.Room;
-import com.hotelenterprise.users.Client;
-import org.w3c.dom.ls.LSInput;
+import com.hotelenterprise.person.client.Client;
 
 import java.io.*;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;

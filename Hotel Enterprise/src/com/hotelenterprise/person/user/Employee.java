@@ -1,4 +1,7 @@
-package com.hotelenterprise.users;
+package com.hotelenterprise.person.user;
+
+import com.hotelenterprise.person.Person;
+import com.hotelenterprise.person.client.Address;
 
 public abstract class Employee extends Person {
     private int idEmployee;
@@ -11,7 +14,7 @@ public abstract class Employee extends Person {
     public Employee() {
     }
 
-    public Employee(String name, String lastname, String docType, String docNumber, String telephone, String address, String eMail, int idEmployee, String permissions, String userName, String password, boolean status) {
+    public Employee(String name, String lastname, String docType, String docNumber, String telephone, Address address, String eMail, int idEmployee, String permissions, String userName, String password, boolean status) {
         super(name, lastname, docType, docNumber, telephone, address, eMail);
         this.idEmployee = idEmployee;
         this.permissions = permissions;

@@ -1,4 +1,8 @@
-package com.hotelenterprise.users;
+package com.hotelenterprise.person.client;
+
+import com.hotelenterprise.functionality.DocumentType;
+import com.hotelenterprise.person.Person;
+import com.hotelenterprise.utilities.Console;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +12,12 @@ public class Client extends Person {
     private int roomNumber;
     private List<Guest> guestList = new ArrayList<>();
 
-    public Client(String name, String lastname, String docType, String docNumber, String telephone, String address, String eMail,
-                  int idReservation, int roomNumber, List<Guest> guestList) {
+
+    public Client() {
+    }
+
+    public Client(String name, String lastname, String docType, String docNumber, String telephone, Address address,
+                  String eMail, int idReservation, int roomNumber, List<Guest> guestList) {
         super(name, lastname, docType, docNumber, telephone, address, eMail);
         this.idReservation = idReservation;
         this.roomNumber = roomNumber;
@@ -30,6 +38,14 @@ public class Client extends Person {
 
     public void setRoomNumber(int roomNumber) {
         this.roomNumber = roomNumber;
+    }
+
+    public List<Guest> getGuestList() {
+        return guestList;
+    }
+
+    public void setGuestList(List<Guest> guestList) {
+        this.guestList = guestList;
     }
 
     @Override
