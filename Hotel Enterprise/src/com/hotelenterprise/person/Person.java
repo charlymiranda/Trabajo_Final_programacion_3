@@ -1,4 +1,7 @@
-package com.hotelenterprise.users;
+package com.hotelenterprise.person;
+
+import com.hotelenterprise.person.client.Address;
+import com.sun.jdi.request.ClassUnloadRequest;
 
 public abstract class Person {
     private String name;
@@ -6,13 +9,13 @@ public abstract class Person {
     private String docType;
     private String docNumber;
     private String telephone;
-    private String address;
+    private Address address;
     private String eMail;
 
     public Person() {
     }
 
-    public Person(String name, String lastname, String docType, String docNumber, String telephone, String address, String eMail) {
+    public Person(String name, String lastname, String docType, String docNumber, String telephone, Address address, String eMail) {
         this.name = name;
         this.lastname = lastname;
         this.docType = docType;
@@ -62,11 +65,11 @@ public abstract class Person {
         this.telephone = telephone;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
