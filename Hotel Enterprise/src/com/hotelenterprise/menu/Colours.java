@@ -19,7 +19,7 @@ public class Colours
 
     public void coloron()
     {
-        System.out.println("////////// FORMA 1: CON VARIABLES DECLARADAS //////////\n");
+    //    System.out.println("////////// FORMA 1: CON VARIABLES DECLARADAS //////////\n");
 /*
         colorearMensaje(black,"Este texto está en color NEGRO");
         colorearMensaje(red,"Este texto está en color ROJO");
@@ -30,8 +30,8 @@ public class Colours
         colorearMensaje(cyan,"Este texto está en color CYAN");
         colorearMensaje(white,"Este texto está en color BLANCO");
 */
-        System.out.println("\n////////// FORMA 2: AGREGANDO EL STRING AL MENSAJE ////\n");
-
+    //    System.out.println("\n////////// FORMA 2: AGREGANDO EL STRING AL MENSAJE ////\n");
+/*
         System.out.println("\033[30mEste texto es NEGRO");
         System.out.println("\033[31mEste texto es ROJO");
         System.out.println("\033[32mEste texto es VERDE");
@@ -40,7 +40,7 @@ public class Colours
         System.out.println("\033[35mEste texto es ROSA");
         System.out.println("\033[36mEste texto es CELESTE");
         System.out.println("\033[37mEste texto es BLANCO");
-
+*/
        // System.exit(0);
     }
 
