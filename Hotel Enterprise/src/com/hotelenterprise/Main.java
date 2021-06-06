@@ -31,25 +31,23 @@ public class Main {
 
         //logueador.logeator();
 
-<<<<<<< Updated upstream
       //  Log login2 = new Log();
-=======
+
         Facture facture = new Facture();
 
     //    facture.facture();
 
->>>>>>> Stashed changes
+
 
         //login2.login();
 
-<<<<<<< Updated upstream
+
         Recepcionist charly = new Recepcionist();
         Hotel hotel = new Hotel();
         charly.newBook(hotel);
-=======
+
         }
 
->>>>>>> Stashed changes
 
     }
 
