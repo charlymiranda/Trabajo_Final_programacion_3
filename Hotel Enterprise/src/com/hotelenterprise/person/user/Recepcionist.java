@@ -12,10 +12,9 @@ import com.hotelenterprise.person.client.Client;
 import com.hotelenterprise.person.client.Guest;
 import com.hotelenterprise.utilities.Console;
 
-import java.sql.SQLOutput;
-import java.time.*;
-
-import java.util.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -53,21 +52,24 @@ public class Recepcionist extends Employee {
     }
 
 
-    public void newBook(){
-
+    public void newBook(Hotel hotel) {
+        LocalDate localDate = null;
         Reservation reservation = new Reservation();
-        Hotel hotel = new Hotel();
         Client client = new Client();
         reservation.setReservationNumber(hotel.lastReservationNumber());
-        System.out.println("Ingrese la fecha de check in (Formato aaaa-mm-dd)");
-        String date = Console.read();
-        reservation.setCheckIn(LocalDate.parse(date));
-        System.out.println("Ingrese la fecha de check out (Formato aaaa-mm-dd)");
-        date=Console.read();
-        reservation.setCheckOut(LocalDate.parse(date));
+       // System.out.println("Ingrese la fecha de check in (Formato aaaa-mm-dd)");
+        //String date = Console.read();
+
+       // reservation.setCheckIn(LocalDate.parse(date));
+        //System.out.println("Ingrese la fecha de check out (Formato aaaa-mm-dd)");
+        //date = Console.read();
+        //reservation.setCheckOut(LocalDate.parse(date));
         client = uploadClientInformation();
+
+        client.setGuestList(uploadGuestInformation());
         loadingRooms(client, reservation);
 
+        hotel.setReservationList(reservation);
 
     }
 
@@ -91,9 +93,7 @@ public class Recepcionist extends Employee {
         client.seteMail(Console.read());
         System.out.println("Ingrese la direccion");
         client.setAddress(setAddressInformation());
-        System.out.println("Ingrese la cantidad de pasajeros");
-        int numOfGuest = Console.readInteger();
-        client.setGuestList(uploadGuestInformation(numOfGuest));
+
 
         return client;
     }
@@ -112,12 +112,15 @@ public class Recepcionist extends Employee {
 
         return  address;
     }
-    public List<Guest> uploadGuestInformation(int guests){
+    public List<Guest> uploadGuestInformation() {
         //DocumentType doc = new DocumentType();
-        Guest guest = new Guest();
+        System.out.println("Ingrese la cantidad total de pasajeros");
+        int guests = Console.readInteger();
+        System.out.println("Primero cargue los datos del cliente principal");
         List<Guest> guestList = new ArrayList<>();
-        for(int i=0; i<guests; i++){
-            System.out.println("cargando datos del invitados");
+        for (int i = 0; i < guests; i++) {
+            Guest guest = new Guest();
+            System.out.println("cargando datos del invitados " + (i + 1));
             System.out.println("Ingrese el nombre");
             guest.setName(Console.read());
             System.out.println("Ingrese el apellido");
@@ -131,67 +134,72 @@ public class Recepcionist extends Employee {
 
         return guestList;
     }
-    public void loadingRooms(Client client, Reservation reservation){/// ver si le mandamos la lista de clientes par asignar
+    public void loadingRooms(Client client, Reservation reservation) {/// ver si le mandamos la lista de clientes par asignar
         List<Room> roomList = new ArrayList<>();
-        List<Guest> guestToRemove = client.getGuestList();
-        Room room = new Room();
-        int choice =0;
+        List<Guest> guestToRemove = client.getGuestList();;
+        Guest cGuest = new Guest();
+        int choice = 0;
         System.out.println("Ingrese el total de habitaciones para cargar");
         int rooms = Console.readInteger();
+        if (client != null) {
 
-            for (int i = 0; i < rooms; i++) {
-                System.out.println("Habitaciones cargadas: " + i + " de " + rooms);
-                System.out.println("Elija el tipo de habitacion");
-                System.out.println("1: SINGLE \n 2: DOBLE: \n 3: TRIPLE: \n 4: CUADRUPLE: \n 0 terminar la carga");
-                choice = Console.readInteger();
-
-                if (choice == 1) {
-                    room.setTypeOfRoom(String.valueOf(TypeOfRoom.SINGLE));
-                    room.setDescription(RoomType.SINGLE);
-                    showRoomNumbers();
-                    room.setRoomNumber(Console.readInteger());
-                    guestToRemove=loadingGuestToRooms(guestToRemove, 1, room);
-                    room.setCostPerNight(RoomPrice.SINGLE);
-
-                } else if (choice == 2) {
-                    room.setTypeOfRoom(String.valueOf(TypeOfRoom.DOUBLE));
-                    room.setDescription(RoomType.DOUBLE);
-                    showRoomNumbers();
-                    room.setRoomNumber(Console.readInteger());
-                    guestToRemove= loadingGuestToRooms(guestToRemove, 2, room);
-                    room.setCostPerNight(RoomPrice.DOUBLE);
-
-                } else if (choice == 3) {
-                    room.setTypeOfRoom(String.valueOf(TypeOfRoom.TRIPLE));
-                    room.setDescription(RoomType.TRIPLE);
-                    showRoomNumbers();
-                    room.setRoomNumber(Console.readInteger());
-                    guestToRemove=loadingGuestToRooms(guestToRemove, 3, room);
-                    room.setCostPerNight(RoomPrice.TRIPLE);
-                } else if (choice == 4) {
-                    room.setTypeOfRoom(String.valueOf(TypeOfRoom.QUADRUPLE));
-                    room.setDescription(RoomType.QUADRUPLE);
-                    showRoomNumbers();
-                    room.setRoomNumber(Console.readInteger());
-                    guestToRemove=loadingGuestToRooms(guestToRemove, 4, room);
-                    room.setCostPerNight(RoomPrice.QUADRUPLE);
-                } else if (choice == 0) {
-                    i--;
-                    break;
-
-
-                } else {
-                    System.out.println("Valor ingresado invalido");
-                    i--;
+                for (int i = 1; i < rooms; i++) {
+                    Room room = new Room();
+                    System.out.println("Habitaciones cargadas: " + i + " de " + rooms);
+                    System.out.println("Elija el tipo de habitacion");
+                    System.out.println("1: SINGLE \n 2: DOBLE: \n 3: TRIPLE: \n 4: CUADRUPLE: \n 0 terminar la carga");
+                    choice = Console.readInteger();
+                    loadingSingleRoom(choice, guestToRemove,room);
+                    roomList.add(room);
+                    guestToRemove.remove(choice);
                 }
-                roomList.add(room);
-                room=null;
             }
+
 
         reservation.setTypesOfRooms(roomList);
     }
-    public String chooseTypeOfDocument(){
-        int choice=0;
+    public void loadingSingleRoom(int choice, List<Guest> guestToRemove, Room room) {
+
+        if (choice == 1) {
+            room.setTypeOfRoom(String.valueOf(TypeOfRoom.SINGLE));
+            room.setDescription(RoomType.SINGLE);
+            showRoomNumbers();
+            room.setRoomNumber(Console.readInteger());
+            guestToRemove = loadingGuestToRooms(guestToRemove, 1, room);
+            room.setCostPerNight(RoomPrice.SINGLE);
+
+        } else if (choice == 2) {
+            room.setTypeOfRoom(String.valueOf(TypeOfRoom.DOUBLE));
+            room.setDescription(RoomType.DOUBLE);
+            showRoomNumbers();
+            room.setRoomNumber(Console.readInteger());
+            guestToRemove = loadingGuestToRooms(guestToRemove, 2, room);
+            room.setCostPerNight(RoomPrice.DOUBLE);
+
+        } else if (choice == 3) {
+            room.setTypeOfRoom(String.valueOf(TypeOfRoom.TRIPLE));
+            room.setDescription(RoomType.TRIPLE);
+            showRoomNumbers();
+            room.setRoomNumber(Console.readInteger());
+            guestToRemove = loadingGuestToRooms(guestToRemove, 3, room);
+            room.setCostPerNight(RoomPrice.TRIPLE);
+        } else if (choice == 4) {
+            room.setTypeOfRoom(String.valueOf(TypeOfRoom.QUADRUPLE));
+            room.setDescription(RoomType.QUADRUPLE);
+            showRoomNumbers();
+            room.setRoomNumber(Console.readInteger());
+            guestToRemove = loadingGuestToRooms(guestToRemove, 4, room);
+            room.setCostPerNight(RoomPrice.QUADRUPLE);
+        } else {
+            System.out.println("Valor ingresado invalido");
+
+        }
+
+
+    }
+
+    public String chooseTypeOfDocument() {
+        int choice = 0;
 
         do {
             System.out.println("Elija una opcion...");
@@ -224,8 +232,7 @@ public class Recepcionist extends Employee {
                 showGuest(guestList);
                 System.out.println("Elija a uno de los pasajeros pasa asignar a la habitacion");
                 choice = Console.readInteger();
-                guestList.remove(choice - 1);
-
+                room.setGuestList(guestList.get(choice));
             }
         return guestList;
     }

@@ -74,6 +74,9 @@ public class Room implements Serializable {
         this.guestList = guestList;
     }
 
+    public void setGuestList(Guest guest) {
+        this.guestList.add(guest);
+    }
     public String getDescription() {
         return description;
     }

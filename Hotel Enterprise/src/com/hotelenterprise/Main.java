@@ -5,10 +5,12 @@ import com.google.gson.Gson;
 
 import com.google.gson.GsonBuilder;
 import com.hotelenterprise.functionality.TypeOfRoom;
+import com.hotelenterprise.hotel.Hotel;
 import com.hotelenterprise.login.Log;
 import com.hotelenterprise.login.Logger;
 import com.hotelenterprise.login.Logos;
 import com.hotelenterprise.menu.Menu;
+import com.hotelenterprise.person.user.Recepcionist;
 
 
 public class Main {
@@ -20,17 +22,19 @@ public class Main {
         Gson file = new GsonBuilder().create();
 
 
-        Logger login = new Logger();
+        //Logger login = new Logger();
 
-        Logos logueador = new Logos();
+        //Logos logueador = new Logos();
 
-        logueador.logeator();
+        //logueador.logeator();
 
       //  Log login2 = new Log();
 
         //login2.login();
 
-
+        Recepcionist charly = new Recepcionist();
+        Hotel hotel = new Hotel();
+        charly.newBook(hotel);
 
     }
 }
