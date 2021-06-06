@@ -1,54 +1,89 @@
 package com.hotelenterprise.login;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
 
 public class Logger {
 
+    private static Scanner sc;
+
     public void logueador() {
 
-
+        int nLines=0;
+        int i=0;
+        String [] users = null;
+        String line;
 
           Scanner scan = null;
-        try {
-
-            int nLines=0;
-            int i=0;
-            String [] usuarios = null;
-            String linea;
+       try {
 
             File leer = new File("\\TP final labo 3\\Hotel Enterprise\\Claves.txt");
-            //File leer = new File("\\DataFiles\\Claves.txt");
 
             scan = new Scanner(leer);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
+        try {
+            sc = new Scanner(new File("\\TP final labo 3\\Hotel Enterprise\\Claves.txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        File f = new File("\\TP final labo 3\\Hotel Enterprise\\Claves.txt");
+        FileReader rd = null;
+        try {
+            rd = new FileReader(f);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        BufferedReader br = new BufferedReader(rd);
+
+        while (true){
+            try {
+                if (!((line=br.readLine()) !=null)) break;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            nLines++;
+        } users = new String[nLines];  // Tamaño del arreglo
+
+        while (sc.hasNextLine()){
+            users[i++] = sc.nextLine();  // Se almacena una linea en cada posicion del arreglo
+
+        }
+
         System.out.println("\s\n----------------------------------------------------------");
 
         System.out.println("                     Hotel Enterprise");
         System.out.println("\s\n----------------------------------------------------------");
 
         Scanner keyboard = new Scanner (System.in);
-            System.out.println("                    Ingrese su usuario");
+        System.out.println("                    Ingrese su usuario");
+
+        String user = sc.nextLine(                      );
+        String inpUser = keyboard.nextLine();
+
+        System.out.println("                   Ingrese su contraseña");
+
+        String pass = sc.nextLine();
+        String inpPass = keyboard.nextLine();
 
 
-            String user = scan.nextLine(                      );
-            String inpUser = keyboard.nextLine();
+
+        for (int o = 0; o < users.length; o++) {
+
+            if (users[o].equalsIgnoreCase(inpUser) && users[o + 1].equals(inpPass)){
 
 
-
-            System.out.println("                   Ingrese su contraseña");
-
-            String inpPass = keyboard.nextLine();
-            String pass = scan.nextLine();
-
-            if (inpUser.equals(user) && inpPass.equals(pass)) {
-                System.out.print("                 Bienvenido al sistema "+  user);
+           // if (inpUser.equals(user) && inpPass.equals(pass)) {
+                System.out.print("                 Bienvenido al sistema "+  inpUser);
+                break;
             } else {
-                System.out.print("    Usuario o clave incorrectos. Vuelva a intentarlo");
-            }System.out.println("\s\n\n----------------------------------------------------------");
-        }
+                System.out.print(" \n   Usuario o clave incorrectos. Vuelva a intentarlo");
+                System.out.println("\s\n\n----------------------------------------------------------");
+                break;
+            }
+
+        }}
 
 }
