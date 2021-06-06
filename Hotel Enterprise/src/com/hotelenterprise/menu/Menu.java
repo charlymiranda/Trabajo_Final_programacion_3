@@ -1,6 +1,8 @@
 package com.hotelenterprise.menu;
 
 
+import com.hotelenterprise.functionality.Facture;
+
 import java.awt.*;
 import java.util.Scanner;
 
@@ -81,7 +83,7 @@ public class Menu {
                 System.out.println("\nChoose one of the options:\n" +
 
                         "\n\33[33m1.-" + color.b + " Charge Consumes to the room" +
-                        "\n\33[33m2.-" + color.b + " Receive pay for a room" +
+                        "\n\33[33m2.-" + color.b + " Chekout" +
                         "\n\33[33m3.-" + color.b + " Make reservations" +
                         "\n\33[33m4.-" + color.b + " Cancel reservations" +
                         "\n\33[33m5.-" + color.b + " Search for room" +
@@ -99,7 +101,10 @@ public class Menu {
                         break;
                     case 2:
 
-                        System.out.println("Receive paymment for the room");
+                        System.out.println("Chekout");
+
+                        Facture f = new Facture();
+                        f.facture();
 
                         break;
                     case 3:
