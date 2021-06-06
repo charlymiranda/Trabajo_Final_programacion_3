@@ -27,20 +27,20 @@ public class Main {
 
         //Logger login = new Logger();
 
-        //Logos logueador = new Logos();
+        Logos logueador = new Logos();
 
-        //logueador.logeator();
+        logueador.logeator();
 
 
       //  Log login2 = new Log();
 
-        Facture facture = new Facture();
+      //  Facture facture = new Facture();
 
-    //    facture.facture();
+       //facture.facture();
 
 
 
-        //login2.login();
+      //  login2.login();
 
 
         Recepcionist charly = new Recepcionist();
@@ -50,9 +50,5 @@ public class Main {
         }
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
     }
 
