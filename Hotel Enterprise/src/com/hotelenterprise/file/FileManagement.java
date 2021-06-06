@@ -1,77 +1,59 @@
 package com.hotelenterprise.file;
 
-import com.google.gson.Gson;
-import com.hotelenterprise.hotel.Room;
+
+import com.google.gson.*;
 import com.hotelenterprise.person.client.Client;
 
-import java.io.*;
+import javax.naming.spi.ObjectFactoryBuilder;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileManagement {
-/// esta clase va a serr inteface.
-    public static void appendFile(String fileName, List<Room> r) {
-
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
-            oos.writeObject(r);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-    public static void appendFile(String fileName, Room r){
-        try (MyObjectOutputStream moos = new MyObjectOutputStream(new FileOutputStream(fileName))) {
-            moos.writeObject(r);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void readFile(String fileName) {
-        //Room room = new Room();
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
-            List<Room> roomList = (List<Room>) ois.readObject();
-            for(Room room: roomList){
-                System.out.println("habitacion " + room.getRoomNumber());
-                System.out.println("Descripcion: " + room.getDescription());
-                System.out.println("Ocupada: " + room.isOccupied());
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace(System.out);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void writeGson(File file){
-
-        Room room = new Room();
-        List<Client> clients = new ArrayList<>();
-
-        
-
-    }
+public abstract class FileManagement {
+/// esta clase va a serr inteface
 
 
-    public static void readGson(File file){
-        Gson gson = new Gson();
+    public static void writeJsonFile(List<Object> o, String file){
+
+        Path path = Paths.get(file);
+
         try {
-            Reader reader = Files.newBufferedReader(Paths.get("\\DataFiles\\Rooms.json"));
-            Room room = gson.fromJson(reader, Room.class);
-            System.out.println(room);
-            reader.close();
-        }catch (IOException e) {
-            e.printStackTrace(System.out);
+            Writer writer = Files.newBufferedWriter(path, StandardCharsets.UTF_8);
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            JsonElement tree = gson.toJsonTree(o);
+            gson.toJson(tree, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static List<Object> readJsonFile(String file){
+        Path path = Paths.get(file);
+        List<Object> objects = new ArrayList<>();
+        try {
+            Reader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8);
+            JsonParser parser = new JsonParser();
+            JsonElement tree = parser.parse(reader);
+            JsonArray array = tree.getAsJsonArray();
+
+            for (JsonElement element: array){
+                objects.add(element);
+
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-
+        return objects;
     }
+
 
 }
 

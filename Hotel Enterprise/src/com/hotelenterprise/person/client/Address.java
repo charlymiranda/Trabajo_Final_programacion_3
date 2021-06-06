@@ -2,9 +2,10 @@ package com.hotelenterprise.person.client;
 
 import com.hotelenterprise.utilities.Console;
 
+import java.io.Serializable;
 import java.nio.file.AccessDeniedException;
 
-public class Address {
+public class Address implements Serializable {
     private String city;
     private String street;
     private String streetNumber;

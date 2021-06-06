@@ -3,7 +3,9 @@ package com.hotelenterprise.person;
 import com.hotelenterprise.person.client.Address;
 import com.sun.jdi.request.ClassUnloadRequest;
 
-public abstract class Person {
+import java.io.Serializable;
+
+public abstract class Person implements Serializable {
     private String name;
     private String lastname;
     private String docType;
