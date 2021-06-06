@@ -20,11 +20,13 @@ public class Main {
         Gson file = new GsonBuilder().create();
 
 
+     //   Logger login = new Logger();
 
         Logos logueador = new Logos();
 
-        logueador.logeator();
+       // Log login2 = new Log();
 
+       // login2.login();
 
 
 

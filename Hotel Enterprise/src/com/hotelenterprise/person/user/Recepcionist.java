@@ -131,7 +131,6 @@ public class Recepcionist extends Employee {
 
         return guestList;
     }
-
     public void loadingRooms(Client client, Reservation reservation){/// ver si le mandamos la lista de clientes par asignar
         List<Room> roomList = new ArrayList<>();
         List<Guest> guestToRemove = client.getGuestList();
@@ -140,11 +139,6 @@ public class Recepcionist extends Employee {
         System.out.println("Ingrese el total de habitaciones para cargar");
         int rooms = Console.readInteger();
 
-        if(rooms == 1){
-
-
-
-        }else {
             for (int i = 0; i < rooms; i++) {
                 System.out.println("Habitaciones cargadas: " + i + " de " + rooms);
                 System.out.println("Elija el tipo de habitacion");
@@ -193,8 +187,8 @@ public class Recepcionist extends Employee {
                 roomList.add(room);
                 room=null;
             }
-            reservation.setTypesOfRooms(roomList);
-        }
+
+        reservation.setTypesOfRooms(roomList);
     }
 
     public String chooseTypeOfDocument(){
@@ -204,7 +198,6 @@ public class Recepcionist extends Employee {
             System.out.println("Elija una opcion...");
             System.out.println("1: DNI \n 2: PASAPORTE: \n 3: lIBRETA DE ENROLLAMIENTO");
             choice = Console.readInteger();
-
 
             if (choice == 1) {
                 return DocumentType.DNI;
