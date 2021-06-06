@@ -25,7 +25,7 @@ public class Logos {
         username = Console.read();
 
         System.out.print("Password: ");
-        password = Console.read();
+              password = Console.read();
 
         UsersLog login = new UsersLog(username, password);
 
