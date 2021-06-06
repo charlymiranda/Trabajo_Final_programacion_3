@@ -4,10 +4,11 @@ import com.hotelenterprise.functionality.DocumentType;
 import com.hotelenterprise.person.Person;
 import com.hotelenterprise.utilities.Console;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Client extends Person {
+public class Client extends Person implements Serializable {
     private int idReservation;
     private int roomNumber;
     private List<Guest> guestList = new ArrayList<>();

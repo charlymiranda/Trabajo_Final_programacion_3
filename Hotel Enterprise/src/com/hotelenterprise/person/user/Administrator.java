@@ -2,7 +2,9 @@ package com.hotelenterprise.person.user;
 
 import com.hotelenterprise.person.client.Address;
 
-public class Administrator extends Employee {
+import java.io.Serializable;
+
+public class Administrator extends Employee implements Serializable {
 
     public Administrator(String name, String lastname, String docType, String docNumber, String telephone, Address address, String eMail, int idEmployee,
                          String permissions, String userName, String password, boolean status) {

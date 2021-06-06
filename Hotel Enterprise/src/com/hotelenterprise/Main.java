@@ -50,6 +50,9 @@ public class Main {
         }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
     }
 

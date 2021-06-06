@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/Hotel Enterprise/src/com/hotelenterprise/login/Logos.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hotel Enterprise/src/com/hotelenterprise/login/Logos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hotel Enterprise/src/com/hotelenterprise/menu/Colours.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hotel Enterprise/src/com/hotelenterprise/menu/Colours.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hotel Enterprise/src/com/hotelenterprise/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hotel Enterprise/src/com/hotelenterprise/menu/Menu.java" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/out/production/TP final labo 3/com/hotelenterprise/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP final labo 3/com/hotelenterprise/file/FileManagement.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP final labo 3/com/hotelenterprise/file/MyObjectOutputStream.class" beforeDir="false" />
@@ -43,6 +44,14 @@
       <change beforePath="$PROJECT_DIR$/out/production/TP final labo 3/com/hotelenterprise/services/Paymment.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP final labo 3/com/hotelenterprise/services/Product.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP final labo 3/com/hotelenterprise/utilities/Console.class" beforeDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/out/production/TP final labo 3/com/hotelenterprise/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP final labo 3/com/hotelenterprise/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP final labo 3/com/hotelenterprise/functionality/Discount.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP final labo 3/com/hotelenterprise/functionality/Discount.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP final labo 3/com/hotelenterprise/functionality/PayType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP final labo 3/com/hotelenterprise/functionality/PayType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP final labo 3/com/hotelenterprise/functionality/RoomPrice.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP final labo 3/com/hotelenterprise/functionality/RoomPrice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP final labo 3/com/hotelenterprise/login/UsersLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP final labo 3/com/hotelenterprise/login/UsersLog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP final labo 3/com/hotelenterprise/menu/Colours.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP final labo 3/com/hotelenterprise/menu/Colours.class" afterDir="false" />
+>>>>>>> master
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,10 +87,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/gson-2.6.2.jar" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+>>>>>>> master
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">

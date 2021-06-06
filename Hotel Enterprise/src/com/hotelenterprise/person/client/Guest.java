@@ -2,7 +2,9 @@ package com.hotelenterprise.person.client;
 
 import com.hotelenterprise.person.Person;
 
-public class Guest extends Person {
+import java.io.Serializable;
+
+public class Guest extends Person implements Serializable {
     private int roomNumber;
 
     public Guest() {
