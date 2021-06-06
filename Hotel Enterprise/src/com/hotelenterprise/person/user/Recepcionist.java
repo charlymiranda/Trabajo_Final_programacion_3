@@ -190,7 +190,6 @@ public class Recepcionist extends Employee {
 
         reservation.setTypesOfRooms(roomList);
     }
-
     public String chooseTypeOfDocument(){
         int choice=0;
 
@@ -212,7 +211,6 @@ public class Recepcionist extends Employee {
 
         return null;
     }
-
     public void showRoomNumbers(){
 
         System.out.println("101 \t 102 \t 103 \t 104 \t 105 \t 106 \t 107");
@@ -220,7 +218,6 @@ public class Recepcionist extends Employee {
         System.out.println("301 \t 302 \t 303 \t 304 \t 305 \t 306 \t 307");
 
     }
-
     public List<Guest> loadingGuestToRooms(List<Guest> guestList, int numOfGuest, Room room){
             int choice=0;
             for(int i=0; i< numOfGuest; i++) {
@@ -232,7 +229,6 @@ public class Recepcionist extends Employee {
             }
         return guestList;
     }
-
     public void showGuest(List<Guest> guestList){
         int i=1;
         for(Guest g: guestList) {
@@ -240,7 +236,6 @@ public class Recepcionist extends Employee {
             i++;
         }
     }
-
     @Override
     public String toString() {
         return "Recepcionist{" +
