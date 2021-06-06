@@ -4,6 +4,7 @@ package com.hotelenterprise.hotel;
 import com.hotelenterprise.functionality.TypeOfRoom;
 import com.hotelenterprise.person.client.Client;
 import com.hotelenterprise.person.client.Guest;
+import com.hotelenterprise.services.Product;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -20,6 +21,8 @@ public class Room implements Serializable {
     private List<Guest> guestList = new ArrayList<>();
     private String description;
     private boolean occupied;
+    private double costPerNight;
+    private List<Product> consumptions;
 
 
     public Room() {
@@ -90,5 +93,25 @@ public class Room implements Serializable {
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
+
+    public double getCostPerNight() {
+        return costPerNight;
+    }
+
+    public void setCostPerNight(double costPerNight) {
+        this.costPerNight = costPerNight;
+    }
+
+    public List<Product> getLoadsCharged() {
+        return this.consumptions;
+    }
+
+    public void setLoadsCharged(List<Product> loadsCharged) {
+       consumptions = loadsCharged;
+    }
+    public void setLoadsCharged(Product product){
+        consumptions.add(product);
+    }
+
 
 }
