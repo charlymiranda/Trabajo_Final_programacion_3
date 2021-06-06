@@ -1,7 +1,10 @@
 package com.hotelenterprise.hotel;
 
+import com.hotelenterprise.file.FileManagement;
 import com.hotelenterprise.person.client.Client;
+import org.w3c.dom.ls.LSInput;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,17 +13,21 @@ public class Hotel {
     List<Room> roomList = new ArrayList<>();
     List<Client> clientList = new ArrayList<>();
     List<Reservation> reservationList = new ArrayList<>();
-    List<Reservation> reservationsCanceled = new ArrayList<>();
+    List<Reservation>  pastReservations = new ArrayList<>();
+
+    public static final String CLIENTE_FILE="Hotel Enterprise\\src\\com\\hotelenterprise\\hotel\\Clients.json";
+    public static final String ROOM_FILE="Hotel Enterprise\\src\\com\\hotelenterprise\\hotel\\Room.json";
+    public static final String RESERVATIONS_FILE="Hotel Enterprise\\src\\com\\hotelenterprise\\hotel\\Reservation.json";
+    public static final String PAST_RESERVATIONS_FILE="Hotel Enterprise\\src\\com\\hotelenterprise\\hotel\\PastReservations.json";
 
     public Hotel() {
     }
 
-    public Hotel(List<Room> roomList, List<Client> clientList, List<Reservation> reservationList,
-                 List<Reservation> reservationsCanceled) {
+    public Hotel(List<Room> roomList, List<Client> clientList, List<Reservation> reservationList, List<Reservation> pastReservations) {
         this.roomList = roomList;
         this.clientList = clientList;
         this.reservationList = reservationList;
-        this.reservationsCanceled = reservationsCanceled;
+        this.pastReservations = pastReservations;
     }
 
     public List<Room> getRoomList() {
@@ -58,17 +65,6 @@ public class Hotel {
         this.reservationList.add(reservation);
     }
 
-    public List<Reservation> getReservationsCanceled() {
-        return reservationsCanceled;
-    }
-
-    public void setReservationsCanceled(List<Reservation> reservationsCanceled) {
-        this.reservationsCanceled = reservationsCanceled;
-    }
-    public void setReservationsCanceled(Reservation reservation) {
-        this.reservationsCanceled.add(reservation);
-    }
-
     public int lastReservationNumber(){
         int num=1;
        // Reservation rsv= new Reservation();
@@ -86,13 +82,46 @@ public class Hotel {
         return num+1;
     }
 
+    public List<Reservation> getPastReservations() {
+        return pastReservations;
+    }
+
+    public void setPastReservations(List<Reservation> pastReservations) {
+        this.pastReservations = pastReservations;
+    }
+
+    public void readFromJsonFile(){
+
+        List<Object> clientsObjects= FileManagement.readJsonFile(CLIENTE_FILE);
+        for (Object o: clientsObjects){
+            this.clientList.add((Client) o);
+        }
+        List<Object> reservationObjects = FileManagement.readJsonFile(RESERVATIONS_FILE);
+        for(Object o: reservationObjects){
+            this.reservationList.add((Reservation) o);
+        }
+        List<Object> roomsObjects = FileManagement.readJsonFile(ROOM_FILE);
+        for(Object o: roomsObjects){
+            this.roomList.add((Room) o);
+        }
+
+        List<Object> pastReservationsObjects = FileManagement.readJsonFile(PAST_RESERVATIONS_FILE);
+        for (Object o: pastReservationsObjects){
+            this.pastReservations.add((Reservation) o);
+        }
+    }
+
+    public void writeToJsonFile(){
+
+    }
+
+
     @Override
     public String toString() {
         return "Hotel{" +
                 "roomList=" + roomList +
                 ", clientList=" + clientList +
                 ", reservationList=" + reservationList +
-                ", reservationsCanceled=" + reservationsCanceled +
                 '}';
     }
 }

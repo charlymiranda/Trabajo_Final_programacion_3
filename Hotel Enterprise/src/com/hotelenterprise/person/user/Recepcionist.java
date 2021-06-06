@@ -12,13 +12,14 @@ import com.hotelenterprise.person.client.Client;
 import com.hotelenterprise.person.client.Guest;
 import com.hotelenterprise.utilities.Console;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
-public class Recepcionist extends Employee {
+public class Recepcionist extends Employee implements Serializable {
 
     private String Schedule;
     private List<Reservation> salesRecord = new ArrayList<>();
@@ -68,8 +69,8 @@ public class Recepcionist extends Employee {
 
         client.setGuestList(uploadGuestInformation());
         loadingRooms(client, reservation);
-
         hotel.setReservationList(reservation);
+
 
     }
 

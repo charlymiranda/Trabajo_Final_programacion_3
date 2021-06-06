@@ -3,7 +3,9 @@ package com.hotelenterprise.person.user;
 import com.hotelenterprise.person.Person;
 import com.hotelenterprise.person.client.Address;
 
-public abstract class Employee extends Person {
+import java.io.Serializable;
+
+public abstract class Employee extends Person implements Serializable {
     private int idEmployee;
     private String permissions;
     private String userName;

@@ -59,6 +59,6 @@ public class TestFiles {
 
        //FileManagement.appendFile("DataFiles\\Rooms.bin", roomList );
      //  FileManagement.appendFile("DataFiles\\Rooms.bin", room1);
-        FileManagement.readFile("DataFiles\\Rooms.bin");
+        //FileManagement.readFile("DataFiles\\Rooms.bin");
     }
 }
