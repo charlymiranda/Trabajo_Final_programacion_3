@@ -1,9 +1,22 @@
 package com.hotelenterprise.person.user;
 
+import com.hotelenterprise.functionality.DocumentType;
+import com.hotelenterprise.functionality.RoomPrice;
+import com.hotelenterprise.functionality.RoomType;
+import com.hotelenterprise.functionality.TypeOfRoom;
+import com.hotelenterprise.hotel.Hotel;
+import com.hotelenterprise.hotel.Reservation;
+import com.hotelenterprise.hotel.Room;
 import com.hotelenterprise.person.Person;
 import com.hotelenterprise.person.client.Address;
+import com.hotelenterprise.person.client.Client;
+import com.hotelenterprise.person.client.Guest;
+import com.hotelenterprise.utilities.Console;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Employee extends Person implements Serializable {
     private int idEmployee;
@@ -64,6 +77,7 @@ public abstract class Employee extends Person implements Serializable {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
 
 
     @Override

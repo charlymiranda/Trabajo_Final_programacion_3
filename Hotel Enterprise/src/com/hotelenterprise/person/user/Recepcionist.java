@@ -19,7 +19,7 @@ import java.util.List;
 
 
 
-public class Recepcionist extends Employee implements Serializable {
+public class Recepcionist extends Employee implements Serializable, INewReservations {
 
     private String Schedule;
     private List<Reservation> salesRecord = new ArrayList<>();
@@ -52,7 +52,7 @@ public class Recepcionist extends Employee implements Serializable {
         this.salesRecord = salesRecord;
     }
 
-
+    @Override
     public void newBook(Hotel hotel) {
         LocalDate localDate = null;
         Reservation reservation = new Reservation();
@@ -73,7 +73,7 @@ public class Recepcionist extends Employee implements Serializable {
 
 
     }
-
+    @Override
     public Client uploadClientInformation(){
 
         DocumentType doc = new DocumentType();
@@ -98,6 +98,7 @@ public class Recepcionist extends Employee implements Serializable {
 
         return client;
     }
+    @Override
     public Address setAddressInformation(){
         Address address = new Address();
         System.out.println("Ciudad");
@@ -113,6 +114,7 @@ public class Recepcionist extends Employee implements Serializable {
 
         return  address;
     }
+    @Override
     public List<Guest> uploadGuestInformation() {
         //DocumentType doc = new DocumentType();
         System.out.println("Ingrese la cantidad total de pasajeros");
@@ -135,6 +137,7 @@ public class Recepcionist extends Employee implements Serializable {
 
         return guestList;
     }
+    @Override
     public void loadingRooms(Client client, Reservation reservation) {/// ver si le mandamos la lista de clientes par asignar
         List<Room> roomList = new ArrayList<>();
         List<Guest> guestToRemove = client.getGuestList();;
@@ -159,6 +162,7 @@ public class Recepcionist extends Employee implements Serializable {
 
         reservation.setTypesOfRooms(roomList);
     }
+    @Override
     public void loadingSingleRoom(int choice, List<Guest> guestToRemove, Room room) {
 
         if (choice == 1) {
@@ -198,7 +202,7 @@ public class Recepcionist extends Employee implements Serializable {
 
 
     }
-
+    @Override
     public String chooseTypeOfDocument() {
         int choice = 0;
 
@@ -220,6 +224,7 @@ public class Recepcionist extends Employee implements Serializable {
 
         return null;
     }
+    @Override
     public void showRoomNumbers(){
 
         System.out.println("101 \t 102 \t 103 \t 104 \t 105 \t 106 \t 107");
@@ -227,6 +232,7 @@ public class Recepcionist extends Employee implements Serializable {
         System.out.println("301 \t 302 \t 303 \t 304 \t 305 \t 306 \t 307");
 
     }
+    @Override
     public List<Guest> loadingGuestToRooms(List<Guest> guestList, int numOfGuest, Room room){
             int choice=0;
             for(int i=0; i< numOfGuest; i++) {
@@ -237,6 +243,7 @@ public class Recepcionist extends Employee implements Serializable {
             }
         return guestList;
     }
+    @Override
     public void showGuest(List<Guest> guestList){
         int i=1;
         for(Guest g: guestList) {
@@ -246,7 +253,7 @@ public class Recepcionist extends Employee implements Serializable {
     }
     @Override
     public String toString() {
-        return "Recepcionist{" +
+        return "Recepcionist{" + super.toString() +
                 "Schedule='" + Schedule + '\'' +
                 ", salesRecord=" + salesRecord +
                 '}';
