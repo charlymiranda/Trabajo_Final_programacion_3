@@ -63,7 +63,6 @@ public class Facture {
         }
 
 
-
         System.out.println("\n\33[34m¿Do you want to add something else?"+ color.b
                 + "\n1-Yes"
                 + "\n2-No");

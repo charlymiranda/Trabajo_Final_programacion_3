@@ -25,7 +25,7 @@ public class UsersLog {
 
         if((username.equalsIgnoreCase(accounts[0][0])) && (password.equalsIgnoreCase(accounts[0][1]))) {
 
-            System.out.println("\n\033[34mWelcome allmighty " +  username +color.b);
+            System.out.println("\n\033[33mWelcome allmighty " +  username +color.b);
 
 
             menu.menuAdministrador();
@@ -36,7 +36,7 @@ public class UsersLog {
 
         }else if((username.equalsIgnoreCase(accounts[1][0])) && (password.equalsIgnoreCase(accounts[1][1]))){
 
-            System.out.println("\n\033[34mWelcome powerfull " + username +color.b);
+            System.out.println("\n\033[33mWelcome powerfull " + username +color.b);
 
             menu.menuAdministrador();
 
