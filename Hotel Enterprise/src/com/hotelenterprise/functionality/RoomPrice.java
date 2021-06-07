@@ -1,5 +1,7 @@
 package com.hotelenterprise.functionality;
 
+import com.hotelenterprise.menu.Colours;
+
 public final class RoomPrice {
     public static final double SINGLE = 1000;
     public static final double DOUBLE = 1500;
@@ -10,14 +12,13 @@ public final class RoomPrice {
     public RoomPrice() {
     }
 
-    public static void typeofRoom(){
+    public static void typeofRoom() {
 
-        System.out.println("1. Single");
-        System.out.println("2. Double");
-        System.out.println("3. Triple");
-        System.out.println("4. Quadruple");
-     
+        Colours color = new Colours();
+
+        System.out.println("\33[33m1." + color.b + " Single" +
+                "\n\33[33m2." + color.b + " Double" +
+                "\n\33[33m3." + color.b + " Triple" +
+                "\n\33[33m4." + color.b + " Quadruple");
     }
-
-
 }

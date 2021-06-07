@@ -15,15 +15,14 @@ public class Facture {
     public void facture() {
     int habitacion;
     int payMethod;
-    double roomprice, precio, subTotal = 0, pago, total, Iva, descuento, descuentoFdepago;
+    double roomprice, precio, subTotal = 0, pago, total, Iva, discount, discountPayMethod;
     int Cantidad, Opcion;
     Scanner Prod = new Scanner(System.in);
     Colours color = new Colours();
 
 
-
     do {
-        System.out.println("\nIngrese el tipo de habitación a abonar");
+        System.out.println("\n\33[34mEnter the type of room" + color.b);
 
         RoomPrice.typeofRoom();
         habitacion = Console.readInteger();
@@ -39,120 +38,121 @@ public class Facture {
         }
 
 
-        System.out.println("\nIngrese la cantidad de productos cargados a la habitación ");
+        System.out.println("\n\33[34mEnter the cuantity of products loaded to the room "+ color.b);
         Cantidad = Prod.nextInt();
         precio = ProductPrice.GENERALPRICE; //Prod.nextDouble(); Habria que traer la cantidad de productos cargados de otro lado tambien
         pago = Cantidad * precio;
 
-        System.out.println("\nIngrese el formato de pago ");
+        System.out.println("\n\33[34mEnter payment Method "+ color.b);
 
         PayType.typeofpay();
         payMethod= Console.readInteger();
 
         if (payMethod == 1){
-            System.out.println("\n\033[34mRecibe 20% de descuento por pago contado " + "\033[34m" + color.b);
+            System.out.println("\n\033[34mGuest receives 20% discount for Cash payment " + "\033[34m" + color.b);
 
         }else if(payMethod == 2){
-            System.out.println("\n\033[34mRecibe 15% descuento por Mercado Pago " + "\033[34m" + color.b);
+            System.out.println("\n\033[34mGuest receives 15% discount for Mercado Pago " + "\033[34m" + color.b);
 
         }else if(payMethod == 3){
-            System.out.println("\n\033[34mRecibe 10% descuento por Transferencia bancaria " + "\033[34m" + color.b);
+            System.out.println("\n\033[34mGuest receives 10% discount for Bank Transfer " + "\033[34m" + color.b);
 
         }else{
             //System.out.println("\n\033[35mNo recibe descuento "  + color.b);   // Ver con Charly cual de las dos queda mejor
-            color.colorearMensaje(color.red, "No recibe descuento");
+            color.colorearMensaje(color.red, "Guest doesnt receive discount");
         }
 
 
 
-        System.out.println("\n¿Desea agregar otro cargo?"
-                + "\n1-Si"
+        System.out.println("\n\33[34m¿Do you want to add something else?"+ color.b
+                + "\n1-Yes"
                 + "\n2-No");
 
         Opcion = Prod.nextInt();
-        subTotal = subTotal + pago + roomprice;
-
+       
     } while (Opcion != 2);
 
+    subTotal = subTotal + pago + roomprice;
     Iva = subTotal * 0.21;
     total = subTotal + Iva;
-    descuento = total * 0.1;   //Descuento por pago mayor a $4000
+    discount = total * 0.1;   //Discount por pag more than $4000
 
+        // Discounts percents
         if (payMethod == 1){
-               descuentoFdepago =total *0.20;
+               discountPayMethod =total *0.20;
 
         }else if(payMethod == 2){
-            descuentoFdepago =total *0.15;
+            discountPayMethod =total *0.15;
 
         }else if(payMethod == 3){
-              descuentoFdepago = total * 0.1;  // Descuento del 10% por la forma de pagar
+              discountPayMethod = total * 0.1;
 
         }else{
-            descuentoFdepago = 0;
+            discountPayMethod = 0;
         }
 
 
-    if (total >= 4000 && descuentoFdepago >0) {
+    if (total >= 4000 && discountPayMethod >0) { //For payments greather than $4000 and a discount for the pay method
         System.out.println
-                ("\n\n\033[34m//-----------------------FACTURA-------------------------\\\\" + color.b
+                ("\n\n\033[34m//--------------------------BILL-------------------------\\\\" + color.b
                 + "\n\nSubTotal:                                       $ "+ subTotal
                 + "\n\033[31mIva:                                            $ "+ Iva + color.b
-                + "\nTotal Bruto:                                    $ "+ total
+                + "\nBrute Total:                                    $ "+ total
                 + "\n----------------------------------------------------------"
-                + "\n\nDesc. 10% x importe mayor a $ 4000:   $ "+ descuento
-                + "\nDescuento por forma de pago:          $ "+ descuentoFdepago
+                + "\n\nAmount greater than $4000. 10% Desc.:  $ "+ discount
+                + "\nDiscount by payment method:            $ "+ discountPayMethod
                 + "\n\n\033[34m----------------------------------------------------------"
-                + "\n\033[34mTOTAL NETO:                                     $ "+ (total - descuento - descuentoFdepago)
+                + "\n\033[34mNET TOTAL:                                      $ "+ (total - discount - discountPayMethod)
                 + "\n\033[34m----------------------------------------------------------"+color.b
-                + "\n\n   Gracias por haber sido huesped del hotel Enterprise"
-                + "\n        Aguardamos con ansias su próxima visita.\n");
+                + "\n\n   Thank you for being a guest at the Enterprise hotel."
+                + "\n           We look forward to your next visit.\n");
 
 
-    } else if(total>=4000 && descuentoFdepago ==0) {
+    } else if(total>=4000 && discountPayMethod ==0) {        //For payments greather than $4000 without discount for the pay method
         System.out.println
-                ("\n\n\033[34m//-----------------------FACTURA-------------------------\\\\" + color.b
+                 ("\n\n\033[34m//--------------------------BILL-------------------------\\\\" + color.b
                 + "\n\nSubTotal:                                       $ "+ subTotal
                 + "\n\033[31mIva:                                            $ "+ Iva + color.b
-                + "\nTotal Bruto:                                    $ "+ total
+                + "\nBrute Total:                                    $ "+ total
                 + "\n----------------------------------------------------------"
-                + "\n\nDesc. 10% x importe mayor a $ 4000:   $ "+ descuento
+                + "\n\nAmount greater than $4000. 10% Desc.:  $ "+ discount
                 + "\n\n\033[34m----------------------------------------------------------"
-                + "\n\033[34mTOTAL NETO:                                     $ "+ (total - descuento - descuentoFdepago)
+                + "\n\033[34mNET TOTAL:                                      $ "+ (total - discount - discountPayMethod)
                 + "\n\033[34m----------------------------------------------------------"+color.b
-                + "\n\n   Gracias por haber sido huesped del hotel Enterprise"
-                + "\n        Aguardamos con ansias su próxima visita.\n");
+                + "\n\n   Thank you for being a guest at the Enterprise hotel."
+                + "\n           We look forward to your next visit.\n");
 
 
-    } else if (descuentoFdepago>0){
+    } else if (discountPayMethod>0){ //For payments less than $4000 with discount for the pay method
         System.out.println
-                 ("\n\n\033[34m//-----------------------FACTURA-------------------------\\\\" + color.b
+                 ("\n\n\033[34m//--------------------------BILL-------------------------\\\\" + color.b
                 + "\n\nSubTotal:                                       $ "+ subTotal
                 + "\n\033[31mIva:                                            $ "+ Iva + color.b
-                + "\nTotal Bruto:                                    $ "+ total
+                + "\nBrute Total:                                    $ "+ total
                 + "\n----------------------------------------------------------"
-                + "\n\nDescuento por forma de pago:          $ "+ descuentoFdepago
+                + "\n\nDiscount by payment method:            $ "+ discountPayMethod
                 + "\n\n\033[34m----------------------------------------------------------"
-                + "\n\033[34mTOTAL NETO:                                     $ "+ (total - descuento - descuentoFdepago)
-                + "\n\033[34m----------------------------------------------------------" +color.b
-                + "\n\n   Gracias por haber sido huesped del hotel Enterprise"
-                + "\n        Aguardamos con ansias su próxima visita.\n");
+                + "\n\033[34mNET TOTAL:                                      $ "+ (total - discount - discountPayMethod)
+                + "\n\033[34m----------------------------------------------------------"+color.b
+                + "\n\n   Thank you for being a guest at the Enterprise hotel."
+                + "\n           We look forward to your next visit.\n");
+
 
 
 
 
         } else {
-        System.out.println
-                ("\n\n\033[34m//-----------------------FACTURA-------------------------\\\\" + color.b
+        System.out.println   //For payments without any discount
+                 ("\n\n\033[34m//--------------------------BILL-------------------------\\\\" + color.b
                 + "\n\nSubTotal:                                       $ "+ subTotal
                 + "\n\033[31mIva:                                            $ "+ Iva + color.b
-                + "\nTotal Bruto:                                    $ "+ total
+                + "\nBrute Total:                                    $ "+ total
                 + "\n----------------------------------------------------------"
                 + "\n\n\033[34m----------------------------------------------------------"
-                + "\n\033[34mTOTAL NETO:                                     $ "+ (total - descuento - descuentoFdepago)
+                + "\n\033[34mNET TOTAL:                                      $ "+ (total - discount - discountPayMethod)
                 + "\n\033[34m----------------------------------------------------------"+color.b
-                + "\n\n   Gracias por haber sido huesped del hotel Enterprise"
-                + "\n        Aguardamos con ansias su próxima visita.\n");
-
+                + "\n\n   Thank you for being a guest at the Enterprise hotel."
+                + "\n           We look forward to your next visit.\n");
     }
 
 }

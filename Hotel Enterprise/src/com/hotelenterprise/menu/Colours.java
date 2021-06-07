@@ -2,7 +2,7 @@ package com.hotelenterprise.menu;
 
 public class Colours
 {
-    public String b = "\u001B[0m"; //borrar
+    public String b = "\u001B[0m"; // Put colour at normal
     public String black = "\033[30m";
     public String red = "\033[31m";
     public String green = "\033[32m";

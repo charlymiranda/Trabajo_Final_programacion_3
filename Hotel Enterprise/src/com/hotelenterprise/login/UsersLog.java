@@ -25,7 +25,7 @@ public class UsersLog {
 
         if((username.equalsIgnoreCase(accounts[0][0])) && (password.equalsIgnoreCase(accounts[0][1]))) {
 
-            System.out.println("\nWelcome allmighty " + "\033[34m" + username +color.b);
+            System.out.println("\n\033[34mWelcome allmighty " +  username +color.b);
 
 
             menu.menuAdministrador();
@@ -36,7 +36,7 @@ public class UsersLog {
 
         }else if((username.equalsIgnoreCase(accounts[1][0])) && (password.equalsIgnoreCase(accounts[1][1]))){
 
-            System.out.println("\nWelcome powerfull " + "\033[34m" + username +color.b);
+            System.out.println("\n\033[34mWelcome powerfull " + username +color.b);
 
             menu.menuAdministrador();
 
@@ -44,13 +44,13 @@ public class UsersLog {
 
         }else if((username.equalsIgnoreCase(accounts[2][0])) && (password.equalsIgnoreCase(accounts[2][1]))) {
 
-            System.out.println("\nWelcome slave of the sector 7G " + "\033[32m" + username +color.b);
+            System.out.println("\n\033[32mWelcome slave of the sector 7G " +  username +color.b);
             menu.menuReceptionist();
 
             return true;
         }else if((username.equalsIgnoreCase(accounts[3][0])) && (password.equalsIgnoreCase(accounts[3][1]))) {
 
-            System.out.println("\nWelcome insect of the sector 6W " + "\033[32m" + username +color.b);
+            System.out.println("\n\033[32mWelcome insect of the sector 6W " + username +color.b);
 
             menu.menuReceptionist();
 

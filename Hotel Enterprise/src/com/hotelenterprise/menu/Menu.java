@@ -19,14 +19,13 @@ public class Menu {
             while(select != 0){
                 //Try primero para que el camino sea un paraiso
                 try{
-
-                 //  System.out.println("\033[35mEste texto es MAGENTA");
-                    System.out.println("\nChoose one of this fantastic options:\n" +
-                            "\n\33[33m1.-" + color.b + " Create User" +
-                            "\n\33[33m2.-" + color.b + " Backup System" +
-                            "\n\33[33m3.-" + color.b + " Change Permisions" +
-                            "\n\33[33m4.-" + color.b + " Set Prices" +
-                            "\n\33[33m0.-" + color.b + " ¡Get away with the money!");
+                     System.out.println
+                           ("\nChoose one of this fantastic options:\n" +
+                            "\n\33[33m1.-" + color.b + "\33[33m Create User" + color.b +
+                            "\n\33[33m2.-" + color.b + "\33[33m Backup System" + color.b +
+                            "\n\33[33m3.-" + color.b + "\33[33m Change Permisions" + color.b +
+                            "\n\33[33m4.-" + color.b + "\33[33m Set Prices" + color.b +
+                            "\n\33[32m0.-" + color.b + "\33[32m ¡Get away with more money!" + color.b );
 
                     //Recoger una variable por consola
                     select = Integer.parseInt(scanner.nextLine());
@@ -55,10 +54,10 @@ public class Menu {
                             break;
 
                         case 0:
-                            System.out.println("See you next time.");
+                            System.out.println("Comeback whenever you want.");
                             break;
                         default:
-                            System.out.println("\033[31mThis option is not allowed" +color.b);break;
+                            System.out.println("\033[31mIm trullt sorry, this option is not allowed...yet" +color.b);break;
                     }
 
                     System.out.println("\n");
@@ -80,15 +79,15 @@ public class Menu {
         while(select != 0){
 
             try{
-                System.out.println("\nChoose one of the options:\n" +
-
-                        "\n\33[33m1.-" + color.b + " Charge Consumes to the room" +
-                        "\n\33[33m2.-" + color.b + " Chekout" +
-                        "\n\33[33m3.-" + color.b + " Make reservations" +
-                        "\n\33[33m4.-" + color.b + " Cancel reservations" +
-                        "\n\33[33m5.-" + color.b + " Search for room" +
-                        "\n\33[33m6.-" + color.b + " Change room" +
-                        "\n\33[33m0.-" + color.b + " ¡Get out of this hell!");
+                System.out.println("\nChoose one of the following options and go to work:\n"  +
+                        "\n\33[34m1.-" + color.b + " \33[34mMake reservations" + color.b +
+                        "\n\33[34m2.-" + color.b + " \33[34mCancel reservations" + color.b +
+                        "\n\33[34m3.-" + color.b + " \33[34mCHECKIN" + color.b +
+                        "\n\33[34m4.-" + color.b + " \33[34mSearch for room" + color.b +
+                        "\n\33[34m5.-" + color.b + " \33[34mChange room" + color.b +
+                        "\n\33[34m6.-" + color.b + " \33[34mCharge Consumes to the room" + color.b +
+                        "\n\33[34m7.-" + color.b + " \33[34mCHECKOUT" + color.b +
+                        "\n\33[31m0.-" + color.b + " \33[31m¡Get out of this hell!" + color.b );
 
                 select = Integer.parseInt(scanner.nextLine());
 
@@ -96,43 +95,48 @@ public class Menu {
                 switch(select){
                     case 1:
 
-                        System.out.println("Charge all consumes here");
+                        System.out.println("Make a good all fashion reservation");
+
 
                         break;
                     case 2:
+                        System.out.println("If you cancel you receive less money");
 
-                        System.out.println("Chekout");
+
+
+                        break;
+                    case 3:
+
+                        System.out.println("CHECKIN");
+
+                        break;
+                    case 4:
+                        System.out.println("Search for the room you needed");
+
+                        break;
+
+                    case 5:
+
+                        System.out.println("Change room of that annoying guy");
+                        break;
+                    case 6:
+
+                        System.out.println("Change all consumes to the room. Always offer more");
+
+
+                        break;
+                    case 7:
+                        System.out.println("CHECKOUT");
 
                         Facture f = new Facture();
                         f.facture();
 
                         break;
-                    case 3:
-
-                        System.out.println("Make a good all fashion reservation");
-
-                        break;
-                    case 4:
-
-                        System.out.println("If you cancel you receive less money");
-                        break;
-
-                    case 5:
-
-                        System.out.println("Search for the room you wanted");
-
-                        break;
-                    case 6:
-
-                        System.out.println("Change room for that anoying guy");
-
-
-                        break;
                     case 0:
-                        System.out.println( "See you next time, if you continue working...");
+                        System.out.println( "\n\n\33[31mSee you next time, if you continue working..." +color.b);
                         break;
                     default:
-                        System.out.println("\033[31mThis option is not allowed" +color.b);
+                        System.out.println("\n\033[31mThis option is not allowed" +color.b);
                        break;
                 }
 
