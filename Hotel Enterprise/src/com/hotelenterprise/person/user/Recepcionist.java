@@ -166,7 +166,7 @@ public class Recepcionist extends Employee implements Serializable, INewReservat
     public void loadingSingleRoom(int choice, List<Guest> guestToRemove, Room room) {
 
         if (choice == 1) {
-            room.setTypeOfRoom(String.valueOf(TypeOfRoom.SINGLE));
+            room.setTypeOfRoom(TypeOfRoom.SINGLE);
             room.setDescription(RoomType.SINGLE);
             showRoomNumbers();
             room.setRoomNumber(Console.readInteger());
@@ -174,7 +174,7 @@ public class Recepcionist extends Employee implements Serializable, INewReservat
             room.setCostPerNight(RoomPrice.SINGLE);
 
         } else if (choice == 2) {
-            room.setTypeOfRoom(String.valueOf(TypeOfRoom.DOUBLE));
+            room.setTypeOfRoom(TypeOfRoom.DOUBLE);
             room.setDescription(RoomType.DOUBLE);
             showRoomNumbers();
             room.setRoomNumber(Console.readInteger());
@@ -182,14 +182,14 @@ public class Recepcionist extends Employee implements Serializable, INewReservat
             room.setCostPerNight(RoomPrice.DOUBLE);
 
         } else if (choice == 3) {
-            room.setTypeOfRoom(String.valueOf(TypeOfRoom.TRIPLE));
+            room.setTypeOfRoom(TypeOfRoom.TRIPLE);
             room.setDescription(RoomType.TRIPLE);
             showRoomNumbers();
             room.setRoomNumber(Console.readInteger());
             guestToRemove = loadingGuestToRooms(guestToRemove, 3, room);
             room.setCostPerNight(RoomPrice.TRIPLE);
         } else if (choice == 4) {
-            room.setTypeOfRoom(String.valueOf(TypeOfRoom.QUADRUPLE));
+            room.setTypeOfRoom(TypeOfRoom.QUADRUPLE);
             room.setDescription(RoomType.QUADRUPLE);
             showRoomNumbers();
             room.setRoomNumber(Console.readInteger());
