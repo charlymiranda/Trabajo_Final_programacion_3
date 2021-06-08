@@ -4,13 +4,12 @@ import com.hotelenterprise.file.FileManagement;
 import com.hotelenterprise.functionality.TypeOfRoom;
 import com.hotelenterprise.person.client.Client;
 import com.hotelenterprise.services.Product;
-import org.w3c.dom.ls.LSInput;
-
-import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class Hotel {
+public class Hotel implements Serializable {
 
     List<Room> roomList = new ArrayList<>();
     List<Client> clientList = new ArrayList<>();
@@ -19,12 +18,14 @@ public class Hotel {
     List<Product> productList = new ArrayList<>();
 
 
-    public static final String CLIENTE_FILE="Hotel Enterprise\\src\\com\\hotelenterprise\\hotel\\Clients.json";
-    public static final String ROOM_FILE="Hotel Enterprise\\src\\com\\hotelenterprise\\hotel\\Room.json";
-    public static final String RESERVATIONS_FILE="Hotel Enterprise\\src\\com\\hotelenterprise\\hotel\\Reservation.json";
-    public static final String PAST_RESERVATIONS_FILE="Hotel Enterprise\\src\\com\\hotelenterprise\\hotel\\PastReservations.json";
+    public static final String CLIENTE_FILE="\\Hotel Enterprise\\DataFiles\\Clients.json";
+    public static final String ROOM_FILE="\\Hotel Enterprise\\DataFiles\\Room.json";
+    public static final String RESERVATIONS_FILE="\\Hotel Enterprise\\DataFiles\\Reservation.json";
+    public static final String PAST_RESERVATIONS_FILE="\\Hotel Enterprise\\DataFiles\\PastReservations.json";
+    public static final String PRODUCTS_FILE="\\Hotel Enterprise\\DataFiles\\PastReservations.json";
 
     public Hotel() {
+
     }
 
     public Hotel(List<Room> roomList, List<Client> clientList, List<Reservation> reservationList, List<Reservation> pastReservations) {
@@ -136,12 +137,24 @@ public class Hotel {
         for (Object o: pastReservationsObjects){
             this.pastReservations.add((Reservation) o);
         }
+        List<Object> productsObjects = FileManagement.readJsonFile(PRODUCTS_FILE);
+        for (Object o: productsObjects){
+            this.productList.add((Product) o);
+        }
     }
 
-    public void writeToJsonFile(){
+    public void writeIntoJsonFile(){
+        FileManagement.writeJsonFile(Collections.singletonList(this.clientList), CLIENTE_FILE);
 
+        FileManagement.writeJsonFile(Collections.singletonList(this.roomList), ROOM_FILE);
 
+        FileManagement.writeJsonFile(Collections.singletonList(this.reservationList), RESERVATIONS_FILE);
+
+        FileManagement.writeJsonFile(Collections.singletonList(this.pastReservations), PAST_RESERVATIONS_FILE);
+
+        FileManagement.writeJsonFile(Collections.singletonList(this.productList), PRODUCTS_FILE);
     }
+
 
 
     public Room searchForFreeRoom() {
