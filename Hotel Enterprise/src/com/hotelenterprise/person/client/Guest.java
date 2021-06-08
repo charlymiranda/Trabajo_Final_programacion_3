@@ -27,7 +27,7 @@ public class Guest extends Person implements Serializable {
 
     @Override
     public String toString() {
-        return "Guests{" +
+        return "Guests{" + super.toString() +
                 "roomNumber=" + roomNumber +
                 '}';
     }

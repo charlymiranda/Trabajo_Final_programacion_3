@@ -1,7 +1,9 @@
 package com.hotelenterprise.hotel;
 
 import com.hotelenterprise.file.FileManagement;
+import com.hotelenterprise.functionality.TypeOfRoom;
 import com.hotelenterprise.person.client.Client;
+import com.hotelenterprise.services.Product;
 import org.w3c.dom.ls.LSInput;
 
 import java.io.File;
@@ -14,6 +16,8 @@ public class Hotel {
     List<Client> clientList = new ArrayList<>();
     List<Reservation> reservationList = new ArrayList<>();
     List<Reservation>  pastReservations = new ArrayList<>();
+    List<Product> productList = new ArrayList<>();
+
 
     public static final String CLIENTE_FILE="Hotel Enterprise\\src\\com\\hotelenterprise\\hotel\\Clients.json";
     public static final String ROOM_FILE="Hotel Enterprise\\src\\com\\hotelenterprise\\hotel\\Room.json";
@@ -90,6 +94,30 @@ public class Hotel {
         this.pastReservations = pastReservations;
     }
 
+    public List<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
+    }
+
+    public static String getClienteFile() {
+        return CLIENTE_FILE;
+    }
+
+    public static String getRoomFile() {
+        return ROOM_FILE;
+    }
+
+    public static String getReservationsFile() {
+        return RESERVATIONS_FILE;
+    }
+
+    public static String getPastReservationsFile() {
+        return PAST_RESERVATIONS_FILE;
+    }
+
     public void readFromJsonFile(){
 
         List<Object> clientsObjects= FileManagement.readJsonFile(CLIENTE_FILE);
@@ -104,7 +132,6 @@ public class Hotel {
         for(Object o: roomsObjects){
             this.roomList.add((Room) o);
         }
-
         List<Object> pastReservationsObjects = FileManagement.readJsonFile(PAST_RESERVATIONS_FILE);
         for (Object o: pastReservationsObjects){
             this.pastReservations.add((Reservation) o);
@@ -113,8 +140,39 @@ public class Hotel {
 
     public void writeToJsonFile(){
 
+
     }
 
+
+    public Room searchForFreeRoom() {
+
+        for (Room room : roomList) {
+
+            if (!room.isOccupied()) {
+
+                System.out.println("The room is free");
+
+                return room;
+            }
+
+        }
+        return null;
+    }
+
+    public Room searchForFreeRoomandType() {
+
+        for (Room room : roomList) {
+
+            if (!room.isOccupied() && room.getTypeOfRoom().equals(TypeOfRoom.SINGLE) ) {
+
+                System.out.println("The room single is free");
+
+                return room;
+            }
+
+        }
+        return null;
+    }
 
     @Override
     public String toString() {
@@ -124,4 +182,6 @@ public class Hotel {
                 ", reservationList=" + reservationList +
                 '}';
     }
+
+
 }

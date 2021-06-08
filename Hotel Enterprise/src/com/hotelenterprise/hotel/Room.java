@@ -17,7 +17,7 @@ public class Room implements Serializable {
     private static final long serialVersionUID = 1L;
     private int roomNumber;
     private Client client;
-    private String typeOfRoom;
+    private TypeOfRoom typeOfRoom;
     private List<Guest> guestList = new ArrayList<>();
     private String description;
     private boolean occupied;
@@ -28,27 +28,18 @@ public class Room implements Serializable {
     public Room() {
     }
 
-    public Room(int roomNumber, String description, boolean occupied) {
-        this.roomNumber = roomNumber;
-        this.description = description;
-        this.occupied = occupied;
-    }
-
-    public Room(int roomNumber, Client client, List<Guest> guestList, String description, boolean occupied) {
+    public Room(int roomNumber, Client client, TypeOfRoom typeOfRoom, List<Guest> guestList, String description, boolean occupied,
+                double costPerNight, List<Product> consumptions) {
         this.roomNumber = roomNumber;
         this.client = client;
+        this.typeOfRoom = typeOfRoom;
         this.guestList = guestList;
         this.description = description;
         this.occupied = occupied;
-
-    }
-    public String getTypeOfRoom() {
-        return typeOfRoom;
+        this.costPerNight = costPerNight;
+        this.consumptions = consumptions;
     }
 
-    public void setTypeOfRoom(String typeOfRoom) {
-        this.typeOfRoom = typeOfRoom;
-    }
 
     public int getRoomNumber() {
         return roomNumber;
@@ -116,5 +107,29 @@ public class Room implements Serializable {
         consumptions.add(product);
     }
 
+    public List<Product> getConsumptions() {
+        return consumptions;
+    }
 
+    public void setConsumptions(List<Product> consumptions) {
+        this.consumptions = consumptions;
+    }
+
+    public void setTypeOfRoom(TypeOfRoom typeOfRoom) {
+        this.typeOfRoom = typeOfRoom;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "roomNumber=" + roomNumber +
+                ", client=" + client +
+                ", typeOfRoom=" + typeOfRoom +
+                ", guestList=" + guestList +
+                ", description='" + description + '\'' +
+                ", occupied=" + occupied +
+                ", costPerNight=" + costPerNight +
+                ", consumptions=" + consumptions +
+                '}';
+    }
 }
