@@ -159,7 +159,7 @@ public class Hotel {
         return null;
     }
 
-    public Room searchForFreeRoomandType() {
+    public Room searchForFreeRoomAndType() {
 
         for (Room room : roomList) {
 
