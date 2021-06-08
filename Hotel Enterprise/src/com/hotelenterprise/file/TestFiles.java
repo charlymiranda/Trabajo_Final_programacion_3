@@ -10,7 +10,7 @@ import java.util.List;
 public class TestFiles {
     public static void main(String[] args) throws IOException {
         //FileManagement.newFile("DataFiles\\Rooms.bin");
-
+/*
         Room room1 = new Room(101, "Habitacion doble", false);
         Room room2 = new Room(102, "Habitacion doble", false);
         Room room3 = new Room(103, "Habitacion doble", false);
@@ -56,7 +56,7 @@ public class TestFiles {
         roomList.add(room20);
         roomList.add(room21);
 
-
+*/
        //FileManagement.appendFile("DataFiles\\Rooms.bin", roomList );
      //  FileManagement.appendFile("DataFiles\\Rooms.bin", room1);
         //FileManagement.readFile("DataFiles\\Rooms.bin");

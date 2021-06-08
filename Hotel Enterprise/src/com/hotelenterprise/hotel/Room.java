@@ -28,6 +28,8 @@ public class Room implements Serializable {
     public Room() {
     }
 
+
+
     public Room(int roomNumber, Client client, TypeOfRoom typeOfRoom, List<Guest> guestList, String description, boolean occupied,
                 double costPerNight, List<Product> consumptions) {
         this.roomNumber = roomNumber;
@@ -117,6 +119,10 @@ public class Room implements Serializable {
 
     public void setTypeOfRoom(TypeOfRoom typeOfRoom) {
         this.typeOfRoom = typeOfRoom;
+    }
+
+    public TypeOfRoom getTypeOfRoom() {
+        return typeOfRoom;
     }
 
     @Override
