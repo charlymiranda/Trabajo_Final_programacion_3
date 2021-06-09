@@ -1,9 +1,11 @@
 package com.hotelenterprise.hotel;
-
 import com.hotelenterprise.file.FileManagement;
 import com.hotelenterprise.functionality.TypeOfRoom;
+import com.hotelenterprise.menu.Colours;
 import com.hotelenterprise.person.client.Client;
 import com.hotelenterprise.services.Product;
+import com.hotelenterprise.utilities.Console;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,6 +18,7 @@ public class Hotel implements Serializable {
     List<Reservation> reservationList = new ArrayList<>();
     List<Reservation>  pastReservations = new ArrayList<>();
     List<Product> productList = new ArrayList<>();
+    List<Reservation> reservationCanceled = new ArrayList<>();
 
 
     public static final String CLIENTE_FILE="\\Hotel Enterprise\\DataFiles\\Clients.json";
@@ -23,6 +26,7 @@ public class Hotel implements Serializable {
     public static final String RESERVATIONS_FILE="\\Hotel Enterprise\\DataFiles\\Reservation.json";
     public static final String PAST_RESERVATIONS_FILE="\\Hotel Enterprise\\DataFiles\\PastReservations.json";
     public static final String PRODUCTS_FILE="\\Hotel Enterprise\\DataFiles\\PastReservations.json";
+    public static final String RESERVATION_CANCELED="\\Hotel Enterprise\\DataFiles\\ReservationsCanceled.json";
 
     public Hotel() {
 
@@ -119,6 +123,17 @@ public class Hotel implements Serializable {
         return PAST_RESERVATIONS_FILE;
     }
 
+    public List<Reservation> getReservationCanceled() {
+        return reservationCanceled;
+    }
+
+    public void setReservationCanceled(List<Reservation> reservationCanceled) {
+        this.reservationCanceled = reservationCanceled;
+    }
+    public void setReservationCanceled(Reservation reservationCanceled) {
+        this.reservationCanceled.add(reservationCanceled);
+    }
+
     public void readFromJsonFile(){
 
         List<Object> clientsObjects= FileManagement.readJsonFile(CLIENTE_FILE);
@@ -141,6 +156,10 @@ public class Hotel implements Serializable {
         for (Object o: productsObjects){
             this.productList.add((Product) o);
         }
+        List<Object> reservationsCanceled = FileManagement.readJsonFile(RESERVATION_CANCELED);
+        for(Object o: reservationsCanceled){
+            this.reservationCanceled.add((Reservation) o);
+        }
     }
 
     public void writeIntoJsonFile(){
@@ -155,36 +174,56 @@ public class Hotel implements Serializable {
         FileManagement.writeJsonFile(Collections.singletonList(this.productList), PRODUCTS_FILE);
     }
 
+    public int searchForFreeRoom() {
+        Colours color = new Colours();
+        int select =0;
+        int aux=0;
+        System.out.println("Search for the room you needed");
+        do {
+            System.out.println
+                    ("\n\33[34m1.-" + color.b + " \33[34mSingle Room" + color.b +
+                            "\n\33[34m2.-" + color.b + " \33[34mDouble Room" + color.b +
+                            "\n\33[34m3.-" + color.b + " \33[34mTriple Room" + color.b +
+                            "\n\33[34m4.-" + color.b + " \33[34mQuadruple room" + color.b);
 
+            select = Console.readInteger();
 
-    public Room searchForFreeRoom() {
-
-        for (Room room : roomList) {
-
-            if (!room.isOccupied()) {
-
-                System.out.println("The room is free");
-
-                return room;
+            switch (select) {
+                case 1:
+                    System.out.println("Single Room");
+                    aux=searchForFreeRoomAndType(TypeOfRoom.SINGLE);
+                    break;
+                case 2:
+                    System.out.println("Double Room");
+                    aux=searchForFreeRoomAndType(TypeOfRoom.DOUBLE);
+                    break;
+                case 3:
+                    System.out.println("Triple Room");
+                    aux=searchForFreeRoomAndType(TypeOfRoom.TRIPLE);
+                    break;
+                case 4:
+                    System.out.println("Quadruple Room");
+                    aux=searchForFreeRoomAndType(TypeOfRoom.QUADRUPLE);
+                    break;
+                default:
+                    System.out.println("\033[31mIm trully sorry, this option is not allowed...yet" + color.b);
             }
+        } while (select == 1 && select == 2 && select == 3 && select == 4);
 
-        }
-        return null;
+        return aux;
     }
 
-    public Room searchForFreeRoomAndType() {
+    public int searchForFreeRoomAndType(TypeOfRoom typeOfRoom) {
 
-        for (Room room : roomList) {
+        for (Room room : this.roomList) {
 
-            if (!room.isOccupied() && room.getTypeOfRoom().equals(TypeOfRoom.SINGLE) ) {
+            if (!room.isOccupied() && room.getTypeOfRoom().equals(typeOfRoom) ) {
 
-                System.out.println("The room single is free");
-
-                return room;
+                return roomList.indexOf(room);
             }
 
         }
-        return null;
+        return 0;
     }
 
     @Override

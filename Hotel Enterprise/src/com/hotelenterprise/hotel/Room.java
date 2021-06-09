@@ -29,7 +29,6 @@ public class Room implements Serializable {
     }
 
 
-
     public Room(int roomNumber, Client client, TypeOfRoom typeOfRoom, List<Guest> guestList, String description, boolean occupied,
                 double costPerNight, List<Product> consumptions) {
         this.roomNumber = roomNumber;
@@ -41,7 +40,6 @@ public class Room implements Serializable {
         this.costPerNight = costPerNight;
         this.consumptions = consumptions;
     }
-
 
     public int getRoomNumber() {
         return roomNumber;
