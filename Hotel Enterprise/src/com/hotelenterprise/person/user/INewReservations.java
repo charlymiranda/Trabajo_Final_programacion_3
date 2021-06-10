@@ -30,4 +30,6 @@ public interface INewReservations {
     List<Guest> loadingGuestToRooms(List<Guest> guestList, int numOfGuest, Room room);
 
     void showGuest(List<Guest> guestList);
+
+    void cancelReservations(Hotel hotel);
 }

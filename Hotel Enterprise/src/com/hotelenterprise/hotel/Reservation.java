@@ -17,6 +17,7 @@ public class Reservation {
     private List<Room> typesOfRooms = new ArrayList<>();
     private double totalCost;
 
+
     public Reservation(){
 
     }

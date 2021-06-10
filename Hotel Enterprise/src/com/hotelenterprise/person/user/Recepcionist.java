@@ -251,6 +251,12 @@ public class Recepcionist extends Employee implements Serializable, INewReservat
             i++;
         }
     }
+
+    @Override
+    public void cancelReservations(Hotel hotel) {
+
+    }
+
     @Override
     public String toString() {
         return "Recepcionist{" + super.toString() +

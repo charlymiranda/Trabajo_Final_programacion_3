@@ -19,6 +19,10 @@ import java.util.List;
 
 public class Administrator extends Employee implements Serializable, INewReservations {
 
+    public Administrator(){
+
+    }
+
     public Administrator(String name, String lastname, String docType, String docNumber, String telephone, Address address, String eMail, int idEmployee,
                          String permissions, String userName, String password, boolean status) {
         super(name, lastname, docType, docNumber, telephone, address, eMail, idEmployee, permissions, userName, password, status);
@@ -43,6 +47,7 @@ public class Administrator extends Employee implements Serializable, INewReserva
         client.setGuestList(uploadGuestInformation());
         loadingRooms(client, reservation);
         hotel.setReservationList(reservation);
+        hotel.setClientList(client);
     }
 
     @Override
@@ -228,6 +233,44 @@ public class Administrator extends Employee implements Serializable, INewReserva
             i++;
         }
     }
+
+    @Override
+    public void cancelReservations(Hotel hotel) {
+        Reservation aux = new Reservation();
+        System.out.println("Ingrese el DNI del cliente dueño de la reserva!");
+        String dni = Console.read();
+        int position = searchReservation(hotel.getReservationList(), dni);
+        if(position==0){
+            System.out.println("No hay reserva asignada a ese DNI");
+        }else{
+            System.out.println("la Reserva fue encontrada: ");
+            System.out.println(hotel.getReservationList().get(position).getClient().toString());
+            System.out.println("\t Reserva cancelada.");
+            hotel.setReservationCanceled(hotel.getReservationList().get(position));
+            hotel.getReservationList().remove(position);
+
+        }
+
+    }
+
+    public int searchReservation(List<Reservation> reservations, String dni){
+        for (Reservation r: reservations){
+            if(r.getClient().getDocNumber().equals(dni)){
+                return reservations.indexOf(r);
+            }
+        }
+        return 0;
+    }
+
+    public void checkIn(){
+
+    }
+
+    public void searchForRoom(){
+
+    }
+
+
     @Override
     public String toString() {
         return "Administrator{}" + super.toString();

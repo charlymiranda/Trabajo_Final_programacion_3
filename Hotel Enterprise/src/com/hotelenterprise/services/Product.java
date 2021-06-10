@@ -1,7 +1,8 @@
 package com.hotelenterprise.services;
 
-public class Product {
-    int productID;
+import java.io.Serializable;
+
+public class Product implements Serializable {
     String productName;
     String productDescription;
     double productPrice;
@@ -9,20 +10,11 @@ public class Product {
     public Product() {
     }
 
-    public Product(int productID, String productName, String productDescription, double productPrice) {
-        this.productID = productID;
+    public Product(String productName, String productDescription, double productPrice) {
+
         this.productName = productName;
         this.productDescription = productDescription;
         this.productPrice = productPrice;
-    }
-
-
-    public int getProductID() {
-        return productID;
-    }
-
-    public void setProductID(int productID) {
-        this.productID = productID;
     }
 
     public String getProductName() {
@@ -52,7 +44,6 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "productID=" + productID +
                 ", productName='" + productName + '\'' +
                 ", productDescription='" + productDescription + '\'' +
                 ", productPrice=" + productPrice +
