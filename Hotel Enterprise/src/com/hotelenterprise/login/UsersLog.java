@@ -4,7 +4,7 @@ import com.hotelenterprise.menu.Colours;
 import com.hotelenterprise.menu.Menu;
 
 public class UsersLog {
-
+/*
     private String username;
     private String password;
     private String[][] accounts = {{"Charly", "man"},{"Danilo", "fibro"},{"Eze", "hola"},{"Bruno","fabri"}};
@@ -78,6 +78,6 @@ public class UsersLog {
     {
         boolean active = false;
     }
-
+*/
 
 }
