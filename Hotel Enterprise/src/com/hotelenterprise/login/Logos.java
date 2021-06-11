@@ -3,11 +3,7 @@ package com.hotelenterprise.login;
 import com.hotelenterprise.hotel.Hotel;
 import com.hotelenterprise.menu.Colours;
 import com.hotelenterprise.person.user.Administrator;
-import com.hotelenterprise.person.user.Employee;
-import com.hotelenterprise.person.user.Recepcionist;
 import com.hotelenterprise.utilities.Console;
-
-import java.io.*;
 
 public class Logos {
 
@@ -27,14 +23,14 @@ public class Logos {
         System.out.print("Password: ");
         String pass = Console.read();
 
-        for (Administrator admin: hotel.getAdministrator()) {
+        for (Administrator admin: hotel.getAdministratorList()) {
 
             if (admin.getUserName().equalsIgnoreCase(user) && admin.getPassword().equalsIgnoreCase(pass)) {
 
                 return admin;
             }
         }
-        for (Recepcionist recep: hotel.getRecepcionist()) {
+        for (Recepcionist recep: hotel.getRecepcionistList()) {
 
             if (recep.getUserName().equalsIgnoreCase(user) && recep.getPassword().equalsIgnoreCase(pass)) {
 

@@ -1,30 +1,16 @@
 package com.hotelenterprise.person.user;
 
-import com.hotelenterprise.functionality.DocumentType;
-import com.hotelenterprise.functionality.RoomPrice;
-import com.hotelenterprise.functionality.RoomType;
-import com.hotelenterprise.functionality.TypeOfRoom;
-import com.hotelenterprise.hotel.Hotel;
-import com.hotelenterprise.hotel.Reservation;
-import com.hotelenterprise.hotel.Room;
+
 import com.hotelenterprise.person.Person;
 import com.hotelenterprise.person.client.Address;
-import com.hotelenterprise.person.client.Client;
-import com.hotelenterprise.person.client.Guest;
-import com.hotelenterprise.utilities.Console;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 public class Employee extends Person implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
-    private int idEmployee;
-public class Employee extends Person implements Serializable {
     private UUID idEmployee = UUID.randomUUID();
     private String permissions;
     private String userName;
@@ -80,7 +66,6 @@ public class Employee extends Person implements Serializable {
     }
 
 
-
     @Override
     public String toString() {
         return "Employee{" + super.toString() +
@@ -92,4 +77,5 @@ public class Employee extends Person implements Serializable {
                 '}';
     }
 }
+
 

@@ -91,6 +91,16 @@ public class TestFiles {
         Product product10 = new Product("Sandwich", 250);
 
         List<Product> productList = new ArrayList<>();
+        productList.add(product1);
+        productList.add(product2);
+        productList.add(product3);
+        productList.add(product4);
+        productList.add(product5);
+        productList.add(product6);
+        productList.add(product7);
+        productList.add(product8);
+        productList.add(product9);
+        productList.add(product10);
         hotel.setProductList(productList);
 
         hotel.writeIntoJsonFile();

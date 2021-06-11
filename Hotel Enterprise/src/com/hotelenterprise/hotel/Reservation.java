@@ -111,9 +111,6 @@ public class Reservation {
         this.totalCost = totalCost;
     }
 
-
-
-
     @Override
     public String toString() {
         return "Reservation{" +
