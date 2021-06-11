@@ -17,14 +17,14 @@ public class Hotel implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    List<Room> roomList = new ArrayList<>();
-    List<Client> clientList = new ArrayList<>();
-    List<Reservation> reservationList = new ArrayList<>();
-    List<Reservation>  pastReservations = new ArrayList<>();
-    List<Product> productList = new ArrayList<>();
-    List<Reservation> reservationCanceled = new ArrayList<>();
+    private List<Room> roomList = new ArrayList<>();
+    private List<Client> clientList = new ArrayList<>();
+    private List<Reservation> reservationList = new ArrayList<>();
+    private List<Reservation>  pastReservations = new ArrayList<>();
+    private List<Product> productList = new ArrayList<>();
+    private List<Reservation> reservationCanceled = new ArrayList<>();
 
-    List<Room> occupiedRooms = new ArrayList<>();
+    private List<Room> occupiedRooms = new ArrayList<>();
 
 
     public static final String CLIENT_FILE ="C:\\Users\\charl\\Desktop\\TP_FINAL_LAB3\\Hotel Enterprise\\src\\com\\hotelenterprise\\file\\Clients.json";
@@ -269,7 +269,7 @@ public class Hotel implements Serializable {
 
         System.out.println("Elija una reserva para hacer el checkIn: ");
         choice = Console.readInteger();
-        
+
     }
 
     @Override
