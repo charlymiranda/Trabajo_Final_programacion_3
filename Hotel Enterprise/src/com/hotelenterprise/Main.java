@@ -30,13 +30,11 @@ public class Main {
         Hotel hotel = new Hotel();
 
             Address ad = new Address("Mar del plata", "Dolores","462","no", "no");
-         Administrator admin = new Administrator("Charly","Miranda","dni", "3245253","223571156",ad,"charly.com","2","charly","man",true);
+         Administrator admin = new Administrator("Charly2","Miranda","dni", "3245253","223571156",ad,"charly.com","2","charly2","man",true);
         hotel.setAdministrator(admin);
-         // Recepcionist rece = new Recepcionist("Charly2","Miranda","dni","3245253","223571156",ad,"charly.com","2","charly","man",true);
-
-        // Logos logueador = new Logos();
-
-        //   logueador.logeator();
+         Recepcionist rece = new Recepcionist("Eze","Miranda","dni","3245253","223571156",ad,"charly.com","2","eze","hola",true);
+        hotel.setRecepcionist(rece);
+    
 
         Menu menu = new Menu();
         menu.menu(hotel);

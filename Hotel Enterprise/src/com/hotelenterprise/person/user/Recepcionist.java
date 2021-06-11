@@ -21,36 +21,15 @@ import java.util.Scanner;
 
 public class Recepcionist extends Employee implements Serializable, INewReservations {
 
-    private String Schedule;
-    private List<Reservation> salesRecord = new ArrayList<>();
 
     public Recepcionist(){
 
     }
 
     public Recepcionist(String name, String lastname, String docType, String docNumber, String telephone, Address address, String eMail,
-                        String permissions, String userName, String password, boolean status, String schedule,
-                        List<Reservation> salesRecord) {
+                        String permissions, String userName, String password, boolean status) {
         super(name, lastname, docType, docNumber, telephone, address, eMail, permissions, userName, password, status);
-        Schedule = schedule;
-        this.salesRecord = salesRecord;
-    }
 
-
-    public String getSchedule() {
-        return Schedule;
-    }
-
-    public void setSchedule(String schedule) {
-        Schedule = schedule;
-    }
-
-    public List<Reservation> getSalesRecord() {
-        return salesRecord;
-    }
-
-    public void setSalesRecord(List<Reservation> salesRecord) {
-        this.salesRecord = salesRecord;
     }
 
 
@@ -204,7 +183,6 @@ public class Recepcionist extends Employee implements Serializable, INewReservat
 
         }
 
-
     }
     @Override
     public String chooseTypeOfDocument() {
@@ -260,16 +238,6 @@ public class Recepcionist extends Employee implements Serializable, INewReservat
     public void cancelReservations(Hotel hotel) {
 
     }
-
-    @Override
-    public String toString() {
-        return "Recepcionist{" + super.toString() +
-                "Schedule='" + Schedule + '\'' +
-                ", salesRecord=" + salesRecord +
-                '}';
-    }
-
-
 
 
 

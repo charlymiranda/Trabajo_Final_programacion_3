@@ -92,36 +92,35 @@ public class Menu {
 
                         case 5:
 
-                            System.out.println("Change all consumes to the room. Always offer more");
+                            System.out.println("Charge all consumes to the room. Always offer more");
 
 
                             break;
                         case 6:
 
-                            System.out.println("");
-
-
-                            break;
-                        case 7:
                             System.out.println("CHECKOUT");
 
                             f.facture();
 
                             break;
-
-                        case 8:
-
+                        case 7:
                             System.out.println("Create the user you deserve");
 
                             break;
-                        case 9:
+
+                        case 8:
 
                             System.out.println("Set system backup");
 
                             break;
-                        case 10:
+                        case 9:
 
                             System.out.println("Change the permisions you wanted");
+
+                            break;
+                        case 10:
+
+                            System.out.println("Set the highest prices");
 
                             break;
 
@@ -231,7 +230,7 @@ public class Menu {
                 }
             }
         }else{
-            System.out.println("\n\033[31mINCORRECT." + color.b);
+            System.out.println("\n\033[31mUSER or PASSWORD are incorrect. EXIT SYSTEM" + color.b);
         }
     }
 
