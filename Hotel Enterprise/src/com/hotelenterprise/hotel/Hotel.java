@@ -5,6 +5,7 @@ import com.hotelenterprise.functionality.TypeOfRoom;
 import com.hotelenterprise.menu.Colours;
 import com.hotelenterprise.person.client.Client;
 import com.hotelenterprise.person.user.Administrator;
+import com.hotelenterprise.person.user.Recepcionist;
 import com.hotelenterprise.services.Product;
 import com.hotelenterprise.utilities.Console;
 

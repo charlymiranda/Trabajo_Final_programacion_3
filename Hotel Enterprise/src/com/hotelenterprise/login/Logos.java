@@ -3,6 +3,7 @@ package com.hotelenterprise.login;
 import com.hotelenterprise.hotel.Hotel;
 import com.hotelenterprise.menu.Colours;
 import com.hotelenterprise.person.user.Administrator;
+import com.hotelenterprise.person.user.Recepcionist;
 import com.hotelenterprise.utilities.Console;
 
 public class Logos {

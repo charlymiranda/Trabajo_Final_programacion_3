@@ -2,6 +2,7 @@ package com.hotelenterprise;
 
 
 import com.hotelenterprise.hotel.Hotel;
+import com.hotelenterprise.menu.Menu;
 
 
 public class Main {
