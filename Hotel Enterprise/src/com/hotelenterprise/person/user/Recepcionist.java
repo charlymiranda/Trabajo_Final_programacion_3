@@ -16,7 +16,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Scanner;
 
 
 public class Recepcionist extends Employee implements Serializable, INewReservations {
@@ -29,12 +29,13 @@ public class Recepcionist extends Employee implements Serializable, INewReservat
     }
 
     public Recepcionist(String name, String lastname, String docType, String docNumber, String telephone, Address address, String eMail,
-                        int idEmployee, String permissions, String userName, String password, boolean status, String schedule,
+                        String permissions, String userName, String password, boolean status, String schedule,
                         List<Reservation> salesRecord) {
-        super(name, lastname, docType, docNumber, telephone, address, eMail, idEmployee, permissions, userName, password, status);
+        super(name, lastname, docType, docNumber, telephone, address, eMail, permissions, userName, password, status);
         Schedule = schedule;
         this.salesRecord = salesRecord;
     }
+
 
     public String getSchedule() {
         return Schedule;
@@ -51,6 +52,9 @@ public class Recepcionist extends Employee implements Serializable, INewReservat
     public void setSalesRecord(List<Reservation> salesRecord) {
         this.salesRecord = salesRecord;
     }
+
+
+
 
     @Override
     public void newBook(Hotel hotel) {
@@ -207,8 +211,8 @@ public class Recepcionist extends Employee implements Serializable, INewReservat
         int choice = 0;
 
         do {
-            System.out.println("Elija una opcion...");
-            System.out.println("1: DNI \n 2: PASAPORTE: \n 3: lIBRETA DE ENROLLAMIENTO");
+            System.out.println("Choose an Option...");
+            System.out.println("1: DNI \n 2: PASSPORT: \n 3: ROLING LIBRET");
             choice = Console.readInteger();
 
             if (choice == 1) {
@@ -264,6 +268,10 @@ public class Recepcionist extends Employee implements Serializable, INewReservat
                 ", salesRecord=" + salesRecord +
                 '}';
     }
+
+
+
+
 
 
 }

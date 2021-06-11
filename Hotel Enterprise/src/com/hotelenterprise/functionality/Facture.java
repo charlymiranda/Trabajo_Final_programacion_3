@@ -22,7 +22,7 @@ public class Facture {
 
 
     do {
-        System.out.println("\n\33[34mEnter the type of room" + color.b);
+        System.out.println("\n\33[33mEnter the type of room" + color.b);
 
         RoomPrice.typeofRoom();
         habitacion = Console.readInteger();
@@ -38,12 +38,12 @@ public class Facture {
         }
 
 
-        System.out.println("\n\33[34mEnter the cuantity of products loaded to the room "+ color.b);
+        System.out.println("\n\33[33mEnter the cuantity of products loaded to the room "+ color.b);
         Cantidad = Prod.nextInt();
         precio = ProductPrice.GENERALPRICE; //Prod.nextDouble(); Habria que traer la cantidad de productos cargados de otro lado tambien
         pago = Cantidad * precio;
 
-        System.out.println("\n\33[34mEnter payment Method "+ color.b);
+        System.out.println("\n\33[33mEnter payment Method "+ color.b);
 
         PayType.typeofpay();
         payMethod= Console.readInteger();

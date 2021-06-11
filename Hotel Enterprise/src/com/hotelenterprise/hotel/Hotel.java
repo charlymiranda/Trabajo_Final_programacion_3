@@ -1,8 +1,13 @@
 package com.hotelenterprise.hotel;
+
 import com.hotelenterprise.file.FileManagement;
 import com.hotelenterprise.functionality.TypeOfRoom;
 import com.hotelenterprise.menu.Colours;
+import com.hotelenterprise.person.Person;
 import com.hotelenterprise.person.client.Client;
+import com.hotelenterprise.person.user.Administrator;
+import com.hotelenterprise.person.user.Employee;
+import com.hotelenterprise.person.user.Recepcionist;
 import com.hotelenterprise.services.Product;
 import com.hotelenterprise.utilities.Console;
 
@@ -13,31 +18,58 @@ import java.util.List;
 
 public class Hotel implements Serializable {
 
-    List<Room> roomList = new ArrayList<>();
-    List<Client> clientList = new ArrayList<>();
-    List<Reservation> reservationList = new ArrayList<>();
-    List<Reservation>  pastReservations = new ArrayList<>();
-    List<Product> productList = new ArrayList<>();
-    List<Reservation> reservationCanceled = new ArrayList<>();
+    private List<Room> roomList = new ArrayList<>();
+    private List<Client> clientList = new ArrayList<>();
+    private List<Reservation> reservationList = new ArrayList<>();
+    private List<Reservation> pastReservations = new ArrayList<>();
+    private List<Product> productList = new ArrayList<>();
+    private List<Reservation> reservationCanceled = new ArrayList<>();
+    private List<Recepcionist> recepcionist = new ArrayList<>();
+    private List<Administrator> administrator = new ArrayList<>();
 
 
-    public static final String CLIENTE_FILE="\\Hotel Enterprise\\DataFiles\\Clients.json";
-    public static final String ROOM_FILE="\\Hotel Enterprise\\DataFiles\\Room.json";
-    public static final String RESERVATIONS_FILE="\\Hotel Enterprise\\DataFiles\\Reservation.json";
-    public static final String PAST_RESERVATIONS_FILE="\\Hotel Enterprise\\DataFiles\\PastReservations.json";
-    public static final String PRODUCTS_FILE="\\Hotel Enterprise\\DataFiles\\PastReservations.json";
-    public static final String RESERVATION_CANCELED="\\Hotel Enterprise\\DataFiles\\ReservationsCanceled.json";
+
+    public static final String CLIENTE_FILE = "\\Hotel Enterprise\\DataFiles\\Clients.json";
+    public static final String ROOM_FILE = "\\Hotel Enterprise\\DataFiles\\Room.json";
+    public static final String RESERVATIONS_FILE = "\\Hotel Enterprise\\DataFiles\\Reservation.json";
+    public static final String PAST_RESERVATIONS_FILE = "\\Hotel Enterprise\\DataFiles\\PastReservations.json";
+    public static final String PRODUCTS_FILE = "\\Hotel Enterprise\\DataFiles\\PastReservations.json";
+    public static final String RESERVATION_CANCELED = "\\Hotel Enterprise\\DataFiles\\ReservationsCanceled.json";
 
     public Hotel() {
 
     }
 
-    public Hotel(List<Room> roomList, List<Client> clientList, List<Reservation> reservationList, List<Reservation> pastReservations) {
+    public Hotel(List<Room> roomList, List<Client> clientList, List<Reservation> reservationList, List<Reservation> pastReservations, List<Product> productList, List<Reservation> reservationCanceled, List<Recepcionist> recepcionist, List<Administrator> administrator) {
         this.roomList = roomList;
         this.clientList = clientList;
         this.reservationList = reservationList;
         this.pastReservations = pastReservations;
+        this.productList = productList;
+        this.reservationCanceled = reservationCanceled;
+        this.recepcionist = recepcionist;
+        this.administrator = administrator;
+
     }
+
+
+
+    public List<Recepcionist> getRecepcionist() {
+        return recepcionist;
+    }
+
+    public void setRecepcionist(Recepcionist rece) {
+        this.recepcionist.add(rece);
+    }
+
+    public List<Administrator> getAdministrator() {
+        return administrator;
+    }
+
+    public void setAdministrator(Administrator admin) {
+        this.administrator.add(admin);
+    }
+
 
     public List<Room> getRoomList() {
         return roomList;
@@ -58,6 +90,7 @@ public class Hotel implements Serializable {
     public void setClientList(List<Client> clientList) {
         this.clientList = clientList;
     }
+
     public void setClientList(Client client) {
         this.clientList.add(client);
     }
@@ -74,21 +107,21 @@ public class Hotel implements Serializable {
         this.reservationList.add(reservation);
     }
 
-    public int lastReservationNumber(){
-        int num=1;
-       // Reservation rsv= new Reservation();
-        if(this.reservationList==null){
+    public int lastReservationNumber() {
+        int num = 1;
+        // Reservation rsv= new Reservation();
+        if (this.reservationList == null) {
             return num;
-        }else{
-            for (Reservation rsv: this.reservationList) {
-                if(rsv==null){
+        } else {
+            for (Reservation rsv : this.reservationList) {
+                if (rsv == null) {
                     break;
-                }else{
-                    num=rsv.getReservationNumber();
+                } else {
+                    num = rsv.getReservationNumber();
                 }
             }
         }
-        return num+1;
+        return num + 1;
     }
 
     public List<Reservation> getPastReservations() {
@@ -130,39 +163,40 @@ public class Hotel implements Serializable {
     public void setReservationCanceled(List<Reservation> reservationCanceled) {
         this.reservationCanceled = reservationCanceled;
     }
+
     public void setReservationCanceled(Reservation reservationCanceled) {
         this.reservationCanceled.add(reservationCanceled);
     }
 
-    public void readFromJsonFile(){
+    public void readFromJsonFile() {
 
-        List<Object> clientsObjects= FileManagement.readJsonFile(CLIENTE_FILE);
-        for (Object o: clientsObjects){
+        List<Object> clientsObjects = FileManagement.readJsonFile(CLIENTE_FILE);
+        for (Object o : clientsObjects) {
             this.clientList.add((Client) o);
         }
         List<Object> reservationObjects = FileManagement.readJsonFile(RESERVATIONS_FILE);
-        for(Object o: reservationObjects){
+        for (Object o : reservationObjects) {
             this.reservationList.add((Reservation) o);
         }
         List<Object> roomsObjects = FileManagement.readJsonFile(ROOM_FILE);
-        for(Object o: roomsObjects){
+        for (Object o : roomsObjects) {
             this.roomList.add((Room) o);
         }
         List<Object> pastReservationsObjects = FileManagement.readJsonFile(PAST_RESERVATIONS_FILE);
-        for (Object o: pastReservationsObjects){
+        for (Object o : pastReservationsObjects) {
             this.pastReservations.add((Reservation) o);
         }
         List<Object> productsObjects = FileManagement.readJsonFile(PRODUCTS_FILE);
-        for (Object o: productsObjects){
+        for (Object o : productsObjects) {
             this.productList.add((Product) o);
         }
         List<Object> reservationsCanceled = FileManagement.readJsonFile(RESERVATION_CANCELED);
-        for(Object o: reservationsCanceled){
+        for (Object o : reservationsCanceled) {
             this.reservationCanceled.add((Reservation) o);
         }
     }
 
-    public void writeIntoJsonFile(){
+    public void writeIntoJsonFile() {
         FileManagement.writeJsonFile(Collections.singletonList(this.clientList), CLIENTE_FILE);
 
         FileManagement.writeJsonFile(Collections.singletonList(this.roomList), ROOM_FILE);
@@ -176,8 +210,8 @@ public class Hotel implements Serializable {
 
     public int searchForFreeRoom() {
         Colours color = new Colours();
-        int select =0;
-        int aux=0;
+        int select = 0;
+        int aux = 0;
         System.out.println("Search for the room you needed");
         do {
             System.out.println
@@ -191,19 +225,19 @@ public class Hotel implements Serializable {
             switch (select) {
                 case 1:
                     System.out.println("Single Room");
-                    aux=searchForFreeRoomAndType(TypeOfRoom.SINGLE);
+                    aux = searchForFreeRoomAndType(TypeOfRoom.SINGLE);
                     break;
                 case 2:
                     System.out.println("Double Room");
-                    aux=searchForFreeRoomAndType(TypeOfRoom.DOUBLE);
+                    aux = searchForFreeRoomAndType(TypeOfRoom.DOUBLE);
                     break;
                 case 3:
                     System.out.println("Triple Room");
-                    aux=searchForFreeRoomAndType(TypeOfRoom.TRIPLE);
+                    aux = searchForFreeRoomAndType(TypeOfRoom.TRIPLE);
                     break;
                 case 4:
                     System.out.println("Quadruple Room");
-                    aux=searchForFreeRoomAndType(TypeOfRoom.QUADRUPLE);
+                    aux = searchForFreeRoomAndType(TypeOfRoom.QUADRUPLE);
                     break;
                 default:
                     System.out.println("\033[31mIm trully sorry, this option is not allowed...yet" + color.b);
@@ -217,7 +251,7 @@ public class Hotel implements Serializable {
 
         for (Room room : this.roomList) {
 
-            if (!room.isOccupied() && room.getTypeOfRoom().equals(typeOfRoom) ) {
+            if (!room.isOccupied() && room.getTypeOfRoom().equals(typeOfRoom)) {
 
                 return roomList.indexOf(room);
             }
