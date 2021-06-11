@@ -11,7 +11,6 @@ import com.hotelenterprise.utilities.Console;
 import java.util.Scanner;
 
 public class Menu {
-        static Scanner scanner = new Scanner(System.in);
         static int select = -1; //opción elegida del usuario
         static int num1 = 0, num2 = 0; //Variables
         Colours color = new Colours();
@@ -41,13 +40,13 @@ public class Menu {
                             "\n\33[33m8.-" + color.b + "\33[33m Backup System" + color.b +
                             "\n\33[33m9.-" + color.b + "\33[33m Change Permisions" + color.b +
                             "\n\33[33m10.-" + color.b + "\33[33m Set Prices" + color.b +
-                            "\n\n0.- If you want to rest, you can go.");
+                            "\n\n0.- If you want to rest, you can go");
 
                     //Recoger una variable por consola
-                    aux = Console.readInteger();
+                    select = Console.readInteger();
 
 
-                    switch(aux){
+                    switch(select){
                         case 1:
                             System.out.println("Make a good all fashion reservation");
                             admin.newBook(hotel);
@@ -155,7 +154,7 @@ public class Menu {
                         "\n\33[34m7.-" + color.b + " \33[34mCHECKOUT" + color.b +
                         "\n\33[31m0.-" + color.b + " \33[31m¡Get out of this hell!" + color.b );
 
-                select = Integer.parseInt(scanner.nextLine());
+                select = Console.readInteger();
 
 
                 switch(select){

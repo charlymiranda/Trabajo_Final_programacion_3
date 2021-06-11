@@ -14,6 +14,5 @@ public final class ProductPrice {
     public static final double GENERALPRICE = 250;
 
     public ProductPrice(){
-
     }
 }

@@ -28,6 +28,13 @@ public class Room implements Serializable {
     public Room() {
     }
 
+    public Room(int roomNumber, TypeOfRoom typeOfRoom, String description, boolean occupied, double costPerNight) {
+        this.roomNumber = roomNumber;
+        this.typeOfRoom = typeOfRoom;
+        this.description = description;
+        this.occupied = occupied;
+        this.costPerNight = costPerNight;
+    }
 
     public Room(int roomNumber, Client client, TypeOfRoom typeOfRoom, List<Guest> guestList, String description, boolean occupied,
                 double costPerNight, List<Product> consumptions) {

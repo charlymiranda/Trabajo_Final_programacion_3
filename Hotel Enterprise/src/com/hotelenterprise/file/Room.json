@@ -1,0 +1,172 @@
+[
+  [
+    {
+      "roomNumber": 101,
+      "typeOfRoom": "SINGLE",
+      "guestList": [],
+      "description": "Room for one",
+      "occupied": false,
+      "costPerNight": 2000.0
+    },
+    {
+      "roomNumber": 102,
+      "typeOfRoom": "DOUBLE",
+      "guestList": [],
+      "description": "Room for two",
+      "occupied": false,
+      "costPerNight": 3000.0
+    },
+    {
+      "roomNumber": 103,
+      "typeOfRoom": "DOUBLE",
+      "guestList": [],
+      "description": "Room for two",
+      "occupied": false,
+      "costPerNight": 3000.0
+    },
+    {
+      "roomNumber": 104,
+      "typeOfRoom": "DOUBLE",
+      "guestList": [],
+      "description": "Room for two",
+      "occupied": false,
+      "costPerNight": 3000.0
+    },
+    {
+      "roomNumber": 105,
+      "typeOfRoom": "DOUBLE",
+      "guestList": [],
+      "description": "Room for two",
+      "occupied": false,
+      "costPerNight": 3000.0
+    },
+    {
+      "roomNumber": 106,
+      "typeOfRoom": "TRIPLE",
+      "guestList": [],
+      "description": "Room for three",
+      "occupied": false,
+      "costPerNight": 4000.0
+    },
+    {
+      "roomNumber": 107,
+      "typeOfRoom": "QUADRUPLE",
+      "guestList": [],
+      "description": "Room for four",
+      "occupied": false,
+      "costPerNight": 5000.0
+    },
+    {
+      "roomNumber": 201,
+      "typeOfRoom": "SINGLE",
+      "guestList": [],
+      "description": "Room for one",
+      "occupied": false,
+      "costPerNight": 2000.0
+    },
+    {
+      "roomNumber": 202,
+      "typeOfRoom": "DOUBLE",
+      "guestList": [],
+      "description": "Room for two",
+      "occupied": false,
+      "costPerNight": 3000.0
+    },
+    {
+      "roomNumber": 203,
+      "typeOfRoom": "DOUBLE",
+      "guestList": [],
+      "description": "Room for two",
+      "occupied": false,
+      "costPerNight": 3000.0
+    },
+    {
+      "roomNumber": 204,
+      "typeOfRoom": "DOUBLE",
+      "guestList": [],
+      "description": "Room for two",
+      "occupied": false,
+      "costPerNight": 3000.0
+    },
+    {
+      "roomNumber": 205,
+      "typeOfRoom": "DOUBLE",
+      "guestList": [],
+      "description": "Room for two",
+      "occupied": false,
+      "costPerNight": 3000.0
+    },
+    {
+      "roomNumber": 206,
+      "typeOfRoom": "TRIPLE",
+      "guestList": [],
+      "description": "Room for three",
+      "occupied": false,
+      "costPerNight": 4000.0
+    },
+    {
+      "roomNumber": 207,
+      "typeOfRoom": "QUADRUPLE",
+      "guestList": [],
+      "description": "Room for four",
+      "occupied": false,
+      "costPerNight": 5000.0
+    },
+    {
+      "roomNumber": 301,
+      "typeOfRoom": "SINGLE",
+      "guestList": [],
+      "description": "Room for one",
+      "occupied": false,
+      "costPerNight": 2000.0
+    },
+    {
+      "roomNumber": 302,
+      "typeOfRoom": "DOUBLE",
+      "guestList": [],
+      "description": "Room for two",
+      "occupied": false,
+      "costPerNight": 3000.0
+    },
+    {
+      "roomNumber": 303,
+      "typeOfRoom": "DOUBLE",
+      "guestList": [],
+      "description": "Room for two",
+      "occupied": false,
+      "costPerNight": 3000.0
+    },
+    {
+      "roomNumber": 304,
+      "typeOfRoom": "DOUBLE",
+      "guestList": [],
+      "description": "Room for two",
+      "occupied": false,
+      "costPerNight": 3000.0
+    },
+    {
+      "roomNumber": 305,
+      "typeOfRoom": "DOUBLE",
+      "guestList": [],
+      "description": "Room for two",
+      "occupied": false,
+      "costPerNight": 3000.0
+    },
+    {
+      "roomNumber": 306,
+      "typeOfRoom": "TRIPLE",
+      "guestList": [],
+      "description": "Room for three",
+      "occupied": false,
+      "costPerNight": 4000.0
+    },
+    {
+      "roomNumber": 307,
+      "typeOfRoom": "QUADRUPLE",
+      "guestList": [],
+      "description": "Room for four",
+      "occupied": false,
+      "costPerNight": 5000.0
+    }
+  ]
+]
