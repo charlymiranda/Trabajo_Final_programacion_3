@@ -2,9 +2,12 @@ package com.hotelenterprise.person.client;
 
 import com.hotelenterprise.person.Person;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Guest extends Person implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     private int roomNumber;
 
     public Guest() {

@@ -2,32 +2,36 @@ package com.hotelenterprise.file;
 
 
 import com.google.gson.*;
+import com.hotelenterprise.hotel.Room;
 import com.hotelenterprise.person.client.Client;
 
 import javax.naming.spi.ObjectFactoryBuilder;
-import java.io.IOException;
-import java.io.Reader;
-import java.io.Writer;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.nio.Buffer;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public abstract class FileManagement {
 /// esta clase va a serr inteface
+//private static final Type ROOM_TYPE = new Type
 
 
     public static void writeJsonFile(List<Object> o, String file){
 
-        Path path = Paths.get(file);
-
         try {
-            Writer writer = Files.newBufferedWriter(path, StandardCharsets.UTF_8);
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            JsonElement tree = gson.toJsonTree(o);
-            gson.toJson(tree, writer);
+            Gson gson = new Gson();
+            Writer writer = Files.newBufferedWriter(Paths.get(file));
+            gson.toJson(o, writer);
+
+            writer.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -37,21 +41,28 @@ public abstract class FileManagement {
         Path path = Paths.get(file);
         List<Object> objects = new ArrayList<>();
         try {
-            Reader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8);
-            JsonParser parser = new JsonParser();
-            JsonElement tree = parser.parse(reader);
-            JsonArray array = tree.getAsJsonArray();
-
-            for (JsonElement element: array){
-                objects.add(element);
-
-            }
-
+            Gson gson = new Gson();
+            Reader reader = Files.newBufferedReader(Paths.get(file));
+            gson.fromJson(reader, Object.class);
+            reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return objects;
+    }
+
+    public static HashMap<String, String> readWhitHashMap(String file){
+        String path = file;
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
+            Gson gson = new Gson();
+            HashMap<String, String> json = gson.fromJson(bufferedReader, HashMap.class);
+            return json;
+        }catch (IOException ioException){
+            ioException.printStackTrace();
+        }
+        return null;
+
     }
 
 

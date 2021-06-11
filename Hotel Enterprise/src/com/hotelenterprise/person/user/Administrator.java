@@ -10,17 +10,20 @@ import com.hotelenterprise.hotel.Room;
 import com.hotelenterprise.person.client.Address;
 import com.hotelenterprise.person.client.Client;
 import com.hotelenterprise.person.client.Guest;
+import com.hotelenterprise.services.Product;
 import com.hotelenterprise.utilities.Console;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Administrator extends Employee implements Serializable, INewReservations {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
-    public Administrator(){
+    public Administrator() {
 
     }
 
@@ -36,19 +39,25 @@ public class Administrator extends Employee implements Serializable, INewReserva
         Reservation reservation = new Reservation();
         Client client = new Client();
         reservation.setReservationNumber(hotel.lastReservationNumber());
-        // System.out.println("Ingrese la fecha de check in (Formato aaaa-mm-dd)");
-        //String date = Console.read();
+        System.out.println("Ingrese la fecha de check in (Formato aaaa-mm-dd)");
+        String date = Console.read();
 
-        // reservation.setCheckIn(LocalDate.parse(date));
-        //System.out.println("Ingrese la fecha de check out (Formato aaaa-mm-dd)");
-        //date = Console.read();
-        //reservation.setCheckOut(LocalDate.parse(date));
+        reservation.setCheckIn(LocalDate.parse(date));
+        System.out.println("Ingrese la fecha de check out (Formato aaaa-mm-dd)");
+        date = Console.read();
+        reservation.setCheckOut(LocalDate.parse(date));
+        System.out.println("Cargando cliente");
         client = uploadClientInformation();
 
         client.setGuestList(uploadGuestInformation());
+
         loadingRooms(client, reservation);
+
         hotel.setReservationList(reservation);
         hotel.setClientList(client);
+        System.out.println("Guardando reserva");
+        hotel.writeReservation();
+
     }
 
     @Override
@@ -90,7 +99,7 @@ public class Administrator extends Employee implements Serializable, INewReserva
         System.out.println("Piso");
         address.setFloor(Console.read());
 
-        return  address;
+        return address;
     }
 
     @Override
@@ -120,26 +129,21 @@ public class Administrator extends Employee implements Serializable, INewReserva
     @Override
     public void loadingRooms(Client client, Reservation reservation) {
         List<Room> roomList = new ArrayList<>();
-        List<Guest> guestToRemove = client.getGuestList();;
-        Guest cGuest = new Guest();
+        List<Guest> guestToRemove = new ArrayList<>();
+        guestToRemove = client.getGuestList();
         int choice = 0;
         System.out.println("Ingrese el total de habitaciones para cargar");
         int rooms = Console.readInteger();
-        if (client != null) {
 
-            for (int i = 1; i < rooms; i++) {
-                Room room = new Room();
-                System.out.println("Habitaciones cargadas: " + i + " de " + rooms);
-                System.out.println("Elija el tipo de habitacion");
-                System.out.println("1: SINGLE \n 2: DOBLE: \n 3: TRIPLE: \n 4: CUADRUPLE: \n 0 terminar la carga");
-                choice = Console.readInteger();
-                loadingSingleRoom(choice, guestToRemove,room);
-                roomList.add(room);
-                guestToRemove.remove(choice);
-            }
+        for (int i = 0; i < rooms; i++) {
+            Room room = new Room();
+            System.out.println("Habitaciones cargadas: " + i + " de " + rooms);
+            System.out.println("Elija el tipo de habitacion");
+            System.out.println("1: SINGLE \n 2: DOBLE: \n 3: TRIPLE: \n 4: CUADRUPLE: \n 0 terminar la carga");
+            choice = Console.readInteger();
+            loadingSingleRoom(choice, guestToRemove, room);
+            roomList.add(room);
         }
-
-
         reservation.setTypesOfRooms(roomList);
     }
 
@@ -151,7 +155,7 @@ public class Administrator extends Employee implements Serializable, INewReserva
             room.setDescription(RoomType.SINGLE);
             showRoomNumbers();
             room.setRoomNumber(Console.readInteger());
-            guestToRemove = loadingGuestToRooms(guestToRemove, 1, room);
+            loadingGuestToRooms(guestToRemove, 1, room);
             room.setCostPerNight(RoomPrice.SINGLE);
 
         } else if (choice == 2) {
@@ -159,7 +163,7 @@ public class Administrator extends Employee implements Serializable, INewReserva
             room.setDescription(RoomType.DOUBLE);
             showRoomNumbers();
             room.setRoomNumber(Console.readInteger());
-            guestToRemove = loadingGuestToRooms(guestToRemove, 2, room);
+             loadingGuestToRooms(guestToRemove, 2, room);
             room.setCostPerNight(RoomPrice.DOUBLE);
 
         } else if (choice == 3) {
@@ -167,14 +171,14 @@ public class Administrator extends Employee implements Serializable, INewReserva
             room.setDescription(RoomType.TRIPLE);
             showRoomNumbers();
             room.setRoomNumber(Console.readInteger());
-            guestToRemove = loadingGuestToRooms(guestToRemove, 3, room);
+            loadingGuestToRooms(guestToRemove, 3, room);
             room.setCostPerNight(RoomPrice.TRIPLE);
         } else if (choice == 4) {
             room.setTypeOfRoom(TypeOfRoom.QUADRUPLE);
             room.setDescription(RoomType.QUADRUPLE);
             showRoomNumbers();
             room.setRoomNumber(Console.readInteger());
-            guestToRemove = loadingGuestToRooms(guestToRemove, 4, room);
+            loadingGuestToRooms(guestToRemove, 4, room);
             room.setCostPerNight(RoomPrice.QUADRUPLE);
         } else {
             System.out.println("Valor ingresado invalido");
@@ -202,7 +206,7 @@ public class Administrator extends Employee implements Serializable, INewReserva
             } else {
                 System.out.println("Opcion no valida");
             }
-        }while (choice!=1 || choice !=2 || choice!=3);
+        } while (choice != 1 || choice != 2 || choice != 3);
 
         return null;
     }
@@ -215,21 +219,22 @@ public class Administrator extends Employee implements Serializable, INewReserva
     }
 
     @Override
-    public List<Guest> loadingGuestToRooms(List<Guest> guestList, int numOfGuest, Room room) {
-        int choice=0;
-        for(int i=0; i< numOfGuest; i++) {
+    public void loadingGuestToRooms(List<Guest> guestList, int numOfGuest, Room room) {
+        int choice = 0;
+        for (int i = 0; i < numOfGuest; i++) {
             showGuest(guestList);
             System.out.println("Elija a uno de los pasajeros pasa asignar a la habitacion");
             choice = Console.readInteger();
-            room.setGuestList(guestList.get(choice));
+            room.setGuestList(guestList.get(choice-1));
+            guestList.remove(choice-1);
         }
-        return guestList;
+
     }
 
     @Override
     public void showGuest(List<Guest> guestList) {
-        int i=1;
-        for(Guest g: guestList) {
+        int i = 1;
+        for (Guest g : guestList) {
             System.out.println(i + " : " + g.getName() + " " + g.getLastname());
             i++;
         }
@@ -241,9 +246,9 @@ public class Administrator extends Employee implements Serializable, INewReserva
         System.out.println("Ingrese el DNI del cliente dueño de la reserva!");
         String dni = Console.read();
         int position = searchReservation(hotel.getReservationList(), dni);
-        if(position==0){
+        if (position == -1) {
             System.out.println("No hay reserva asignada a ese DNI");
-        }else{
+        } else {
             System.out.println("la Reserva fue encontrada: ");
             System.out.println(hotel.getReservationList().get(position).getClient().toString());
             System.out.println("\t Reserva cancelada.");
@@ -254,20 +259,36 @@ public class Administrator extends Employee implements Serializable, INewReserva
 
     }
 
-    public int searchReservation(List<Reservation> reservations, String dni){
-        for (Reservation r: reservations){
-            if(r.getClient().getDocNumber().equals(dni)){
+    public int searchReservation(List<Reservation> reservations, String dni) {
+        for (Reservation r : reservations) {
+            if (r.getClient().getDocNumber().equals(dni)) {
                 return reservations.indexOf(r);
             }
         }
-        return 0;
+        return -1;
     }
 
-    public void checkIn(){
+    public void checkIn(Hotel hotel) {
+        int choice = 0;
+        int i=0;
+        List<Reservation> reservationsTemp = new ArrayList<>();
+        for (Reservation r : hotel.getPastReservations()) {
+            if (r.getCheckIn().equals(LocalDate.now())) {
+                System.out.println("reserva: "+ i +"Check in: " + r.getCheckIn());
+                System.out.print("Cliente: " + r.getClient().getLastname());
+                reservationsTemp.add(r);
+
+                i++;
+            }
+        }
+
+        System.out.println("Elija una reserva para hacer el checkIn: ");
+        choice = Console.readInteger();
 
     }
 
-    public void searchForRoom(){
+
+    public void searchForRoom() {
 
     }
 
@@ -277,11 +298,10 @@ public class Administrator extends Employee implements Serializable, INewReserva
         return "Administrator{}" + super.toString();
     }
 
-    public void createAdministrator()  {
+    public void createAdministrator(Hotel hotel)  {
 
         Administrator admin = new Administrator();
         Employee emple = new Employee();
-        Hotel hotel = new Hotel();
 
         System.out.println("Name: ");
         admin.setName(Console.read());
@@ -308,17 +328,17 @@ public class Administrator extends Employee implements Serializable, INewReserva
         admin.setPassword(Console.read());
         admin.setStatus(true);
 
-
-        hotel.setAdministrator(admin);
+        hotel.setAdministratorList(admin);
         System.out.println("Succes creating new Administrator.");
         System.out.println("\n\n");
+        // TODO cargar a la lista de admins
     }
 
 
-    public void createRecepcionist()  {
+    public void createRecepcionist(Hotel hotel)  {
 
         Recepcionist rece = new Recepcionist();
-        Hotel hotel = new Hotel();
+
 
         System.out.println("Name: ");
         rece.setName(Console.read());
@@ -345,11 +365,23 @@ public class Administrator extends Employee implements Serializable, INewReserva
         rece.setPassword(Console.read());
         rece.setStatus(true);
 
-        hotel.setRecepcionist(rece);
+        hotel.setRecepcionistList(rece);
         System.out.println("Succes creating new Recepcionist.");
         System.out.println("\n\n");
+        //TODO cargar al archivos tambien
     }
 
+    public void chargeConsumptions(Hotel hotel, Room room){
+        int i=0;
+        int choice=0;
+        for(Product p: hotel.getProductList()){
+            System.out.println(" "+ i + " " + p.getProductName());
+        }
+        System.out.println("Elija un producto");
+        choice = Console.readInteger();
+        room.setConsumptions(hotel.getProductList().get(i));
+
+    }
 
 
 

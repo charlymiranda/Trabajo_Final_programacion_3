@@ -21,4 +21,6 @@ public final class RoomPrice {
                 "\n\33[33m3.-" + color.b + " Triple" +
                 "\n\33[33m4.-" + color.b + " Quadruple");
     }
+
+
 }

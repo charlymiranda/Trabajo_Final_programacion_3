@@ -2,11 +2,14 @@ package com.hotelenterprise.hotel;
 
 import com.hotelenterprise.person.client.Client;
 
+import java.io.Serial;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Reservation {
+    @Serial
+    private static final long serialVersionUID = 1L;
     private LocalDate reservationDate = LocalDate.now();
     private int reservationNumber;
     private Client client;
@@ -107,9 +110,6 @@ public class Reservation {
     public void setTotalCost(double totalCost) {
         this.totalCost = totalCost;
     }
-
-
-
 
     @Override
     public String toString() {

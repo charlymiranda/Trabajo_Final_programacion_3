@@ -1,6 +1,7 @@
 package com.hotelenterprise.hotel;
 
 
+import com.google.gson.annotations.SerializedName;
 import com.hotelenterprise.functionality.TypeOfRoom;
 import com.hotelenterprise.person.client.Client;
 import com.hotelenterprise.person.client.Guest;
@@ -15,19 +16,34 @@ public class Room implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
+    @SerializedName("fRoomNumber")
     private int roomNumber;
+    @SerializedName("fClient")
     private Client client;
+    @SerializedName("ftypeRoom")
     private TypeOfRoom typeOfRoom;
+    @SerializedName("fGuestList")
     private List<Guest> guestList = new ArrayList<>();
+    @SerializedName("fDescription")
     private String description;
+    @SerializedName("fOccupied")
     private boolean occupied;
+    @SerializedName("fCostPerNight")
     private double costPerNight;
+    @SerializedName("fConsumptions")
     private List<Product> consumptions;
 
 
     public Room() {
     }
 
+    public Room(int roomNumber, TypeOfRoom typeOfRoom, String description, boolean occupied, double costPerNight) {
+        this.roomNumber = roomNumber;
+        this.typeOfRoom = typeOfRoom;
+        this.description = description;
+        this.occupied = occupied;
+        this.costPerNight = costPerNight;
+    }
 
     public Room(int roomNumber, Client client, TypeOfRoom typeOfRoom, List<Guest> guestList, String description, boolean occupied,
                 double costPerNight, List<Product> consumptions) {
@@ -113,6 +129,9 @@ public class Room implements Serializable {
 
     public void setConsumptions(List<Product> consumptions) {
         this.consumptions = consumptions;
+    }
+    public void setConsumptions(Product product){
+        this.consumptions.add(product);
     }
 
     public void setTypeOfRoom(TypeOfRoom typeOfRoom) {

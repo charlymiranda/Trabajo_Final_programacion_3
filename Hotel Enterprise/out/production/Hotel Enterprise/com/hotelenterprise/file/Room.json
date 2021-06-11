@@ -1,0 +1,172 @@
+[
+  [
+    {
+      "fRoomNumber": 101,
+      "ftypeRoom": "SINGLE",
+      "fGuestList": [],
+      "fDescription": "Room for one",
+      "fOccupied": false,
+      "fCostPerNight": 2000.0
+    },
+    {
+      "fRoomNumber": 102,
+      "ftypeRoom": "DOUBLE",
+      "fGuestList": [],
+      "fDescription": "Room for two",
+      "fOccupied": false,
+      "fCostPerNight": 3000.0
+    },
+    {
+      "fRoomNumber": 103,
+      "ftypeRoom": "DOUBLE",
+      "fGuestList": [],
+      "fDescription": "Room for two",
+      "fOccupied": false,
+      "fCostPerNight": 3000.0
+    },
+    {
+      "fRoomNumber": 104,
+      "ftypeRoom": "DOUBLE",
+      "fGuestList": [],
+      "fDescription": "Room for two",
+      "fOccupied": false,
+      "fCostPerNight": 3000.0
+    },
+    {
+      "fRoomNumber": 105,
+      "ftypeRoom": "DOUBLE",
+      "fGuestList": [],
+      "fDescription": "Room for two",
+      "fOccupied": false,
+      "fCostPerNight": 3000.0
+    },
+    {
+      "fRoomNumber": 106,
+      "ftypeRoom": "TRIPLE",
+      "fGuestList": [],
+      "fDescription": "Room for three",
+      "fOccupied": false,
+      "fCostPerNight": 4000.0
+    },
+    {
+      "fRoomNumber": 107,
+      "ftypeRoom": "QUADRUPLE",
+      "fGuestList": [],
+      "fDescription": "Room for four",
+      "fOccupied": false,
+      "fCostPerNight": 5000.0
+    },
+    {
+      "fRoomNumber": 201,
+      "ftypeRoom": "SINGLE",
+      "fGuestList": [],
+      "fDescription": "Room for one",
+      "fOccupied": false,
+      "fCostPerNight": 2000.0
+    },
+    {
+      "fRoomNumber": 202,
+      "ftypeRoom": "DOUBLE",
+      "fGuestList": [],
+      "fDescription": "Room for two",
+      "fOccupied": false,
+      "fCostPerNight": 3000.0
+    },
+    {
+      "fRoomNumber": 203,
+      "ftypeRoom": "DOUBLE",
+      "fGuestList": [],
+      "fDescription": "Room for two",
+      "fOccupied": false,
+      "fCostPerNight": 3000.0
+    },
+    {
+      "fRoomNumber": 204,
+      "ftypeRoom": "DOUBLE",
+      "fGuestList": [],
+      "fDescription": "Room for two",
+      "fOccupied": false,
+      "fCostPerNight": 3000.0
+    },
+    {
+      "fRoomNumber": 205,
+      "ftypeRoom": "DOUBLE",
+      "fGuestList": [],
+      "fDescription": "Room for two",
+      "fOccupied": false,
+      "fCostPerNight": 3000.0
+    },
+    {
+      "fRoomNumber": 206,
+      "ftypeRoom": "TRIPLE",
+      "fGuestList": [],
+      "fDescription": "Room for three",
+      "fOccupied": false,
+      "fCostPerNight": 4000.0
+    },
+    {
+      "fRoomNumber": 207,
+      "ftypeRoom": "QUADRUPLE",
+      "fGuestList": [],
+      "fDescription": "Room for four",
+      "fOccupied": false,
+      "fCostPerNight": 5000.0
+    },
+    {
+      "fRoomNumber": 301,
+      "ftypeRoom": "SINGLE",
+      "fGuestList": [],
+      "fDescription": "Room for one",
+      "fOccupied": false,
+      "fCostPerNight": 2000.0
+    },
+    {
+      "fRoomNumber": 302,
+      "ftypeRoom": "DOUBLE",
+      "fGuestList": [],
+      "fDescription": "Room for two",
+      "fOccupied": false,
+      "fCostPerNight": 3000.0
+    },
+    {
+      "fRoomNumber": 303,
+      "ftypeRoom": "DOUBLE",
+      "fGuestList": [],
+      "fDescription": "Room for two",
+      "fOccupied": false,
+      "fCostPerNight": 3000.0
+    },
+    {
+      "fRoomNumber": 304,
+      "ftypeRoom": "DOUBLE",
+      "fGuestList": [],
+      "fDescription": "Room for two",
+      "fOccupied": false,
+      "fCostPerNight": 3000.0
+    },
+    {
+      "fRoomNumber": 305,
+      "ftypeRoom": "DOUBLE",
+      "fGuestList": [],
+      "fDescription": "Room for two",
+      "fOccupied": false,
+      "fCostPerNight": 3000.0
+    },
+    {
+      "fRoomNumber": 306,
+      "ftypeRoom": "TRIPLE",
+      "fGuestList": [],
+      "fDescription": "Room for three",
+      "fOccupied": false,
+      "fCostPerNight": 4000.0
+    },
+    {
+      "fRoomNumber": 307,
+      "ftypeRoom": "QUADRUPLE",
+      "fGuestList": [],
+      "fDescription": "Room for four",
+      "fOccupied": false,
+      "fCostPerNight": 5000.0
+    }
+  ]
+]

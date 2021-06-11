@@ -1,8 +1,5 @@
 package com.hotelenterprise.login;
 
-import com.hotelenterprise.menu.Colours;
-import com.hotelenterprise.menu.Menu;
-
 public class UsersLog {
 /*
     private String username;
