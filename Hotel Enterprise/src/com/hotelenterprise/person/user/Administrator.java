@@ -284,32 +284,6 @@ public class Administrator extends Employee implements Serializable, INewReserva
         Hotel hotel = new Hotel();
 
         System.out.println("Name: ");
-        emple.setName(Console.read());
-        System.out.println("Last Name: ");
-        emple.setLastname(Console.read());
-        System.out.println("Doc Type: ");
-        System.out.println("1.- Document. 2.-Passport 3.-Roling Libret");
-        emple.setDocType(Console.read());
-        System.out.println("Document Number: ");
-        emple.setDocNumber(Console.read());
-        System.out.println("Telephone Number: ");
-        emple.setTelephone(Console.read());
-        System.out.println("Address: ");
-        Address address = new Address();
-        address.setStreet(Console.read());
-        System.out.println("E-mail: ");
-        emple.seteMail(Console.read());
-        System.out.println("Permissions");
-        System.out.println("1.- Administrator. 2.-Receptionist.");
-        emple.setPermissions(Console.read());
-        System.out.println("User: ");
-        emple.setUserName(Console.read());
-        System.out.println("Paswword: ");
-        emple.setPassword(Console.read());
-        emple.setStatus(true);
-
-/*
-        System.out.println("Name: ");
         admin.setName(Console.read());
         System.out.println("Last Name: ");
         admin.setLastname(Console.read());
@@ -333,9 +307,9 @@ public class Administrator extends Employee implements Serializable, INewReserva
         System.out.println("Paswword: ");
         admin.setPassword(Console.read());
         admin.setStatus(true);
-*/
- //       hotel.setEmployee(emple);
-//        hotel.setAdministrator(admin);
+
+
+        hotel.setAdministrator(admin);
         System.out.println("Succes creating new Administrator.");
         System.out.println("\n\n");
     }
