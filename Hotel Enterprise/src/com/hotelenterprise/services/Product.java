@@ -1,19 +1,21 @@
 package com.hotelenterprise.services;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Product implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     String productName;
-    String productDescription;
     double productPrice;
 
     public Product() {
     }
 
-    public Product(String productName, String productDescription, double productPrice) {
+    public Product(String productName, double productPrice) {
 
         this.productName = productName;
-        this.productDescription = productDescription;
+
         this.productPrice = productPrice;
     }
 
@@ -23,14 +25,6 @@ public class Product implements Serializable {
 
     public void setProductName(String productName) {
         this.productName = productName;
-    }
-
-    public String getProductDescription() {
-        return productDescription;
-    }
-
-    public void setProductDescription(String productDescription) {
-        this.productDescription = productDescription;
     }
 
     public double getProductPrice() {
@@ -45,7 +39,6 @@ public class Product implements Serializable {
     public String toString() {
         return "Product{" +
                 ", productName='" + productName + '\'' +
-                ", productDescription='" + productDescription + '\'' +
                 ", productPrice=" + productPrice +
                 '}';
     }

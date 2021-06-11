@@ -12,19 +12,21 @@ import com.hotelenterprise.person.client.Client;
 import com.hotelenterprise.person.client.Guest;
 import com.hotelenterprise.utilities.Console;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class Recepcionist extends Employee implements Serializable, INewReservations {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     private String Schedule;
     private List<Reservation> salesRecord = new ArrayList<>();
 
-    public Recepcionist(){
+    public Recepcionist() {
 
     }
 
@@ -58,10 +60,10 @@ public class Recepcionist extends Employee implements Serializable, INewReservat
         Reservation reservation = new Reservation();
         Client client = new Client();
         reservation.setReservationNumber(hotel.lastReservationNumber());
-       // System.out.println("Ingrese la fecha de check in (Formato aaaa-mm-dd)");
+        // System.out.println("Ingrese la fecha de check in (Formato aaaa-mm-dd)");
         //String date = Console.read();
 
-       // reservation.setCheckIn(LocalDate.parse(date));
+        // reservation.setCheckIn(LocalDate.parse(date));
         //System.out.println("Ingrese la fecha de check out (Formato aaaa-mm-dd)");
         //date = Console.read();
         //reservation.setCheckOut(LocalDate.parse(date));
@@ -73,8 +75,9 @@ public class Recepcionist extends Employee implements Serializable, INewReservat
 
 
     }
+
     @Override
-    public Client uploadClientInformation(){
+    public Client uploadClientInformation() {
 
         DocumentType doc = new DocumentType();
         Client client = new Client();
@@ -98,8 +101,9 @@ public class Recepcionist extends Employee implements Serializable, INewReservat
 
         return client;
     }
+
     @Override
-    public Address setAddressInformation(){
+    public Address setAddressInformation() {
         Address address = new Address();
         System.out.println("Ciudad");
         address.setCity(Console.read());
@@ -112,8 +116,9 @@ public class Recepcionist extends Employee implements Serializable, INewReservat
         System.out.println("Piso");
         address.setFloor(Console.read());
 
-        return  address;
+        return address;
     }
+
     @Override
     public List<Guest> uploadGuestInformation() {
         //DocumentType doc = new DocumentType();
@@ -137,31 +142,31 @@ public class Recepcionist extends Employee implements Serializable, INewReservat
 
         return guestList;
     }
+
     @Override
     public void loadingRooms(Client client, Reservation reservation) {/// ver si le mandamos la lista de clientes par asignar
         List<Room> roomList = new ArrayList<>();
-        List<Guest> guestToRemove = client.getGuestList();;
+        List<Guest> guestToRemove = client.getGuestList();
+        ;
         Guest cGuest = new Guest();
         int choice = 0;
         System.out.println("Ingrese el total de habitaciones para cargar");
         int rooms = Console.readInteger();
         if (client != null) {
 
-                for (int i = 1; i < rooms; i++) {
-                    Room room = new Room();
-                    System.out.println("Habitaciones cargadas: " + i + " de " + rooms);
-                    System.out.println("Elija el tipo de habitacion");
-                    System.out.println("1: SINGLE \n 2: DOBLE: \n 3: TRIPLE: \n 4: CUADRUPLE: \n 0 terminar la carga");
-                    choice = Console.readInteger();
-                    loadingSingleRoom(choice, guestToRemove,room);
-                    roomList.add(room);
-                    guestToRemove.remove(choice);
-                }
+            for (int i = 1; i < rooms; i++) {
+                Room room = new Room();
+                System.out.println("Habitaciones cargadas: " + i + " de " + rooms);
+                System.out.println("Elija el tipo de habitacion");
+                System.out.println("1: SINGLE \n 2: DOBLE: \n 3: TRIPLE: \n 4: CUADRUPLE: \n 0 terminar la carga");
+                choice = Console.readInteger();
+                loadingSingleRoom(choice, guestToRemove, room);
+                roomList.add(room);
             }
-
-
+        }
         reservation.setTypesOfRooms(roomList);
     }
+
     @Override
     public void loadingSingleRoom(int choice, List<Guest> guestToRemove, Room room) {
 
@@ -170,15 +175,18 @@ public class Recepcionist extends Employee implements Serializable, INewReservat
             room.setDescription(RoomType.SINGLE);
             showRoomNumbers();
             room.setRoomNumber(Console.readInteger());
-            guestToRemove = loadingGuestToRooms(guestToRemove, 1, room);
+            loadingGuestToRooms(guestToRemove, 1, room);
             room.setCostPerNight(RoomPrice.SINGLE);
 
         } else if (choice == 2) {
             room.setTypeOfRoom(TypeOfRoom.DOUBLE);
             room.setDescription(RoomType.DOUBLE);
+            System.out.println("HAbitaciones: ");
             showRoomNumbers();
             room.setRoomNumber(Console.readInteger());
-            guestToRemove = loadingGuestToRooms(guestToRemove, 2, room);
+            System.out.println("Loading single room test");
+            loadingGuestToRooms(guestToRemove, 2, room);
+
             room.setCostPerNight(RoomPrice.DOUBLE);
 
         } else if (choice == 3) {
@@ -186,22 +194,53 @@ public class Recepcionist extends Employee implements Serializable, INewReservat
             room.setDescription(RoomType.TRIPLE);
             showRoomNumbers();
             room.setRoomNumber(Console.readInteger());
-            guestToRemove = loadingGuestToRooms(guestToRemove, 3, room);
+            loadingGuestToRooms(guestToRemove, 3, room);
             room.setCostPerNight(RoomPrice.TRIPLE);
         } else if (choice == 4) {
             room.setTypeOfRoom(TypeOfRoom.QUADRUPLE);
             room.setDescription(RoomType.QUADRUPLE);
             showRoomNumbers();
             room.setRoomNumber(Console.readInteger());
-            guestToRemove = loadingGuestToRooms(guestToRemove, 4, room);
+            loadingGuestToRooms(guestToRemove, 4, room);
             room.setCostPerNight(RoomPrice.QUADRUPLE);
         } else {
             System.out.println("Valor ingresado invalido");
 
         }
+        System.out.println("Corte maximo!");
 
 
     }
+
+    @Override
+    public void loadingGuestToRooms(List<Guest> guestToRemove, int numOfGuest, Room room) {
+        int choice = 0;
+        for (int i = 0; i < numOfGuest; i++) {
+            showGuest(guestToRemove);
+            System.out.println("Elija a uno de los pasajeros pasa asignar a la habitacion");
+            choice = Console.readInteger();
+            Guest guest = new Guest();
+            guest = guestToRemove.get(choice);
+            room.setGuestList(guest);
+            guestToRemove.remove(choice);
+        }
+
+    }
+
+    @Override
+    public void showGuest(List<Guest> guestList) {
+        int i = 1;
+        for (Guest g : guestList) {
+            System.out.println(i + " : " + g.getName() + " " + g.getLastname());
+            i++;
+        }
+    }
+
+    @Override
+    public void cancelReservations(Hotel hotel) {
+
+    }
+
     @Override
     public String chooseTypeOfDocument() {
         int choice = 0;
@@ -220,40 +259,17 @@ public class Recepcionist extends Employee implements Serializable, INewReservat
             } else {
                 System.out.println("Opcion no valida");
             }
-        }while (choice!=1 || choice !=2 || choice!=3);
+        } while (choice != 1 || choice != 2 || choice != 3);
 
         return null;
     }
+
     @Override
-    public void showRoomNumbers(){
+    public void showRoomNumbers() {
 
         System.out.println("101 \t 102 \t 103 \t 104 \t 105 \t 106 \t 107");
         System.out.println("201 \t 202 \t 203 \t 204 \t 205 \t 206 \t 207");
         System.out.println("301 \t 302 \t 303 \t 304 \t 305 \t 306 \t 307");
-
-    }
-    @Override
-    public List<Guest> loadingGuestToRooms(List<Guest> guestList, int numOfGuest, Room room){
-            int choice=0;
-            for(int i=0; i< numOfGuest; i++) {
-                showGuest(guestList);
-                System.out.println("Elija a uno de los pasajeros pasa asignar a la habitacion");
-                choice = Console.readInteger();
-                room.setGuestList(guestList.get(choice));
-            }
-        return guestList;
-    }
-    @Override
-    public void showGuest(List<Guest> guestList){
-        int i=1;
-        for(Guest g: guestList) {
-            System.out.println(i + " : " + g.getName() + " " + g.getLastname());
-            i++;
-        }
-    }
-
-    @Override
-    public void cancelReservations(Hotel hotel) {
 
     }
 

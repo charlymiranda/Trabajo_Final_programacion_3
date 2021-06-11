@@ -4,11 +4,15 @@ import com.hotelenterprise.functionality.DocumentType;
 import com.hotelenterprise.person.Person;
 import com.hotelenterprise.utilities.Console;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Client extends Person implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
     private int idReservation;
     private int roomNumber;
     private List<Guest> guestList = new ArrayList<>();

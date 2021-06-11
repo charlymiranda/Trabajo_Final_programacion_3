@@ -13,12 +13,15 @@ import com.hotelenterprise.person.client.Client;
 import com.hotelenterprise.person.client.Guest;
 import com.hotelenterprise.utilities.Console;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Employee extends Person implements Serializable {
+public class Employee extends Person implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     private int idEmployee;
     private String permissions;
     private String userName;
