@@ -28,7 +28,7 @@ public class UsersLog {
             System.out.println("\n\033[33mWelcome allmighty " +  username +color.b);
 
 
-            menu.menuAdministrador();
+          //  menu.menuAdministrador();
 
             return true;
 
@@ -38,21 +38,21 @@ public class UsersLog {
 
             System.out.println("\n\033[33mWelcome powerfull " + username +color.b);
 
-            menu.menuAdministrador();
+         //   menu.menuAdministrador();
 
           return true;
 
         }else if((username.equalsIgnoreCase(accounts[2][0])) && (password.equalsIgnoreCase(accounts[2][1]))) {
 
             System.out.println("\n\033[32mWelcome slave of the sector 7G " +  username +color.b);
-            menu.menuReceptionist();
+         //   menu.menuReceptionist();
 
             return true;
         }else if((username.equalsIgnoreCase(accounts[3][0])) && (password.equalsIgnoreCase(accounts[3][1]))) {
 
             System.out.println("\n\033[32mWelcome insect of the sector 6W " + username +color.b);
 
-            menu.menuReceptionist();
+         //   menu.menuReceptionist();
 
             return true;
 

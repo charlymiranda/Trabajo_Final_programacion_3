@@ -16,6 +16,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Administrator extends Employee implements Serializable, INewReservations {
 
@@ -23,9 +24,9 @@ public class Administrator extends Employee implements Serializable, INewReserva
 
     }
 
-    public Administrator(String name, String lastname, String docType, String docNumber, String telephone, Address address, String eMail, int idEmployee,
+    public Administrator(String name, String lastname, String docType, String docNumber, String telephone, Address address, String eMail,
                          String permissions, String userName, String password, boolean status) {
-        super(name, lastname, docType, docNumber, telephone, address, eMail, idEmployee, permissions, userName, password, status);
+        super(name, lastname, docType, docNumber, telephone, address, eMail, permissions, userName, password, status);
     }
 
 
@@ -275,5 +276,117 @@ public class Administrator extends Employee implements Serializable, INewReserva
     public String toString() {
         return "Administrator{}" + super.toString();
     }
+
+    public void createAdministrator()  {
+
+        Administrator admin = new Administrator();
+        Employee emple = new Employee();
+        Hotel hotel = new Hotel();
+
+        System.out.println("Name: ");
+        emple.setName(Console.read());
+        System.out.println("Last Name: ");
+        emple.setLastname(Console.read());
+        System.out.println("Doc Type: ");
+        System.out.println("1.- Document. 2.-Passport 3.-Roling Libret");
+        emple.setDocType(Console.read());
+        System.out.println("Document Number: ");
+        emple.setDocNumber(Console.read());
+        System.out.println("Telephone Number: ");
+        emple.setTelephone(Console.read());
+        System.out.println("Address: ");
+        Address address = new Address();
+        address.setStreet(Console.read());
+        System.out.println("E-mail: ");
+        emple.seteMail(Console.read());
+        System.out.println("Permissions");
+        System.out.println("1.- Administrator. 2.-Receptionist.");
+        emple.setPermissions(Console.read());
+        System.out.println("User: ");
+        emple.setUserName(Console.read());
+        System.out.println("Paswword: ");
+        emple.setPassword(Console.read());
+        emple.setStatus(true);
+
+/*
+        System.out.println("Name: ");
+        admin.setName(Console.read());
+        System.out.println("Last Name: ");
+        admin.setLastname(Console.read());
+        System.out.println("Doc Type: ");
+        System.out.println("1.- Document. 2.-Passport 3.-Roling Libret");
+        admin.setDocType(Console.read());
+        System.out.println("Document Number: ");
+        admin.setDocNumber(Console.read());
+        System.out.println("Telephone Number: ");
+        admin.setTelephone(Console.read());
+        System.out.println("Address: ");
+        Address address = new Address();
+        address.setStreet(Console.read());
+        System.out.println("E-mail: ");
+        admin.seteMail(Console.read());
+        System.out.println("Permissions");
+        System.out.println("1.- Administrator. 2.-Receptionist.");
+        admin.setPermissions(Console.read());
+        System.out.println("User: ");
+        admin.setUserName(Console.read());
+        System.out.println("Paswword: ");
+        admin.setPassword(Console.read());
+        admin.setStatus(true);
+*/
+ //       hotel.setEmployee(emple);
+//        hotel.setAdministrator(admin);
+        System.out.println("Succes creating new Administrator.");
+        System.out.println("\n\n");
+    }
+
+
+    public void createRecepcionist()  {
+
+        Recepcionist rece = new Recepcionist();
+        Hotel hotel = new Hotel();
+
+        System.out.println("Name: ");
+        rece.setName(Console.read());
+        System.out.println("Last Name: ");
+        rece.setLastname(Console.read());
+        System.out.println("Doc Type: ");
+        System.out.println("1.- Document. 2.-Passport 3.-Roling Libret");
+        rece.setDocType(Console.read());
+        System.out.println("Document Number: ");
+        rece.setDocNumber(Console.read());
+        System.out.println("Telephone Number: ");
+        rece.setTelephone(Console.read());
+        System.out.println("Address: ");
+        Address address = new Address();
+        address.setStreet(Console.read());
+        System.out.println("E-mail: ");
+        rece.seteMail(Console.read());
+        System.out.println("Permissions");
+        System.out.println("1.- Administrator. 2.-Receptionist.");
+        rece.setPermissions(Console.read());
+        System.out.println("User: ");
+        rece.setUserName(Console.read());
+        System.out.println("Paswword: ");
+        rece.setPassword(Console.read());
+        rece.setStatus(true);
+
+        hotel.setRecepcionist(rece);
+        System.out.println("Succes creating new Recepcionist.");
+        System.out.println("\n\n");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

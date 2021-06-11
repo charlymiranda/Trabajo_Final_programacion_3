@@ -16,9 +16,9 @@ public final class RoomPrice {
 
         Colours color = new Colours();
 
-        System.out.println("\33[33m1." + color.b + " Single" +
-                "\n\33[33m2." + color.b + " Double" +
-                "\n\33[33m3." + color.b + " Triple" +
-                "\n\33[33m4." + color.b + " Quadruple");
+        System.out.println("\33[33m1.-" + color.b + " Single" +
+                "\n\33[33m2.-" + color.b + " Double" +
+                "\n\33[33m3.-" + color.b + " Triple" +
+                "\n\33[33m4.-" + color.b + " Quadruple");
     }
 }

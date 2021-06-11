@@ -20,14 +20,14 @@ public final class PayType {
         Colours color = new Colours();
 
         System.out.println
-                          ("\33[33m1." + color.b + "Cash" +
-                         "\n\33[33m2." + color.b + "Mercado Pago" +
-                         "\n\33[33m3." + color.b + "Bank Transfer" +
-                         "\n\33[33m4." + color.b + "Debit Cardr" +
-                         "\n\33[33m5." + color.b + "Credit Card" +
-                         "\n\33[33m6." + color.b + "Check" +
-                         "\n\33[33m7." + color.b + "Electronic Check" +
-                         "\n\33[33m8." + color.b + "Cripto Currencies" );
+                          ("\33[33m1.-" + color.b + " Cash" +
+                         "\n\33[33m2.-" + color.b + " Mercado Pago" +
+                         "\n\33[33m3.-" + color.b + " Bank Transfer" +
+                         "\n\33[33m4.-" + color.b + " Debit Cardr" +
+                         "\n\33[33m5.-" + color.b + " Credit Card" +
+                         "\n\33[33m6.-" + color.b + " Check" +
+                         "\n\33[33m7.-" + color.b + " Electronic Check" +
+                         "\n\33[33m8.-" + color.b + " Cripto Currencies" );
 
     }
 }

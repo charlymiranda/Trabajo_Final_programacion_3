@@ -17,9 +17,10 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
-public abstract class Employee extends Person implements Serializable {
-    private int idEmployee;
+public class Employee extends Person implements Serializable {
+    private UUID idEmployee = UUID.randomUUID();
     private String permissions;
     private String userName;
     private String password;
@@ -29,21 +30,16 @@ public abstract class Employee extends Person implements Serializable {
     public Employee() {
     }
 
-    public Employee(String name, String lastname, String docType, String docNumber, String telephone, Address address, String eMail, int idEmployee, String permissions, String userName, String password, boolean status) {
+    public Employee(String name, String lastname, String docType, String docNumber, String telephone, Address address, String eMail, String permissions, String userName, String password, boolean status) {
         super(name, lastname, docType, docNumber, telephone, address, eMail);
-        this.idEmployee = idEmployee;
         this.permissions = permissions;
         this.userName = userName;
         this.password = password;
         this.status = status;
     }
 
-    public int getIdEmployee() {
+    public UUID getIdEmployee() {
         return idEmployee;
-    }
-
-    public void setIdEmployee(int idEmployee) {
-        this.idEmployee = idEmployee;
     }
 
     public String getPermissions() {
