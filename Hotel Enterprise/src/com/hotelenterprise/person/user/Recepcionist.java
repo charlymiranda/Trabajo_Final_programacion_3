@@ -239,6 +239,20 @@ public class Recepcionist extends Employee implements Serializable, INewReservat
 
     }
 
+    @Override
+    public Reservation searchReservation(Hotel hotel, String DNI) {
+
+        for (Reservation reserv : hotel.getReservationList()) {
+            if (reserv.getClient().getDocNumber().equals(DNI)) {
+                return reserv;
+            }
+        }
+        return null;
+    }
+
+
+
+    @Override
     public int searchReservation(List<Reservation> reservations, String dni) {
         for (Reservation r : reservations) {
             if (r.getClient().getDocNumber().equals(dni)) {

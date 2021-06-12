@@ -1,0 +1,44 @@
+[
+  [
+    {
+      "idEmployee": "0b3e71c8-a95c-4302-b89f-cec34faf582f",
+      "permissions": "1",
+      "userName": "charly",
+      "password": "man",
+      "status": true,
+      "name": "Charly",
+      "lastname": "Miranda",
+      "docType": "DNI",
+      "docNumber": "34473301",
+      "telephone": "156096360",
+      "address": {
+        "city": "Mar del plata",
+        "street": "Dolores",
+        "streetNumber": "961",
+        "departament": "no",
+        "floor": "no"
+      },
+      "eMail": "mirandacarlosmi@gmil.com"
+    },
+    {
+      "idEmployee": "d8b1372c-c336-4700-8da7-842aee8c0a21",
+      "permissions": "1",
+      "userName": "Eze",
+      "password": "man",
+      "status": true,
+      "name": "Ezequiel",
+      "lastname": "Jaime",
+      "docType": "DNI",
+      "docNumber": "28373301",
+      "telephone": "156096360",
+      "address": {
+        "city": "Mar del plata",
+        "street": "Dolores",
+        "streetNumber": "961",
+        "departament": "no",
+        "floor": "no"
+      },
+      "eMail": "ezequieljaime@mail.com"
+    }
+  ]
+]

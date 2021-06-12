@@ -1,0 +1,567 @@
+[
+  [
+    {
+      "reservationDate": {
+        "year": 2021,
+        "month": 6,
+        "day": 11
+      },
+      "reservationNumber": 1,
+      "client": {
+        "idReservation": 15,
+        "roomNumber": 101,
+        "guestList": [],
+        "name": "Carlos",
+        "lastname": "Miranda",
+        "docType": "DNI",
+        "docNumber": "34473301",
+        "telephone": "156096360",
+        "address": {
+          "city": "Mar del plata",
+          "street": "Dolores",
+          "streetNumber": "961",
+          "departament": "false",
+          "floor": "False"
+        },
+        "eMail": "mirandacarlosmi@gmail.com"
+      },
+      "checkIn": {
+        "year": 2021,
+        "month": 6,
+        "day": 17
+      },
+      "checkOut": {
+        "year": 2021,
+        "month": 6,
+        "day": 25
+      },
+      "numberOfPassengers": 2,
+      "numberOfRooms": 1,
+      "typesOfRooms": [
+        {
+          "fRoomNumber": 101,
+          "ftypeRoom": "SINGLE",
+          "fGuestList": [],
+          "fDescription": "Room for one",
+          "fOccupied": false,
+          "fCostPerNight": 2000.0
+        }
+      ],
+      "totalCost": 3000.0
+    },
+    {
+      "reservationDate": {
+        "year": 2021,
+        "month": 6,
+        "day": 11
+      },
+      "reservationNumber": 2,
+      "client": {
+        "idReservation": 15,
+        "roomNumber": 101,
+        "guestList": [],
+        "name": "Carlos",
+        "lastname": "Miranda",
+        "docType": "DNI",
+        "docNumber": "34473301",
+        "telephone": "156096360",
+        "address": {
+          "city": "Mar del plata",
+          "street": "Dolores",
+          "streetNumber": "961",
+          "departament": "false",
+          "floor": "False"
+        },
+        "eMail": "mirandacarlosmi@gmail.com"
+      },
+      "checkIn": {
+        "year": 2021,
+        "month": 6,
+        "day": 20
+      },
+      "checkOut": {
+        "year": 2021,
+        "month": 6,
+        "day": 26
+      },
+      "numberOfPassengers": 4,
+      "numberOfRooms": 2,
+      "typesOfRooms": [
+        {
+          "fRoomNumber": 102,
+          "ftypeRoom": "DOUBLE",
+          "fGuestList": [],
+          "fDescription": "Room for two",
+          "fOccupied": false,
+          "fCostPerNight": 3000.0
+        },
+        {
+          "fRoomNumber": 103,
+          "ftypeRoom": "DOUBLE",
+          "fGuestList": [],
+          "fDescription": "Room for two",
+          "fOccupied": false,
+          "fCostPerNight": 3000.0
+        }
+      ],
+      "totalCost": 6000.0
+    },
+    {
+      "reservationDate": {
+        "year": 2021,
+        "month": 6,
+        "day": 11
+      },
+      "reservationNumber": 3,
+      "client": {
+        "idReservation": 15,
+        "roomNumber": 101,
+        "guestList": [],
+        "name": "Carlos",
+        "lastname": "Miranda",
+        "docType": "DNI",
+        "docNumber": "34473301",
+        "telephone": "156096360",
+        "address": {
+          "city": "Mar del plata",
+          "street": "Dolores",
+          "streetNumber": "961",
+          "departament": "false",
+          "floor": "False"
+        },
+        "eMail": "mirandacarlosmi@gmail.com"
+      },
+      "checkIn": {
+        "year": 2021,
+        "month": 6,
+        "day": 21
+      },
+      "checkOut": {
+        "year": 2021,
+        "month": 6,
+        "day": 27
+      },
+      "numberOfPassengers": 3,
+      "numberOfRooms": 1,
+      "typesOfRooms": [
+        {
+          "fRoomNumber": 104,
+          "ftypeRoom": "DOUBLE",
+          "fGuestList": [],
+          "fDescription": "Room for two",
+          "fOccupied": false,
+          "fCostPerNight": 3000.0
+        }
+      ],
+      "totalCost": 3000.0
+    },
+    {
+      "reservationDate": {
+        "year": 2021,
+        "month": 6,
+        "day": 11
+      },
+      "reservationNumber": 4,
+      "client": {
+        "idReservation": 15,
+        "roomNumber": 101,
+        "guestList": [],
+        "name": "Carlos",
+        "lastname": "Miranda",
+        "docType": "DNI",
+        "docNumber": "34473301",
+        "telephone": "156096360",
+        "address": {
+          "city": "Mar del plata",
+          "street": "Dolores",
+          "streetNumber": "961",
+          "departament": "false",
+          "floor": "False"
+        },
+        "eMail": "mirandacarlosmi@gmail.com"
+      },
+      "checkIn": {
+        "year": 2021,
+        "month": 6,
+        "day": 18
+      },
+      "checkOut": {
+        "year": 2021,
+        "month": 6,
+        "day": 25
+      },
+      "numberOfPassengers": 2,
+      "numberOfRooms": 1,
+      "typesOfRooms": [
+        {
+          "fRoomNumber": 105,
+          "ftypeRoom": "DOUBLE",
+          "fGuestList": [],
+          "fDescription": "Room for two",
+          "fOccupied": false,
+          "fCostPerNight": 3000.0
+        }
+      ],
+      "totalCost": 3000.0
+    },
+    {
+      "reservationDate": {
+        "year": 2021,
+        "month": 6,
+        "day": 11
+      },
+      "reservationNumber": 5,
+      "client": {
+        "idReservation": 15,
+        "roomNumber": 101,
+        "guestList": [],
+        "name": "Carlos",
+        "lastname": "Miranda",
+        "docType": "DNI",
+        "docNumber": "34473301",
+        "telephone": "156096360",
+        "address": {
+          "city": "Mar del plata",
+          "street": "Dolores",
+          "streetNumber": "961",
+          "departament": "false",
+          "floor": "False"
+        },
+        "eMail": "mirandacarlosmi@gmail.com"
+      },
+      "checkIn": {
+        "year": 2021,
+        "month": 6,
+        "day": 19
+      },
+      "checkOut": {
+        "year": 2021,
+        "month": 6,
+        "day": 28
+      },
+      "numberOfPassengers": 1,
+      "numberOfRooms": 1,
+      "typesOfRooms": [
+        {
+          "fRoomNumber": 106,
+          "ftypeRoom": "TRIPLE",
+          "fGuestList": [],
+          "fDescription": "Room for three",
+          "fOccupied": false,
+          "fCostPerNight": 4000.0
+        }
+      ],
+      "totalCost": 3000.0
+    },
+    {
+      "reservationDate": {
+        "year": 2021,
+        "month": 6,
+        "day": 11
+      },
+      "reservationNumber": 6,
+      "client": {
+        "idReservation": 15,
+        "roomNumber": 101,
+        "guestList": [],
+        "name": "Carlos",
+        "lastname": "Miranda",
+        "docType": "DNI",
+        "docNumber": "34473301",
+        "telephone": "156096360",
+        "address": {
+          "city": "Mar del plata",
+          "street": "Dolores",
+          "streetNumber": "961",
+          "departament": "false",
+          "floor": "False"
+        },
+        "eMail": "mirandacarlosmi@gmail.com"
+      },
+      "checkIn": {
+        "year": 2021,
+        "month": 6,
+        "day": 23
+      },
+      "checkOut": {
+        "year": 2021,
+        "month": 6,
+        "day": 26
+      },
+      "numberOfPassengers": 3,
+      "numberOfRooms": 2,
+      "typesOfRooms": [
+        {
+          "fRoomNumber": 107,
+          "ftypeRoom": "QUADRUPLE",
+          "fGuestList": [],
+          "fDescription": "Room for four",
+          "fOccupied": false,
+          "fCostPerNight": 5000.0
+        },
+        {
+          "fRoomNumber": 201,
+          "ftypeRoom": "SINGLE",
+          "fGuestList": [],
+          "fDescription": "Room for one",
+          "fOccupied": false,
+          "fCostPerNight": 2000.0
+        }
+      ],
+      "totalCost": 6000.0
+    },
+    {
+      "reservationDate": {
+        "year": 2021,
+        "month": 6,
+        "day": 11
+      },
+      "reservationNumber": 7,
+      "client": {
+        "idReservation": 15,
+        "roomNumber": 101,
+        "guestList": [],
+        "name": "Carlos",
+        "lastname": "Miranda",
+        "docType": "DNI",
+        "docNumber": "34473301",
+        "telephone": "156096360",
+        "address": {
+          "city": "Mar del plata",
+          "street": "Dolores",
+          "streetNumber": "961",
+          "departament": "false",
+          "floor": "False"
+        },
+        "eMail": "mirandacarlosmi@gmail.com"
+      },
+      "checkIn": {
+        "year": 2021,
+        "month": 6,
+        "day": 24
+      },
+      "checkOut": {
+        "year": 2021,
+        "month": 6,
+        "day": 29
+      },
+      "numberOfPassengers": 4,
+      "numberOfRooms": 2,
+      "typesOfRooms": [
+        {
+          "fRoomNumber": 202,
+          "ftypeRoom": "DOUBLE",
+          "fGuestList": [],
+          "fDescription": "Room for two",
+          "fOccupied": false,
+          "fCostPerNight": 3000.0
+        },
+        {
+          "fRoomNumber": 203,
+          "ftypeRoom": "DOUBLE",
+          "fGuestList": [],
+          "fDescription": "Room for two",
+          "fOccupied": false,
+          "fCostPerNight": 3000.0
+        }
+      ],
+      "totalCost": 6000.0
+    },
+    {
+      "reservationDate": {
+        "year": 2021,
+        "month": 6,
+        "day": 11
+      },
+      "reservationNumber": 8,
+      "client": {
+        "idReservation": 15,
+        "roomNumber": 101,
+        "guestList": [],
+        "name": "Carlos",
+        "lastname": "Miranda",
+        "docType": "DNI",
+        "docNumber": "34473301",
+        "telephone": "156096360",
+        "address": {
+          "city": "Mar del plata",
+          "street": "Dolores",
+          "streetNumber": "961",
+          "departament": "false",
+          "floor": "False"
+        },
+        "eMail": "mirandacarlosmi@gmail.com"
+      },
+      "checkIn": {
+        "year": 2021,
+        "month": 6,
+        "day": 20
+      },
+      "checkOut": {
+        "year": 2021,
+        "month": 6,
+        "day": 30
+      },
+      "numberOfPassengers": 2,
+      "numberOfRooms": 1,
+      "typesOfRooms": [
+        {
+          "fRoomNumber": 204,
+          "ftypeRoom": "DOUBLE",
+          "fGuestList": [],
+          "fDescription": "Room for two",
+          "fOccupied": false,
+          "fCostPerNight": 3000.0
+        }
+      ],
+      "totalCost": 3000.0
+    },
+    {
+      "reservationDate": {
+        "year": 2021,
+        "month": 6,
+        "day": 11
+      },
+      "reservationNumber": 9,
+      "client": {
+        "idReservation": 15,
+        "roomNumber": 101,
+        "guestList": [],
+        "name": "Carlos",
+        "lastname": "Miranda",
+        "docType": "DNI",
+        "docNumber": "34473301",
+        "telephone": "156096360",
+        "address": {
+          "city": "Mar del plata",
+          "street": "Dolores",
+          "streetNumber": "961",
+          "departament": "false",
+          "floor": "False"
+        },
+        "eMail": "mirandacarlosmi@gmail.com"
+      },
+      "checkIn": {
+        "year": 2021,
+        "month": 6,
+        "day": 16
+      },
+      "checkOut": {
+        "year": 2021,
+        "month": 6,
+        "day": 26
+      },
+      "numberOfPassengers": 3,
+      "numberOfRooms": 1,
+      "typesOfRooms": [
+        {
+          "fRoomNumber": 205,
+          "ftypeRoom": "DOUBLE",
+          "fGuestList": [],
+          "fDescription": "Room for two",
+          "fOccupied": false,
+          "fCostPerNight": 3000.0
+        }
+      ],
+      "totalCost": 3000.0
+    },
+    {
+      "reservationDate": {
+        "year": 2021,
+        "month": 6,
+        "day": 11
+      },
+      "reservationNumber": 11,
+      "client": {
+        "idReservation": 15,
+        "roomNumber": 101,
+        "guestList": [],
+        "name": "Carlos",
+        "lastname": "Miranda",
+        "docType": "DNI",
+        "docNumber": "34473301",
+        "telephone": "156096360",
+        "address": {
+          "city": "Mar del plata",
+          "street": "Dolores",
+          "streetNumber": "961",
+          "departament": "false",
+          "floor": "False"
+        },
+        "eMail": "mirandacarlosmi@gmail.com"
+      },
+      "checkIn": {
+        "year": 2021,
+        "month": 6,
+        "day": 23
+      },
+      "checkOut": {
+        "year": 2021,
+        "month": 6,
+        "day": 28
+      },
+      "numberOfPassengers": 1,
+      "numberOfRooms": 1,
+      "typesOfRooms": [
+        {
+          "fRoomNumber": 206,
+          "ftypeRoom": "TRIPLE",
+          "fGuestList": [],
+          "fDescription": "Room for three",
+          "fOccupied": false,
+          "fCostPerNight": 4000.0
+        }
+      ],
+      "totalCost": 3000.0
+    },
+    {
+      "reservationDate": {
+        "year": 2021,
+        "month": 6,
+        "day": 11
+      },
+      "reservationNumber": 12,
+      "client": {
+        "idReservation": 15,
+        "roomNumber": 101,
+        "guestList": [],
+        "name": "Carlos",
+        "lastname": "Miranda",
+        "docType": "DNI",
+        "docNumber": "34473301",
+        "telephone": "156096360",
+        "address": {
+          "city": "Mar del plata",
+          "street": "Dolores",
+          "streetNumber": "961",
+          "departament": "false",
+          "floor": "False"
+        },
+        "eMail": "mirandacarlosmi@gmail.com"
+      },
+      "checkIn": {
+        "year": 2021,
+        "month": 6,
+        "day": 22
+      },
+      "checkOut": {
+        "year": 2021,
+        "month": 6,
+        "day": 27
+      },
+      "numberOfPassengers": 2,
+      "numberOfRooms": 1,
+      "typesOfRooms": [
+        {
+          "fRoomNumber": 207,
+          "ftypeRoom": "QUADRUPLE",
+          "fGuestList": [],
+          "fDescription": "Room for four",
+          "fOccupied": false,
+          "fCostPerNight": 5000.0
+        }
+      ],
+      "totalCost": 3000.0
+    }
+  ]
+]

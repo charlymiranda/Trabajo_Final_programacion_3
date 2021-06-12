@@ -30,6 +30,9 @@ public class Menu {
 
         if (object instanceof Administrator) {
 
+            System.out.println("\n\033[33mWelcome Allmighty " +  ((Administrator) object).getName() +color.b);
+
+
             int aux = 0;
             //Mientras la opción elegida sea 0, preguntamos al usuario
             while (select != 0) {
@@ -49,7 +52,7 @@ public class Menu {
                                     "\n\33[33m8.-" + color.b + "  Backup System" + color.b +
                                     "\n\33[33m9.-" + color.b + "  Change Permisions" + color.b +
                                     "\n\33[33m10.-" + color.b + " Set Prices" + color.b +
-                                    "\n\n\33[31m0.-  If you want to rest, you can go.");
+                                    "\n\n\33[31m0.-  If you want to rest, you can go." +color.b );
 
                     select = Console.readInteger();
                     switch (select) {
@@ -63,7 +66,7 @@ public class Menu {
                             break;
                         case 3:
                             System.out.println("CHECKIN");
-
+                            admin.checkIn(hotel);
 
                             break;
                         case 4:
@@ -90,7 +93,7 @@ public class Menu {
                         case 5:
 
                             System.out.println("Charge all consumes to the room. Always offer more");
-                            System.out.println("Elija hab");
+                            System.out.println("Choose Room");
                             hotel.showRooms();
                             aux = Console.readInteger();
                             admin.chargeConsumptions(hotel, hotel.getRoomList().get(aux));
@@ -99,7 +102,7 @@ public class Menu {
 
                             System.out.println("CHECKOUT");
 
-                            f.facture();
+                            admin.checkOut(hotel);
 
                             break;
                         case 7:
@@ -111,7 +114,7 @@ public class Menu {
                             }else if(aux==2){
                                 admin.createRecepcionist(hotel);
                             }else{
-                                System.out.println("Error al elegir, no sea manco");
+                                System.out.println("Wrong choice");
                             }
 
                             break;
@@ -139,7 +142,7 @@ public class Menu {
                             System.out.println("Comeback whenever you want.");
                             break;
                         default:
-                            System.out.println("\033[31mIm trullt sorry, this option is not allowed...yet" + color.b);
+                            System.out.println("\033[31mIm trully sorry, this option is not allowed...yet" + color.b);
                             break;
                     }
 
@@ -154,7 +157,7 @@ public class Menu {
 
         } else if (object instanceof Recepcionist) {
 
-
+            System.out.println("\n\033[32mWelcome slave of the sector 7G " +  ((Recepcionist) object).getName() +color.b);
             hotel.readFromJsonFile();
             int aux2 = 0;
             //Mientras la opción elegida sea 0, preguntamos al usuario
@@ -190,6 +193,7 @@ public class Menu {
                         case 3:
 
                             System.out.println("CHECKIN");
+                            admin.checkIn(hotel);
 
                             break;
                         case 4:
@@ -217,8 +221,7 @@ public class Menu {
 
                         case 5:
                             System.out.println("Charge all consumes to the room. Always offer more");
-                            System.out.println("Charge all consumes to the room. Always offer more");
-                            System.out.println("Elija hab");
+                            System.out.println("Choose Room");
                             hotel.showRooms();
                             aux2 = Console.readInteger();
                             admin.chargeConsumptions(hotel, hotel.getRoomList().get(aux2));
@@ -228,7 +231,8 @@ public class Menu {
 
                             System.out.println("CHECKOUT");
 
-                            f.facture();
+
+                            admin.checkOut(hotel);
 
                             break;
                         case 0:
@@ -241,7 +245,7 @@ public class Menu {
 
 
                 } catch (Exception e) {
-                    System.out.println("\n\033[31mYou can choose only numbers." + color.b);
+                    System.out.println("\n\033[31mYou made a mistake. Try again." + color.b);
 
                 }
             }

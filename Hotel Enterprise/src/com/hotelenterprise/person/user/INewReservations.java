@@ -32,4 +32,8 @@ public interface INewReservations {
     void showGuest(List<Guest> guestList);
 
     void cancelReservations(Hotel hotel);
+
+    Reservation searchReservation(Hotel hotel, String DNI);
+
+    int searchReservation(List<Reservation> reservations, String dni);
 }

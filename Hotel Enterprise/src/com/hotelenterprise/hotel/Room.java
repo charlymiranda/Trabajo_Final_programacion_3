@@ -31,7 +31,7 @@ public class Room implements Serializable {
     @SerializedName("fCostPerNight")
     private double costPerNight;
     @SerializedName("fConsumptions")
-    private List<Product> consumptions;
+    private int consumptions;
 
 
     public Room() {
@@ -45,15 +45,19 @@ public class Room implements Serializable {
         this.costPerNight = costPerNight;
     }
 
-    public Room(int roomNumber, Client client, TypeOfRoom typeOfRoom, List<Guest> guestList, String description, boolean occupied,
-                double costPerNight, List<Product> consumptions) {
-        this.roomNumber = roomNumber;
+    public Room(int RoomNumber, Client client, TypeOfRoom typeOfRoom, List<Guest> guestList, String description, boolean occupied,
+                double costPerNight, int consumptions) {
+        this.roomNumber = RoomNumber;
         this.client = client;
         this.typeOfRoom = typeOfRoom;
         this.guestList = guestList;
         this.description = description;
         this.occupied = occupied;
         this.costPerNight = costPerNight;
+        this.consumptions = consumptions;
+    }
+
+    public void setConsumptions(int consumptions) {
         this.consumptions = consumptions;
     }
 
@@ -112,28 +116,28 @@ public class Room implements Serializable {
         this.costPerNight = costPerNight;
     }
 
-    public List<Product> getLoadsCharged() {
+    public int getLoadsCharged() {
         return this.consumptions;
     }
-
+/*
     public void setLoadsCharged(List<Product> loadsCharged) {
        consumptions = loadsCharged;
     }
     public void setLoadsCharged(Product product){
         consumptions.add(product);
     }
-
-    public List<Product> getConsumptions() {
+*/
+    public int getConsumptions() {
         return consumptions;
     }
-
+/*
     public void setConsumptions(List<Product> consumptions) {
         this.consumptions = consumptions;
     }
     public void setConsumptions(Product product){
         this.consumptions.add(product);
     }
-
+*/
     public void setTypeOfRoom(TypeOfRoom typeOfRoom) {
         this.typeOfRoom = typeOfRoom;
     }

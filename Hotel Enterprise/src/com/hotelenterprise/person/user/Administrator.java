@@ -1,9 +1,6 @@
 package com.hotelenterprise.person.user;
 
-import com.hotelenterprise.functionality.DocumentType;
-import com.hotelenterprise.functionality.RoomPrice;
-import com.hotelenterprise.functionality.RoomType;
-import com.hotelenterprise.functionality.TypeOfRoom;
+import com.hotelenterprise.functionality.*;
 import com.hotelenterprise.hotel.Hotel;
 import com.hotelenterprise.hotel.Reservation;
 import com.hotelenterprise.hotel.Room;
@@ -163,7 +160,7 @@ public class Administrator extends Employee implements Serializable, INewReserva
             room.setDescription(RoomType.DOUBLE);
             showRoomNumbers();
             room.setRoomNumber(Console.readInteger());
-             loadingGuestToRooms(guestToRemove, 2, room);
+            loadingGuestToRooms(guestToRemove, 2, room);
             room.setCostPerNight(RoomPrice.DOUBLE);
 
         } else if (choice == 3) {
@@ -225,8 +222,8 @@ public class Administrator extends Employee implements Serializable, INewReserva
             showGuest(guestList);
             System.out.println("Elija a uno de los pasajeros pasa asignar a la habitacion");
             choice = Console.readInteger();
-            room.setGuestList(guestList.get(choice-1));
-            guestList.remove(choice-1);
+            room.setGuestList(guestList.get(choice - 1));
+            guestList.remove(choice - 1);
         }
 
     }
@@ -259,6 +256,7 @@ public class Administrator extends Employee implements Serializable, INewReserva
 
     }
 
+    @Override
     public int searchReservation(List<Reservation> reservations, String dni) {
         for (Reservation r : reservations) {
             if (r.getClient().getDocNumber().equals(dni)) {
@@ -268,27 +266,66 @@ public class Administrator extends Employee implements Serializable, INewReserva
         return -1;
     }
 
-    public void checkIn(Hotel hotel) {
-        int choice = 0;
-        int i=0;
-        List<Reservation> reservationsTemp = new ArrayList<>();
-        for (Reservation r : hotel.getPastReservations()) {
-            if (r.getCheckIn().equals(LocalDate.now())) {
-                System.out.println("reserva: "+ i +"Check in: " + r.getCheckIn());
-                System.out.print("Cliente: " + r.getClient().getLastname());
-                reservationsTemp.add(r);
+    /*
+        public Reservation searchReservation(Hotel hotel) {
 
-                i++;
+            int i = 0;
+            List<Reservation> reservationsTemp = new ArrayList<>();
+            for (Reservation r : hotel.getPastReservations()) {
+                if (r.getCheckIn().equals(LocalDate.now())) {
+                    System.out.println("reserva: " + i + "Check in: " + r.getCheckIn());
+                    System.out.print("Cliente: " + r.getClient().getLastname());
+                    reservationsTemp.add(r);
+                    i++;
+                }
+                return r;
+            }
+
+
+
+    */
+    @Override
+    public Reservation searchReservation(Hotel hotel, String DNI) {
+
+        for (Reservation reserv : hotel.getReservationList()) {
+            if (reserv.getClient().getDocNumber().equals(DNI)) {
+                return reserv;
             }
         }
-
-        System.out.println("Elija una reserva para hacer el checkIn: ");
-        choice = Console.readInteger();
-
+        return null;
     }
 
 
-    public void searchForRoom() {
+    public void checkIn(Hotel hotel) {
+        int choice = 0;
+        int i = 0;
+        Room roomi = new Room();
+        String r;
+        Console.read();
+        System.out.println("¿Do you posses a reservation?");
+        System.out.println("y / n");
+        r = Console.read();
+        if (r.equals("y")) {
+            Reservation reserv;
+            String dni;
+
+            System.out.println("Input DNI number: ");
+            dni = Console.read();
+            reserv = searchReservation(hotel, dni);
+
+            if (reserv != null) {
+                roomi.setRoomNumber(reserv.getTypesOfRooms().get(1).getRoomNumber());
+                System.out.println(" checkIn: ");
+                roomi.setOccupied(true);
+                roomi.setClient(reserv.getClient());
+                for (Room room : reserv.getTypesOfRooms()) {
+                    hotel.setOccupiedRooms(room);
+                }
+
+            }
+
+        }
+
 
     }
 
@@ -298,7 +335,7 @@ public class Administrator extends Employee implements Serializable, INewReserva
         return "Administrator{}" + super.toString();
     }
 
-    public void createAdministrator(Hotel hotel)  {
+    public void createAdministrator(Hotel hotel) {
 
         Administrator admin = new Administrator();
         Employee emple = new Employee();
@@ -335,7 +372,7 @@ public class Administrator extends Employee implements Serializable, INewReserva
     }
 
 
-    public void createRecepcionist(Hotel hotel)  {
+    public void createRecepcionist(Hotel hotel) {
 
         Recepcionist rece = new Recepcionist();
 
@@ -371,28 +408,72 @@ public class Administrator extends Employee implements Serializable, INewReserva
         //TODO cargar al archivos tambien
     }
 
-    public void chargeConsumptions(Hotel hotel, Room room){
-        int i=0;
-        int choice=0;
-        for(Product p: hotel.getProductList()){
-            System.out.println(" "+ i + " " + p.getProductName());
+    public int chargeConsumptions(Hotel hotel, Room room) {
+        int i = 0, t = 0;
+        String ctrl;
+        int choice = 0;
+        for (Product p : hotel.getProductList()) {
+            System.out.println(" " + i + " " + p);
+            i++;
         }
-        System.out.println("Elija un producto");
-        choice = Console.readInteger();
-        room.setConsumptions(hotel.getProductList().get(i));
+        do {
+            System.out.println("Choose a product Number");
+            choice = Console.readInteger();
+            t++;
+            System.out.println("Do you want another one?");
+            System.out.println("y / n");
+            ctrl = Console.read();
 
+        } while (ctrl.equals("y"));
+
+        room.setConsumptions(t);
+
+        return t;
     }
 
 
+    public Room searchRoomNumber(Hotel hotel, int number) {
+
+        for (Room room : hotel.getRoomList()) {
+
+            if (room.getRoomNumber() == number) {
+
+                return room;
+            }
+
+        }
+        return null;
+    }
 
 
+    public void checkOut(Hotel hotel) {
+        Room room = new Room();
+        Facture facture = new Facture();
+        int choice = 0;
+        System.out.println("Number of room to checkout");
+        choice = Console.readInteger();
+        if (choice > 0) {
+            room = searchRoomNumber(hotel, choice);
+            facture.facture(room);
+
+            room.setOccupied(false);
+            room.setClient(null);
+            room.setConsumptions(0);
 
 
+        } else {
+            System.out.println("Error! debe ingresar un numero correcto.");
+        }
+    }
 
 
+    public void listOfOccupiedRooms(Hotel hotel) {
 
-
-
+        for (Room room : hotel.getRoomList()) {
+            System.out.println("Room number: " + room.getRoomNumber());
+            System.out.println("Client: " + room.getClient().getLastname());
+        }
+    }
 
 
 }

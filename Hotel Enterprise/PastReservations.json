@@ -1,0 +1,98 @@
+[
+  [
+    {
+      "reservationDate": {
+        "year": 2021,
+        "month": 6,
+        "day": 11
+      },
+      "reservationNumber": 0,
+      "checkIn": {
+        "year": 2021,
+        "month": 7,
+        "day": 1
+      },
+      "checkOut": {
+        "year": 2021,
+        "month": 7,
+        "day": 10
+      },
+      "numberOfPassengers": 2,
+      "numberOfRooms": 1,
+      "typesOfRooms": [
+        {
+          "fRoomNumber": 103,
+          "ftypeRoom": "DOUBLE",
+          "fGuestList": [
+            {
+              "roomNumber": 0,
+              "name": "Gonzalo",
+              "lastname": "Miron",
+              "docType": "DNI",
+              "docNumber": "33434614"
+            },
+            {
+              "roomNumber": 0,
+              "name": "Marta",
+              "lastname": "Marin",
+              "docType": "DNI",
+              "docNumber": "30535120"
+            }
+          ],
+          "fDescription": "Room for two",
+          "fOccupied": false,
+          "fCostPerNight": 1500.0
+        }
+      ],
+      "totalCost": 0.0
+    }
+  ],
+  [
+    {
+      "reservationDate": {
+        "year": 2021,
+        "month": 8,
+        "day": 8
+      },
+      "reservationNumber": 12,
+      "checkIn": {
+        "year": 2021,
+        "month": 6,
+        "day": 1
+      },
+      "checkOut": {
+        "year": 2021,
+        "month": 5,
+        "day": 11
+      },
+      "numberOfPassengers": 1,
+      "numberOfRooms": 1,
+      "typesOfRooms": [
+        {
+          "fRoomNumber": 105,
+          "ftypeRoom": "DOUBLE",
+          "fGuestList": [
+            {
+              "roomNumber": 0,
+              "name": "Fabian",
+              "lastname": "Mirk",
+              "docType": "DNI",
+              "docNumber": "28352514"
+            },
+            {
+              "roomNumber": 0,
+              "name": "Mariana",
+              "lastname": "Mortington",
+              "docType": "DNI",
+              "docNumber": "32853965"
+            }
+          ],
+          "fDescription": "Room for two",
+          "fOccupied": false,
+          "fCostPerNight": 1500.0
+        }
+      ],
+      "totalCost": 0.0
+    }
+  ]
+]

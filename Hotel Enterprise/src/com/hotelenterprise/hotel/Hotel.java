@@ -27,17 +27,19 @@ public class Hotel implements Serializable {
     private List<Reservation> reservationCanceled = new ArrayList<>();
     private List<Recepcionist> recepcionistList = new ArrayList<>();
     private List<Administrator> administratorList = new ArrayList<>();
+    private List<Room> occupiedRooms = new ArrayList<>();
 
 
 
-    public static final String CLIENT_FILE = "C:\\Users\\charl\\Desktop\\TP_FINAL_LAB3\\Hotel Enterprise\\src\\com\\hotelenterprise\\file\\Clients.json";
-    public static final String ROOM_FILE = "C:\\Users\\charl\\Desktop\\TP_FINAL_LAB3\\Hotel Enterprise\\src\\com\\hotelenterprise\\file\\Room.json";
-    public static final String RESERVATIONS_FILE = "C:\\Users\\charl\\Desktop\\TP_FINAL_LAB3\\Hotel Enterprise\\src\\com\\hotelenterprise\\file\\Reservations.json";
-    public static final String PAST_RESERVATIONS_FILE = "C:\\Users\\charl\\Desktop\\TP_FINAL_LAB3\\Hotel Enterprise\\src\\com\\hotelenterprise\\file\\PastReservations.json";
-    public static final String PRODUCTS_FILE = "C:\\Users\\charl\\Desktop\\TP_FINAL_LAB3\\Hotel Enterprise\\src\\com\\hotelenterprise\\file\\Products.json";
-    public static final String RESERVATION_CANCELED = "C:\\Users\\charl\\Desktop\\TP_FINAL_LAB3\\Hotel Enterprise\\src\\com\\hotelenterprise\\file\\ReservationsCanceled.json";
-    public static final String ADMINISTRATOR_FILE= "C:\\Users\\charl\\Desktop\\TP_FINAL_LAB3\\Hotel Enterprise\\src\\com\\hotelenterprise\\file\\administrator.json";
-    public static final String RECEPCIONITS_FILE = "C:\\Users\\charl\\Desktop\\TP_FINAL_LAB3\\Hotel Enterprise\\src\\com\\hotelenterprise\\file\\recepcionist.json";
+    public static final String CLIENT_FILE = "Clients.json";
+    public static final String ROOM_FILE = "Room.json";
+    public static final String RESERVATIONS_FILE = "Reservations.json";
+    public static final String PAST_RESERVATIONS_FILE = "PastReservations.json";
+    public static final String PRODUCTS_FILE = "Products.json";
+    public static final String RESERVATION_CANCELED = "ReservationsCanceled.json";
+    public static final String ADMINISTRATOR_FILE= "administrator.json";
+    public static final String RECEPCIONITS_FILE = "recepcionist.json";
+    public static final String OCCUPIED_FILE = "occupiedRooms.json";
 
 
 
@@ -57,6 +59,17 @@ public class Hotel implements Serializable {
 
     }
 
+    public List<Room> getOccupiedRooms() {
+        return occupiedRooms;
+    }
+
+    public void setOccupiedRooms(List<Room> occupiedRooms) {
+        this.occupiedRooms = occupiedRooms;
+    }
+
+    public void setOccupiedRooms(Room room) {
+        this.occupiedRooms.add(room);
+    }
 
 
     public List<Recepcionist> getRecepcionistList() {
@@ -293,24 +306,7 @@ public class Hotel implements Serializable {
     }
 
 
-    public void checkOut(){
-        int choice =0;
-        listOfOccupiedRooms();
-        System.out.println("Ingrese numerode hab para el checkout");
-        choice = Console.readInteger();
-        if(choice<0) {
-            this.roomList.remove(choice - 1);
-        }else{
-            System.out.println("Error! debe ingresar un numero correcto.");
-        }
-    }
-    public void listOfOccupiedRooms(){
 
-        for(Room room: this.roomList){
-            System.out.println("Room number: " + room.getRoomNumber());
-            System.out.println("Client: " + room.getClient().getLastname());
-        }
-    }
 
 
     public void showRooms(){

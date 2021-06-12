@@ -1,0 +1,44 @@
+[
+  [
+    {
+      "idEmployee": "df0a36a7-54a7-4b6f-9a20-867fb6b110ac",
+      "permissions": "2",
+      "userName": "vale",
+      "password": "woman",
+      "status": true,
+      "name": "Dai",
+      "lastname": "Catalano",
+      "docType": "DNI",
+      "docNumber": "32056538",
+      "telephone": "15632459",
+      "address": {
+        "city": "Mar del plata",
+        "street": "Dolores",
+        "streetNumber": "961",
+        "departament": "no",
+        "floor": "no"
+      },
+      "eMail": "daicata@mail.com"
+    },
+    {
+      "idEmployee": "b8a96fd3-e2d7-4a93-ae6c-8d9ee460d743",
+      "permissions": "2",
+      "userName": "vale",
+      "password": "woman",
+      "status": true,
+      "name": "Vale",
+      "lastname": "Alberola",
+      "docType": "DNI",
+      "docNumber": "32056538",
+      "telephone": "15632459",
+      "address": {
+        "city": "Mar del plata",
+        "street": "Dolores",
+        "streetNumber": "961",
+        "departament": "no",
+        "floor": "no"
+      },
+      "eMail": "valealbe@mail.com"
+    }
+  ]
+]
