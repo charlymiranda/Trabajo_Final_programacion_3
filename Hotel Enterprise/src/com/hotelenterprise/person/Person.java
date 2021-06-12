@@ -1,17 +1,25 @@
 package com.hotelenterprise.person;
 
+import com.google.gson.annotations.SerializedName;
 import com.hotelenterprise.person.client.Address;
 import com.sun.jdi.request.ClassUnloadRequest;
 
 import java.io.Serializable;
 
 public abstract class Person implements Serializable {
+    @SerializedName("fName")
     private String name;
+    @SerializedName("fLastName")
     private String lastname;
+    @SerializedName("FdocType")
     private String docType;
+    @SerializedName("fDocNumber")
     private String docNumber;
+    @SerializedName("fTelephone")
     private String telephone;
+    @SerializedName("fAddress")
     private Address address;
+    @SerializedName("fEmail")
     private String eMail;
 
     public Person() {

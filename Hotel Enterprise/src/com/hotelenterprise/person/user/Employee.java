@@ -1,6 +1,7 @@
 package com.hotelenterprise.person.user;
 
 
+import com.google.gson.annotations.SerializedName;
 import com.hotelenterprise.person.Person;
 import com.hotelenterprise.person.client.Address;
 
@@ -11,10 +12,15 @@ import java.util.UUID;
 public class Employee extends Person implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
+    @SerializedName("fIdEmployee")
     private UUID idEmployee = UUID.randomUUID();
+    @SerializedName("fPermissions")
     private String permissions;
+    @SerializedName("fUsername")
     private String userName;
+    @SerializedName("fPassword")
     private String password;
+    @SerializedName("fStatus")
     private boolean status;
 
 

@@ -1,5 +1,6 @@
 package com.hotelenterprise.hotel;
 
+import com.google.gson.annotations.SerializedName;
 import com.hotelenterprise.person.client.Client;
 
 import java.io.Serial;
@@ -10,14 +11,23 @@ import java.util.List;
 public class Reservation {
     @Serial
     private static final long serialVersionUID = 1L;
+    @SerializedName("fReservationDate")
     private LocalDate reservationDate = LocalDate.now();
+    @SerializedName("fReservationsNumber")
     private int reservationNumber;
+    @SerializedName("fClient")
     private Client client;
+    @SerializedName("fCheckin")
     private LocalDate checkIn;
+    @SerializedName("fCheackOut")
     private LocalDate checkOut;
+    @SerializedName("fnumberOfPassengers")
     private int numberOfPassengers;
+    @SerializedName("fNumberOfRooms")
     private int numberOfRooms;
+    @SerializedName("fTypesOfRooms")
     private List<Room> typesOfRooms = new ArrayList<>();
+    @SerializedName("fTotalCost")
     private double totalCost;
 
 
