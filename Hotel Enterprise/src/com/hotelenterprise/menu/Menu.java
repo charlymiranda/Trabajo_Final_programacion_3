@@ -70,7 +70,8 @@ public class Menu {
 
                             break;
                         case 4:
-                            System.out.println("Search Room");
+                            System.out.println("Search Room\n");
+
                             aux = hotel.searchForFreeRoom();
                             if (aux == -1) {
                                 System.out.println("No Vacancy ");
@@ -92,8 +93,9 @@ public class Menu {
 
                         case 5:
 
-                            System.out.println("Charge all consumes to the room. Always offer more");
-                            System.out.println("Choose Room");
+
+                            System.out.println("\33[33m Charge all consumes to the room. Always offer more\n"+ color.b);
+                            System.out.println("\33[33mChoose first number to choose Room\n");
                             hotel.showRooms();
                             aux = Console.readInteger();
                             admin.chargeConsumptions(hotel, hotel.getRoomList().get(aux));
@@ -197,9 +199,9 @@ public class Menu {
 
                             break;
                         case 4:
-                            System.out.println("Search for the room you needed");
+                            System.out.println("Search for the room you needed\n");
 
-                            System.out.println("Search Room");
+
                             aux2 = hotel.searchForFreeRoom();
                             if (aux2 == 0) {
                                 System.out.println("No Vacancy ");
@@ -220,8 +222,9 @@ public class Menu {
                             break;
 
                         case 5:
-                            System.out.println("Charge all consumes to the room. Always offer more");
-                            System.out.println("Choose Room");
+
+                            System.out.println("\33[34m Charge all consumes to the room. Always offer more\n"+ color.b);
+                            System.out.println("\33[34mChoose first number to choose Room\n");
                             hotel.showRooms();
                             aux2 = Console.readInteger();
                             admin.chargeConsumptions(hotel, hotel.getRoomList().get(aux2));

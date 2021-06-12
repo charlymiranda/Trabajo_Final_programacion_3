@@ -19,6 +19,12 @@ public class Main {
 
         Hotel hotel = new Hotel();
 
+        // Administrator Keys: Admin: Charly - Pass: man
+        // Administrator Keys: Admin: Danilo - Pass: fibro
+
+        // Recepcionist Keys: User: Eze - Pass: hola
+        // Recepcionist Keys: User: Bruno - Pass: fabri
+
 
         Logos logo = new Logos();
         logo.users(hotel);

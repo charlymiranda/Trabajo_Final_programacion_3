@@ -301,7 +301,6 @@ public class Administrator extends Employee implements Serializable, INewReserva
         int i = 0;
         Room roomi = new Room();
         String r;
-        Console.read();
         System.out.println("¿Do you posses a reservation?");
         System.out.println("y / n");
         r = Console.read();
